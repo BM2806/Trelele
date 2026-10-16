@@ -210,3 +210,37 @@ Inspecionada `trelele-standalone-390-360.jpg`: chat em viewport 390 × 760 e cel
 Responsável relata testes reais de clique no navegador: curtir → Deu liga; Puxar assunto → chat da Ana; preencher/enviar → bolha visível; perfil/voltar preserva Ana; Continuar avança uma única vez para Davi; sheet de foto abre e revelação permanece desabilitada. São evidências relatadas de execução, não repetidas por este crítico. Gate visual não certifica animação por imagem estática.
 
 Limitações: não foi testado Safari físico/IME; esta captura não comprova rotação, reduced motion nem cancelamento de ponteiro em integração. Não afirmar testes que não ocorreram. O responsável pode atualizar o lock da fonte verificada e publicar; após deploy, confirmar a URL sem query para evitar servir versão antiga ou simulador por engano.
+
+## Novo preflight — conexões e mensagens
+
+**PLANO APROVADO ANTES DA EDIÇÃO.** Usuário rejeitou as demais áreas e preservou Descobrir. Esta aprovação autoriza mudar as outras raízes e o thread; Descobrir e sua celebração ficam visualmente intactos.
+
+Raízes: Descobrir, Deu liga, Conversas, Perfil. “Deu liga” usa par de livros e mostra somente conexões recíprocas ativas, nunca curtidas enviadas ou pendentes. Capa identifica a pessoa sem foto de rosto; tocar abre o chat. Não criar outro armazenamento de conversas: é uma visão/atalho às mesmas conexões.
+
+Conversas traz rail compacto de conexões com zero mensagens e, abaixo, linhas recentes de threads com mensagens: avatar de livro, nome, última mensagem e horário real do estado. Ao enviar a primeira mensagem, a conexão sai do rail e entra na lista sem duplicar histórico. Header verde/serif e amarelo em seção útil mantêm parentesco visual com Descobrir, sem obrigar todas as telas ao mesmo poster.
+
+Thread é push dentro do app, sem modal/blocão. Header verde compacto contém voltar, avatar de livro, nome com acesso ao perfil e menu. Fundo creme de leitura, bolhas compactas em duas cores, chip discreto da regra de foto e composer integrado. Sem textura de papel falsa, doodles, frases literárias inventadas ou ornamentos que prejudiquem a densidade. Onda só organiza limite/contraste. Navegação inferior some no thread; voltar restaura origem e scroll sem reiniciar deck. Campos e teclado são nativos.
+
+Proteções: tempos, última mensagem e estado não lido derivados de dados, não enfeite fictício; controles técnicos em menu, não corpo da conversa; foto segue condicionada à conversa/tempo e consentimento dos dois. UI não recupera o termo “match”.
+
+Gate posterior: capturas 390/360 das raízes e thread; origem/retorno; primeira mensagem movendo rail → lista; ausência de duplicação; consentimento; comparação de Descobrir para confirmar preservação visual. Pesquisa externa pode orientar detalhes, sem ampliar escopo para redesenhar Descobrir.
+
+### Ajuste aprovado por referência oficial de chat
+
+Inspecionada `docs/research/tinder-v7/official-chat.png`. **AJUSTE APROVADO ANTES DO POLIMENTO:** thread verde-mata integral, header com avatar/nome centrados, voltar à esquerda e menu à direita; poucas mensagens ancoradas junto ao composer; composer unificado. Substitui o fundo creme integral proposto acima. Raízes mantêm lista creme e header verde com onda amarela.
+
+Bolhas recebidas creme, enviadas amarelas, ambas com texto verde escuro. Input creme integrado à superfície verde; corpo/input pelo menos 16, auxiliar pelo menos 12, contraste textual 4,5:1. Não usar baixa opacidade de containers para atenuar nome, placeholder, horário ou chip. Histórico longo usa scroll nativo; teclado não encobre última mensagem/composer. Avatar/nome formam um único acesso ao perfil, sem pílulas duplicadas. Chip de foto discreto mantém toque acessível, sem voltar a um grande banner.
+
+Transferir organização, não fotos, selos, GIFs, brilhos ou voz textual da referência. Não introduzir frases literárias genéricas. Descobrir continua preservado.
+
+## V7 implementado — listas e thread
+
+Inspecionadas `trelele-v7-inbox.jpg` (final, 390/360), `trelele-v7-conversa.jpg` (thread 390/360) e `trelele-v7-listas.jpg` (captura anterior, usada apenas para composição do tile Deu liga).
+
+**V7 APROVADO NO GATE VISUAL PARA PUBLICAR A FONTE VERIFICADA.** Nenhum P1 visual nas capturas finais. Inbox apresenta hierarquia compacta, conexão nova separada de mensagens e navegação inteira. Thread usa a identidade verde/amarelo/creme com avatar de livro, acesso ao perfil, regra de foto discreta, mensagens junto ao composer e ausência da navegação inferior. Mensagens e controles permanecem legíveis e inteiros nas duas larguras.
+
+P2 não bloqueante: o ícone de Deu liga na navegação ainda é coração; o plano previa par de livros. Registrar o desvio sem ampliar o escopo ou condicionar publicação a nova exploração visual.
+
+Responsável relata execução no browser: Ana sem mensagens aparece uma vez no rail; abrir/enviar/voltar remove do rail e produz exatamente uma linha de histórico; mensagem de Lia atualiza resumo; acesso ao perfil retorna ao thread; entrada por Deu liga retorna à origem correta. Este crítico não repetiu esses passos. A captura anterior da lista não comprova sozinha o chrome final de Deu liga, mas sua composição de tile é compatível com o contrato.
+
+Após deploy, conferir URL sem query e preservação de Descobrir. Não converter os testes de navegador em alegação de Safari físico/IME. Esta aprovação não implica qualquer procedência privada de referências ou dados.

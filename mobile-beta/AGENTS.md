@@ -90,3 +90,9 @@ O usuário solicitou retirar a moldura iPhone/Pixel e o seletor da versão publi
 - MobileScroll e Carousel usam scroll e toque nativos no app publicado. O gesto de decisão continua app-owned, horizontal intencional; o simulador mantém sua física original.
 
 Validação desta alteração: inspeção real pelo root em iframe de 390 × 760 e 360 × 640, sem escala artificial, confirmou interface sem moldura, navegação, gesto/botões, Deu liga, abertura de conversa, envio de mensagem, retorno de perfil e sheet de foto bloqueada. Isso não equivale a teste em hardware físico Safari/iOS ou Android. A atualização dos hashes do runtime foi autorizada após esta verificação.
+
+## Conexões e conversas — revisão aprovada pelo usuário
+
+A antiga aba Curtidas passa a ser Deu liga e mostra somente conexões recíprocas ativas. Não exibir listas de curtidas enviadas ou recebidas sem reciprocidade. Conversas separa novas conexões sem mensagem, em uma faixa horizontal, do histórico com mensagens, em linhas com nome, capa, última mensagem e horário real do estado. Sem contagens de não lidas inventadas.
+
+O chat usa cabeçalho compacto verde, acesso ao perfil por capa/nome, menu de segurança, chip discreto para foto, fundo verde imersivo, balões creme/amarelo e compositor integrado. Não mostrar navegação raiz dentro da conversa. Voltar deve restaurar a aba de origem; perfil aberto pelo cabeçalho retorna à conversa. Preservar rascunhos e regras de privacidade. Descobrir e a celebração inline permanecem visualmente iguais nesta revisão.
