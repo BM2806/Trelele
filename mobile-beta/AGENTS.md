@@ -108,3 +108,9 @@ A navegação inferior e o compositor usam verde translúcido, blur de 16px e bo
 ### Estado de validação do checkpoint V8
 
 O root autorizou atualizar os hashes de Device.tsx e PhoneFrame.tsx para este checkpoint após inspeção parcial real da galeria e do foco de campo em viewport de 360px. A fonte destes dois arquivos permaneceu igual após essa inspeção. O fluxo completo do cadastro com fotos ainda não foi validado no navegador: a ferramenta de navegador ficou indisponível, inclusive após reinicialização. Este checkpoint é rascunho e não constitui aprovação para substituir a versão pública V7. Não declarar teclado Safari/IME físico verificado. Antes de publicar V8, concluir cadastro, edição, remoção de dados e privacidade das três fotos no navegador e confirmar os estados de erro.
+
+## Marca fornecida pelo usuário — 16/10/2026
+
+A marca passa a usar o artwork ORIGINAL de IMG_1497.jpeg, preservado em public/assets/brand/trelele-original.jpg. O símbolo e as letras não devem ser redesenhados. IMG_1496 é referência da abertura: fundo claro, logo central, ondas verdes e laranja, CTA Começar; frase exata: “O seu app de encontros literários.” O logo é enquadrado por CSS, mantendo pixels e proporções do arquivo fornecido. Verde vivo e laranja são acentos; verde escuro garante contraste nas superfícies com texto claro. Aplicar identidade em todas as telas sem reiniciar perfil, conversas ou regras de privacidade. Esta referência autoriza abertura clara e substitui a preferência anterior de abertura verde.
+
+Esta revisão não tem aprovação visual final: a ferramenta do navegador voltou a falhar por timeout de transporte de 300 segundos, inclusive com limite solicitado de 15 segundos. Compilação e integridade do runtime passaram. Não alegar screenshot novo, inspeção visual de todas as telas ou cadastro completo validado.

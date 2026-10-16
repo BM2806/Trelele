@@ -1,3 +1,15 @@
+# Revisão da marca Trelelê — referência do usuário
+
+final result: blocked
+
+Implementação: logo original fornecido, abertura clara com ondas verdes/laranja e frase “O seu app de encontros literários.”, CTA Começar; paleta propagada ao cadastro, descoberta, conexões, perfil, chat e sheets. Preflight independente aprovado com restrições de contraste.
+
+Build e check:runtime passaram após integração. A captura e comparação visual da implementação não foram possíveis: o navegador cloud expirou após 300 segundos em 16/10/2026. Não há screenshot novo de aprovação. Cadastro com upload/retomada/exclusão e teclado físico continuam pendentes. Nenhum teste estático substitui esse fluxo.
+
+A onda foi gerada como asset decorativo transparente com ferramenta integrada; não é screenshot. Os JPG de marca são cópias exatas dos originais do usuário, exibidos por enquadramento CSS.
+
+---
+
 # Trelelê V8 — BLOQUEADO PARA PUBLICAÇÃO
 
 V8 segue somente como checkpoint na branch `v8-cadastro-em-revisao`. **Main e versão pública permanecem inalterados.** O crítico aprovou a fonte parcial para armazenamento e os hashes de runtime, não o lançamento do cadastro.
