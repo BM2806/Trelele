@@ -1,0 +1,87 @@
+{
+  "assets": [
+    {
+      "file": "library.jpg",
+      "creator": "Jason W",
+      "source": "https://unsplash.com/photos/assorted-books-PBNbMX6jtBM",
+      "download": "https://images.unsplash.com/photo-1515125520141-3e3b67bc0a88?w=1400&q=85&fit=crop",
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license",
+      "use": "Environmental editorial image; not a user portrait",
+      "sha256": "89923d28630e273d41c8842b5f4894a0fb388daa3d698041d4f14c8bd2c87f4a",
+      "verifiedAt": "2026-10-16"
+    },
+    {
+      "file": "pages.jpg",
+      "creator": "Debby Hudson",
+      "source": "https://unsplash.com/photos/two-opened-books-mLoWrEOtdTw",
+      "download": "https://images.unsplash.com/photo-1517090510947-30c819a56e80?w=1000&q=85&fit=crop",
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license",
+      "use": "Environmental reference, no claim of dating endorsement",
+      "sha256": "ea9544e25ac7256c9478ca58043e1c9622c19ecc48c5af52f18d5e6158b6e663",
+      "verifiedAt": "2026-10-16"
+    },
+    {
+      "file": "InstrumentSans.ttf",
+      "creator": "The Instrument Sans Project Authors",
+      "source": "https://github.com/google/fonts/tree/main/ofl/instrumentsans",
+      "license": "SIL OFL 1.1",
+      "licenseFile": "OFL-InstrumentSans.txt",
+      "use": "Locally served UI typography",
+      "sha256": "b24f1812584816958afcf22e22d08e44318c5e51651e25d2438efdde389b33b1",
+      "verifiedAt": "2026-10-16"
+    },
+    {
+      "file": "cover-estrela.svg",
+      "creator": "Original prototype composition",
+      "license": "Project-generated original artwork; book title/author identify the referenced work, no publisher cover reproduced",
+      "use": "Concept cover for demonstration only; no publisher affiliation",
+      "sha256": "261703a665e9fb533aa5b07649099831f8e1a7bbf710b703272fa88f255937ad",
+      "verifiedAt": "2026-10-16"
+    },
+    {
+      "file": "cover-avesso.svg",
+      "creator": "Original prototype composition",
+      "license": "Project-generated original artwork; book title/author identify the referenced work, no publisher cover reproduced",
+      "use": "Concept cover for demonstration only; no publisher affiliation",
+      "sha256": "2c0ac075ee512f0cdef3843997f316f5477678aaeed6ff09d3e0d9fce465f263",
+      "verifiedAt": "2026-10-16"
+    },
+    {
+      "file": "cover-torto.svg",
+      "creator": "Original prototype composition",
+      "license": "Project-generated original artwork; book title/author identify the referenced work, no publisher cover reproduced",
+      "use": "Concept cover for demonstration only; no publisher affiliation",
+      "sha256": "84711ad3a4b693645d05d18bd3eced37b2a7257c301822542ac06b495f9ddf39",
+      "verifiedAt": "2026-10-16"
+    },
+    {
+      "file": "cover-rio.svg",
+      "creator": "Original prototype composition",
+      "license": "Project-generated original artwork; book title/author identify the referenced work, no publisher cover reproduced",
+      "use": "Concept cover for demonstration only; no publisher affiliation",
+      "sha256": "2976f200200308bb65b884033104ee3526844cd616564e655194fb4bdf991ef8",
+      "verifiedAt": "2026-10-16"
+    },
+    {
+      "file": "cover-vegetariana.svg",
+      "creator": "Original prototype composition",
+      "license": "Project-generated original artwork; book title/author identify the referenced work, no publisher cover reproduced",
+      "use": "Concept cover for demonstration only; no publisher affiliation",
+      "sha256": "c5a362506b7107ae0c345a5a1d1a7aa48cb7288bdcd61fc52ae25b9a8235f32a",
+      "verifiedAt": "2026-10-16"
+    },
+    {
+      "file": "cover-cegueira.svg",
+      "creator": "Original prototype composition",
+      "license": "Project-generated original artwork; book title/author identify the referenced work, no publisher cover reproduced",
+      "use": "Concept cover for demonstration only; no publisher affiliation",
+      "sha256": "1c10ca7b0b59dfb32da11f2a42da4c92eba7d400e9704a6f21d082f1daffc88b",
+      "verifiedAt": "2026-10-16"
+    }
+  ],
+  "portraits": "Inline original SVG illustrations; fictional; not photographs of actual users.",
+  "references": "references.json contains reference-only links; no copying permission implied.",
+  "name": "Margem is provisional; trademark availability not assessed."
+}

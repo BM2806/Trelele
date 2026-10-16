@@ -1,0 +1,51 @@
+[
+  {
+    "app": "happn",
+    "file": "happn/historical-main-screens.png",
+    "caption": "Grade → perfil → match",
+    "sourceUrl": "https://dribbble.com/shots/21734525-New-Happn-App-Main-screens",
+    "limits": "Composição histórica atribuída ao Happn Design. A grade tem duas colunas; o perfil e o match são superfícies distintas. Não comprova a versão atual."
+  },
+  {
+    "app": "happn",
+    "file": "happn/help-map-overview.png",
+    "caption": "Mapa e agrupamentos",
+    "sourceUrl": "https://support.happn.fr/hc/en-us/articles/15703631805853-What-is-the-happn-Map",
+    "limits": "Imagem da ajuda oficial atualizada em 15/10/2026. Mostra agrupamentos e lugares; a documentação explica a passagem para os perfis."
+  },
+  {
+    "app": "happn",
+    "file": "happn/play-6.png",
+    "caption": "Conversa com contexto",
+    "sourceUrl": "https://play.google.com/store/apps/details?id=com.ftw_and_co.happn&hl=pt_BR",
+    "limits": "Peça promocional da loja. Mostra conversa e referência a um lugar; não revela todos os controles da tela operacional."
+  },
+  {
+    "app": "tinder",
+    "file": "tinder/swipe-deck-home.png",
+    "caption": "Cartão de descoberta",
+    "sourceUrl": "https://revyl.com/atlas/tinder/report/",
+    "limits": "Captura independente publicada pelo Revyl. Decisão e abertura do perfil são ações distintas; data e versão da captura não informadas."
+  },
+  {
+    "app": "tinder",
+    "file": "tinder/match-profile-detail.png",
+    "caption": "Perfil completo",
+    "sourceUrl": "https://revyl.com/atlas/tinder/report/",
+    "limits": "Captura independente: perfil rolável com informações e ações de decisão. Rostos e nomes já estão desfocados na fonte."
+  },
+  {
+    "app": "tinder",
+    "file": "tinder/swipe-filter-sheet.png",
+    "caption": "Preferências em painel",
+    "sourceUrl": "https://revyl.com/atlas/tinder/report/",
+    "limits": "Captura independente: filtros abrem em painel sobre a descoberta, sem trocar a raiz do aplicativo."
+  },
+  {
+    "app": "tinder",
+    "file": "tinder/chat-tab.png",
+    "caption": "Caixa de conversas vazia",
+    "sourceUrl": "https://revyl.com/atlas/tinder/report/",
+    "limits": "Captura independente da aba Chat em estado vazio. Não é evidência de uma conversa preenchida."
+  }
+]

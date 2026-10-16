@@ -1,0 +1,44 @@
+[
+  {
+    "id": "tinder-store-01",
+    "file": "appstore-br-01.jpg",
+    "sourceUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/a3/81/cc/a381cce7-25d8-1148-5c35-7b42c6ab317c/Screen_01_AS_PTBR.png/600x1300bb-60.jpg",
+    "pageUrl": "https://apps.apple.com/br/app/tinder-app-de-relacionamento/id547702041",
+    "bytes": 180808
+  },
+  {
+    "id": "tinder-store-02",
+    "file": "appstore-br-02.jpg",
+    "sourceUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/12/90/bf/1290bf70-bd12-c77f-4f43-3d2c90c22e35/Screen_02_AS_PTBR.png/600x1300bb-60.jpg",
+    "pageUrl": "https://apps.apple.com/br/app/tinder-app-de-relacionamento/id547702041",
+    "bytes": 149251
+  },
+  {
+    "id": "tinder-store-03",
+    "file": "appstore-br-03.jpg",
+    "sourceUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/d2/7c/b7/d27cb787-d8b0-4622-3b49-42109d4edb55/Screen_03_AS_PTBR.png/600x1300bb-60.jpg",
+    "pageUrl": "https://apps.apple.com/br/app/tinder-app-de-relacionamento/id547702041",
+    "bytes": 112066
+  },
+  {
+    "id": "tinder-store-04",
+    "file": "appstore-br-04.jpg",
+    "sourceUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/b6/73/3c/b6733c74-fc6b-0065-c493-c476e20fe8d3/Screen_04_AS_PTBR.png/600x1300bb-60.jpg",
+    "pageUrl": "https://apps.apple.com/br/app/tinder-app-de-relacionamento/id547702041",
+    "bytes": 143455
+  },
+  {
+    "id": "tinder-store-05",
+    "file": "appstore-br-05.jpg",
+    "sourceUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/ff/a8/ec/ffa8eca8-11c6-9913-17e6-ff8432056925/Screen_05_AS_PTBR.png/600x1300bb-60.jpg",
+    "pageUrl": "https://apps.apple.com/br/app/tinder-app-de-relacionamento/id547702041",
+    "bytes": 119344
+  },
+  {
+    "id": "tinder-store-06",
+    "file": "appstore-br-06.jpg",
+    "sourceUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/36/8c/3a/368c3a3d-8a9d-273b-4342-5f78fcbdc8c1/Screen_06_AS_PTBR.png/600x1300bb-60.jpg",
+    "pageUrl": "https://apps.apple.com/br/app/tinder-app-de-relacionamento/id547702041",
+    "bytes": 78518
+  }
+]

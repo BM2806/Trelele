@@ -1,0 +1,146 @@
+[
+  {
+    "file": "PlusJakartaSans.ttf",
+    "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/plusjakartasans/PlusJakartaSans%5Bwght%5D.ttf",
+    "license": "SIL OFL 1.1",
+    "sha256": "89b3fb38aa0d275d7a731d0d817a4f1622b316b4d7fbdedcf02ee9099ff68bc8",
+    "bytes": 176288,
+    "retrievedAt": "2026-10-16"
+  },
+  {
+    "file": "FONT-OFL.txt",
+    "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/plusjakartasans/OFL.txt",
+    "license": "SIL OFL 1.1",
+    "sha256": "995c7199cab65954f545996326755daee7b63cc6b42b06c13da1f9502ab08a99",
+    "bytes": 4402,
+    "retrievedAt": "2026-10-16"
+  },
+  {
+    "file": "PHOSPHOR-LICENSE.txt",
+    "url": "https://raw.githubusercontent.com/phosphor-icons/core/main/LICENSE",
+    "license": "MIT",
+    "sha256": "b5b1f1da112d18ea2147decfd48ddc1bf2b5aeb6c265381579340e95b15a2bb2",
+    "bytes": 1071,
+    "retrievedAt": "2026-10-16"
+  },
+  {
+    "file": "books.svg",
+    "url": "https://raw.githubusercontent.com/phosphor-icons/core/main/assets/regular/books.svg",
+    "license": "MIT",
+    "sha256": "38560cd9dec996bc3f79c10675ced1d2b3bd2e5ef497f3966733e5d787af5e11",
+    "bytes": 676,
+    "retrievedAt": "2026-10-16"
+  },
+  {
+    "file": "heart.svg",
+    "url": "https://raw.githubusercontent.com/phosphor-icons/core/main/assets/regular/heart.svg",
+    "license": "MIT",
+    "sha256": "312dee73d1d969631d5498012f619ccf4edbdf31e1be3e65af4f4f1b3ac1b2dd",
+    "bytes": 489,
+    "retrievedAt": "2026-10-16"
+  },
+  {
+    "file": "chat-circle-dots.svg",
+    "url": "https://raw.githubusercontent.com/phosphor-icons/core/main/assets/regular/chat-circle-dots.svg",
+    "license": "MIT",
+    "sha256": "2af44e36757c90c999e070065ae61c495c66c8e88f43c5f07964dc3367cad60d",
+    "bytes": 473,
+    "retrievedAt": "2026-10-16"
+  },
+  {
+    "file": "user-circle.svg",
+    "url": "https://raw.githubusercontent.com/phosphor-icons/core/main/assets/regular/user-circle.svg",
+    "license": "MIT",
+    "sha256": "5aee25838c1915058940900df322afc36b76f4ea7e48499c33603cf121258b2a",
+    "bytes": 376,
+    "retrievedAt": "2026-10-16"
+  },
+  {
+    "file": "sliders-horizontal.svg",
+    "url": "https://raw.githubusercontent.com/phosphor-icons/core/main/assets/regular/sliders-horizontal.svg",
+    "license": "MIT",
+    "sha256": "1d937baa3bc51ec4052364edf30cf8991d550920534f5d413eb9f60535cc1916",
+    "bytes": 360,
+    "retrievedAt": "2026-10-16"
+  },
+  {
+    "file": "x.svg",
+    "url": "https://raw.githubusercontent.com/phosphor-icons/core/main/assets/regular/x.svg",
+    "license": "MIT",
+    "sha256": "7397b15e1fa66eaf6ff9b59fe91d483cb5c3bcf75b2fe052097ab6f0593b513a",
+    "bytes": 284,
+    "retrievedAt": "2026-10-16"
+  },
+  {
+    "file": "lock-key.svg",
+    "url": "https://raw.githubusercontent.com/phosphor-icons/core/main/assets/regular/lock-key.svg",
+    "license": "MIT",
+    "sha256": "a8177687fb7b376afa1cf3bc0b16599c91b96a323687e2145f772b93ed0f2c95",
+    "bytes": 393,
+    "retrievedAt": "2026-10-16"
+  },
+  {
+    "file": "arrow-counter-clockwise.svg",
+    "url": "https://raw.githubusercontent.com/phosphor-icons/core/main/assets/regular/arrow-counter-clockwise.svg",
+    "license": "MIT",
+    "sha256": "4eb160d5ae781107c674481ac081962e6bce6281a646129e6c3f960b9dd5dac6",
+    "bytes": 325,
+    "retrievedAt": "2026-10-16"
+  },
+  {
+    "file": "arrow-left.svg",
+    "url": "https://raw.githubusercontent.com/phosphor-icons/core/main/assets/regular/arrow-left.svg",
+    "license": "MIT",
+    "sha256": "3c2001cf957d182fc54927e4b286cc8cf66dd97830f441ca2650d42a63a9006a",
+    "bytes": 248,
+    "retrievedAt": "2026-10-16"
+  },
+  {
+    "file": "arrow-right.svg",
+    "url": "https://raw.githubusercontent.com/phosphor-icons/core/main/assets/regular/arrow-right.svg",
+    "license": "MIT",
+    "sha256": "e45bc4a12592b8723110db42c6deffdf177e4fe7704cf50324963fa0a59b2d74",
+    "bytes": 245,
+    "retrievedAt": "2026-10-16"
+  },
+  {
+    "file": "caret-right.svg",
+    "url": "https://raw.githubusercontent.com/phosphor-icons/core/main/assets/regular/caret-right.svg",
+    "license": "MIT",
+    "sha256": "e6dec01e074807965b7f3146b976a9b5e82c31d9c2c88aeb52e77cc2ab16c1d7",
+    "bytes": 219,
+    "retrievedAt": "2026-10-16"
+  },
+  {
+    "file": "info.svg",
+    "url": "https://raw.githubusercontent.com/phosphor-icons/core/main/assets/regular/info.svg",
+    "license": "MIT",
+    "sha256": "438a1f319d53d86e840af73fb7b1d224c9224a437b9fa449a4e2cb45a82a3552",
+    "bytes": 348,
+    "retrievedAt": "2026-10-16"
+  },
+  {
+    "file": "paper-plane-tilt.svg",
+    "url": "https://raw.githubusercontent.com/phosphor-icons/core/main/assets/regular/paper-plane-tilt.svg",
+    "license": "MIT",
+    "sha256": "0dbff2ada31c963dfd95bfe2ab2cb39a90fe7100eb7c1724577444a1d8a7c26d",
+    "bytes": 429,
+    "retrievedAt": "2026-10-16"
+  },
+  {
+    "file": "dots-three.svg",
+    "url": "https://raw.githubusercontent.com/phosphor-icons/core/main/assets/regular/dots-three.svg",
+    "license": "MIT",
+    "sha256": "ca4e748007101155641ec3041cd129bb03a8030d0eed16e313b9dd75e6beac77",
+    "bytes": 237,
+    "retrievedAt": "2026-10-16"
+  },
+  {
+    "file": "check.svg",
+    "url": "https://raw.githubusercontent.com/phosphor-icons/core/main/assets/regular/check.svg",
+    "license": "MIT",
+    "sha256": "cbb89a8c42f283d4f846eb935e05d88c1be04462f16480e068c0f82b9ce40b12",
+    "bytes": 215,
+    "retrievedAt": "2026-10-16"
+  }
+]

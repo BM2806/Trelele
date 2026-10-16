@@ -1,0 +1,110 @@
+[
+  {
+    "id": "happn-1",
+    "file": "docs/research/happn/help-map-overview.png",
+    "sourceUrl": "https://support.happn.fr/hc/en-us/articles/15703631805853-What-is-the-happn-Map",
+    "imageUrl": "https://support.happn.fr/hc/article_attachments/39926853346205",
+    "caption": "Mapa com agrupamentos e Spots",
+    "observed": "Mapa2D; clusters32e1; pílulas nomeadas de locais; botões de centralização/fantasma/escudo; abas Home,Vibes,Map,Likes,Chat.",
+    "limits": "Help atualizado15/10/2026; não comprova resultado de toque em cada botão.",
+    "rights": "Evidence only; proprietary. Do not use as member photos or product UI assets.",
+    "retrievedAt": "2026-10-16",
+    "sha256": "5401f4c44693b1b2f7147586ea9a89131d51a89b14ee5ed239756ad0fec79978"
+  },
+  {
+    "id": "happn-2",
+    "file": "docs/research/happn/help-map-crossings.png",
+    "sourceUrl": "https://support.happn.fr/hc/en-us/articles/15703631805853-What-is-the-happn-Map",
+    "imageUrl": "https://support.happn.fr/hc/article_attachments/39926859699613",
+    "caption": "Introdução aos cruzamentos",
+    "observed": "Bottomsheet escuro com indicador2páginas e botãoNext sobre mapa escurecido.",
+    "limits": "Tutorial, não lista final de perfis.",
+    "rights": "Evidence only; proprietary. Do not use as member photos or product UI assets.",
+    "retrievedAt": "2026-10-16",
+    "sha256": "85300a8bdab86b58aa25ba3e9c017d98d6abfc1812bedc1300e6f9c30613cb50"
+  },
+  {
+    "id": "happn-3",
+    "file": "docs/research/happn/help-map-spots.png",
+    "sourceUrl": "https://support.happn.fr/hc/en-us/articles/15703631805853-What-is-the-happn-Map",
+    "imageUrl": "https://support.happn.fr/hc/article_attachments/39926853347357",
+    "caption": "Introdução aos Spots",
+    "observed": "Segunda página do tutorial, locais representados por símbolos; CTAExploreyourMap.",
+    "limits": "Não comprova grid atual.",
+    "rights": "Evidence only; proprietary. Do not use as member photos or product UI assets.",
+    "retrievedAt": "2026-10-16",
+    "sha256": "a268d7f577d561bf08da7fa3f828353670f2cca2fa05212dc6ca29c2d87ddbb0"
+  },
+  {
+    "id": "happn-4",
+    "file": "docs/research/happn/play-3.png",
+    "sourceUrl": "https://play.google.com/store/apps/details?id=com.ftw_and_co.happn&hl=pt_BR",
+    "imageUrl": "https://play-lh.googleusercontent.com/YY8mbRQqKgpELQg77x3FsNqzLPiTzk3KWpIWvMuEiu_caG4fL729wpFTdoBdItDjfEBx0oaCU2dagAhxsPOnsg=w1052-h592",
+    "caption": "Mapa promocional de cruzamentos",
+    "observed": "CidadeLapa,RiodeJaneiro; mini perfis flutuantes; aviso de posição exata secreta.",
+    "limits": "Composição promocional, não screenshot operacional completo.",
+    "rights": "Evidence only; proprietary. Do not use as member photos or product UI assets.",
+    "retrievedAt": "2026-10-16",
+    "sha256": "5dcfdbf6c176a16f8ac06743ad5fcebebbac6d8fac6d4d8c216d62204c6c02b9"
+  },
+  {
+    "id": "happn-5",
+    "file": "docs/research/happn/play-4.png",
+    "sourceUrl": "https://play.google.com/store/apps/details?id=com.ftw_and_co.happn&hl=pt_BR",
+    "imageUrl": "https://play-lh.googleusercontent.com/Qo67w-qau7WYscq_4nw6SNIYcy5lvEusNqvn7oV60zAR6Kseh_vIfxyaEuJRLlmCISBGYaKOMi76QTXEzemkow=w1052-h592",
+    "caption": "Confirmação de Crush promocional",
+    "observed": "Modal escuro; pessoa; fechamentoX; CTAComeceaconversar; linkVejaoperfil.",
+    "limits": "Marketing; não demonstra todas transições reais.",
+    "rights": "Evidence only; proprietary. Do not use as member photos or product UI assets.",
+    "retrievedAt": "2026-10-16",
+    "sha256": "198fbf981a28960191cd83098d8c89afb8280c395f743739fab0c1b860c93c06"
+  },
+  {
+    "id": "happn-6",
+    "file": "docs/research/happn/play-5.png",
+    "sourceUrl": "https://play.google.com/store/apps/details?id=com.ftw_and_co.happn&hl=pt_BR",
+    "imageUrl": "https://play-lh.googleusercontent.com/o2OWdcyzZjYZn3o1eF7MbQuCNgTbQKIpyjXXyIZi4gSb3cebO25zwslQ8Y_tlq2xiOIImEQiklYVT272YapsEFg=w1052-h592",
+    "caption": "Perfil com resposta pessoal",
+    "observed": "Nome/idade/selo; resposta sobre restaurante; botãoResponder; foto seguinte.",
+    "limits": "Recorte promocional, não perfil completo.",
+    "rights": "Evidence only; proprietary. Do not use as member photos or product UI assets.",
+    "retrievedAt": "2026-10-16",
+    "sha256": "586dd6e1d2b1619d15bcc4c4797fcd320c8f82ef529543c7774ed7d56da575dd"
+  },
+  {
+    "id": "happn-7",
+    "file": "docs/research/happn/play-6.png",
+    "sourceUrl": "https://play.google.com/store/apps/details?id=com.ftw_and_co.happn&hl=pt_BR",
+    "imageUrl": "https://play-lh.googleusercontent.com/tE5xqbplKwnBq8s0HGawj0t7QgO-IRfzutdOYwWgPSvRuvLbYTdQ5nI9IJjmpEOAtqBjJp4U3GAu354oWPdjx2o=w1052-h592",
+    "caption": "Conversa contextual",
+    "observed": "Cabeçalho pessoa; resumo de cruzamentos; bolhas claras/azuis; cartão local.",
+    "limits": "Recorte promocional; sem campoenvio visível.",
+    "rights": "Evidence only; proprietary. Do not use as member photos or product UI assets.",
+    "retrievedAt": "2026-10-16",
+    "sha256": "afe36994d6af4d027241c0147beca1a73980a2b6e49cdfcd4b39d44870c4670e"
+  },
+  {
+    "id": "happn-8",
+    "file": "docs/research/happn/help-supercrush.png",
+    "sourceUrl": "https://support.happn.fr/hc/en-us/articles/15706830983581-What-s-a-SuperCrush",
+    "imageUrl": "https://support.happn.fr/hc/article_attachments/15706826000285",
+    "caption": "Perfil e ações em documentação",
+    "observed": "Nome/idade; selo; foto; distânciaaproximada; dados; açõesBoost,X,coração,estrela; abasExplore,Browse,Map,Likes,Chat.",
+    "limits": "Help atualizado04/06/2026; labels diferem da imagemMap15/10/2026.",
+    "rights": "Evidence only; proprietary. Do not use as member photos or product UI assets.",
+    "retrievedAt": "2026-10-16",
+    "sha256": "e74a392522559be202cb375a6f9fbb574719256b9a455b88c1c853dc4c95ee41"
+  },
+  {
+    "id": "happn-9",
+    "file": "docs/research/happn/historical-main-screens.png",
+    "sourceUrl": "https://dribbble.com/shots/21734525-New-Happn-App-Main-screens",
+    "imageUrl": "https://cdn.dribbble.com/userupload/7795512/file/original-49fdbfeabdeac02778f01fde9bd49717.png",
+    "caption": "Histórico: grid de pessoas, perfil e Crush",
+    "observed": "MapaSpot; sheet local comcontador; grid2colunas comX e coração; perfil; confirmaçãoCrush.",
+    "limits": "PublicaçãoHappnDesign autoidentificada; data exata não recuperada; não afirmar atual2026.",
+    "rights": "Evidence only; proprietary. Do not use as member photos or product UI assets.",
+    "retrievedAt": "2026-10-16",
+    "sha256": "cd9833b4fb3fa3391f6dba4ca19f36a909c287ad06924ff58f2c1095bd0fd6e1"
+  }
+]

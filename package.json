@@ -1,0 +1,13 @@
+{
+  "name": "trelele-prototipo",
+  "version": "0.4.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "check": "node --check dist/app.mjs && node --check dist/domain.mjs && node --check dist/interaction.mjs && node --check dist/copy.mjs && node --check dist/pesquisa.mjs"
+  },
+  "devDependencies": {
+    "happy-dom": "21.0.3"
+  }
+}

@@ -1,0 +1,90 @@
+[
+  {
+    "title": "Bookshop.org",
+    "url": "https://bookshop.org/",
+    "lesson": "Listas editoriais de livros têm autoria e tema; a obra pode iniciar descoberta.",
+    "applyTo": "Seleção de livros e afinidades no perfil.",
+    "doNotCopy": "Identidade roxa, banners comerciais, capas e listas editoriais proprietárias.",
+    "licenseStatus": "reference-only",
+    "verifiedAt": "2026-10-16",
+    "sourceRef": "turn28view3",
+    "verification": "Official page retrieved; no screenshot or asset downloaded."
+  },
+  {
+    "title": "MUBI Notebook",
+    "url": "https://mubi.com/en/notebook",
+    "lesson": "Publicação cultural separa busca, exploração e contexto editorial.",
+    "applyTo": "Aberturas de conversa, títulos e navegação cultural.",
+    "doNotCopy": "Marca, textos, fotografias, composição exata de suas páginas.",
+    "licenseStatus": "reference-only",
+    "verifiedAt": "2026-10-16",
+    "sourceRef": "turn28view0",
+    "verification": "Official page retrieved; no screenshot or asset downloaded."
+  },
+  {
+    "title": "Letterboxd",
+    "url": "https://letterboxd.com/",
+    "lesson": "Obras, listas e opiniões curtas tornam visível a pessoa por seu repertório.",
+    "applyTo": "Perfil com livros favoritos e respostas pessoais curtíveis.",
+    "doNotCopy": "Paleta, cartazes, críticas de usuários, iconografia e layout exato.",
+    "licenseStatus": "reference-only",
+    "verifiedAt": "2026-10-16",
+    "sourceRef": "turn28view1",
+    "verification": "Official page retrieved; no screenshot or asset downloaded."
+  },
+  {
+    "title": "Apartamento",
+    "url": "https://www.apartamentomagazine.com/",
+    "lesson": "Conversas, retratos e histórias pessoais podem conviver com um catálogo.",
+    "applyTo": "Tom próximo e formato de pequena entrevista no perfil.",
+    "doNotCopy": "Fotografias, capa de revista, masthead e tipografia proprietária.",
+    "licenseStatus": "reference-only",
+    "verifiedAt": "2026-10-16",
+    "sourceRef": "turn26view0",
+    "verification": "Official page retrieved; no screenshot or asset downloaded."
+  },
+  {
+    "title": "The StoryGraph",
+    "url": "https://www.thestorygraph.com/",
+    "lesson": "Humor, temas e ritmo ampliam a descoberta para além de títulos iguais.",
+    "applyTo": "Tags editoriais de afinidade, sem prometer compatibilidade amorosa.",
+    "doNotCopy": "Gráficos, telas, avaliações, descrições ou algoritmo de recomendação.",
+    "licenseStatus": "reference-only",
+    "verifiedAt": "2026-10-16",
+    "sourceRef": "turn26view1",
+    "verification": "Official page retrieved; no screenshot or asset downloaded."
+  },
+  {
+    "title": "Are.na",
+    "url": "https://www.are.na/",
+    "lesson": "Conteúdo e coleções também permitem descobrir pessoas; organização pode ter pouco ruído.",
+    "applyTo": "Estante pessoal selecionada e conteúdo como forma de expressão.",
+    "doNotCopy": "Typeface Areal, blocos, canais de usuários ou sistema gráfico literal.",
+    "licenseStatus": "reference-only",
+    "verifiedAt": "2026-10-16",
+    "sourceRef": "turn26view2",
+    "verification": "Official page retrieved; no screenshot or asset downloaded."
+  },
+  {
+    "title": "London Review of Books",
+    "url": "https://www.lrb.co.uk/",
+    "lesson": "Título, autoria e resumo organizam uma publicação rica em leitura.",
+    "applyTo": "Hierarquia textual do perfil; opinião como manchete e detalhes secundários.",
+    "doNotCopy": "Textos, ilustrações, marca e densidade de revista na tela de namoro.",
+    "licenseStatus": "reference-only",
+    "verifiedAt": "2026-10-16",
+    "sourceRef": "turn28view2",
+    "verification": "Official page retrieved; no screenshot or asset downloaded."
+  },
+  {
+    "title": "Unsplash — licença",
+    "url": "https://unsplash.com/license",
+    "lesson": "Fonte possível para futuras imagens ambientais, com registro individual de proveniência.",
+    "applyTo": "Fotografia de ambiente em apresentação e campanhas futuras.",
+    "doNotCopy": "Retratos usados como usuários reais, ativos Unsplash+ sem licença ou acervo indiscriminado.",
+    "licenseStatus": "reference-only",
+    "verifiedAt": "2026-10-16",
+    "sourceRef": "turn30view0",
+    "verification": "Official page retrieved; no screenshot or asset downloaded."
+  }
+]

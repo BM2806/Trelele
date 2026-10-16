@@ -1,0 +1,10 @@
+node_modules/
+tmp/
+*.log
+
+# Local credentials and generated downloads
+.openai/
+.env
+.env.*
+!.env.example
+*.zip

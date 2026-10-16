@@ -1,0 +1,89 @@
+{
+  "direction": "Tinder-like functional swipe deck; prior editorial direction rejected",
+  "references": [
+    {
+      "title": "React Tinder Card — código inspecionado",
+      "url": "https://github.com/3DJakob/react-tinder-card/blob/master/index.js",
+      "type": "open-source-code",
+      "licenseStatus": "MIT; preserve copyright and license if reused",
+      "licenseUrl": "https://github.com/3DJakob/react-tinder-card/blob/master/LICENSE",
+      "codeInspected": true,
+      "commit": "master; SHA not recovered, not suitable as immutable dependency pin",
+      "lesson": "Gesture position and velocity are separate from persisted user decisions; spring return and exit callbacks.",
+      "decision": "Reference only; no installation or source copying.",
+      "risks": [
+        "Global mutable threshold shared between component instances",
+        "Dependency on React Spring",
+        "Mouse and touch handlers require compatibility review"
+      ],
+      "sourceRef": "turn39view0",
+      "verifiedAt": "2026-10-16"
+    },
+    {
+      "title": "React Tinder Card — API pública",
+      "url": "https://github.com/3DJakob/react-tinder-card",
+      "type": "documentation",
+      "licenseStatus": "MIT repository; no code copied",
+      "lesson": "Programmatic buttons can trigger same swipe path; removal is a caller responsibility.",
+      "sourceRef": "turn36view0",
+      "verifiedAt": "2026-10-16"
+    },
+    {
+      "title": "MDN Pointer events",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/Pointer_events",
+      "type": "platform-documentation",
+      "licenseStatus": "reference-only; no MDN sample copied",
+      "lesson": "Unified mouse, touch and pen events; pointer capture, cancellation and touch-action.",
+      "decision": "Native events preferred for current prototype.",
+      "sourceRef": "turn36view1",
+      "verifiedAt": "2026-10-16"
+    },
+    {
+      "title": "Tinder — App Store Brasil",
+      "url": "https://apps.apple.com/br/app/tinder-app-de-relacionamento/id547702041",
+      "type": "official-product-page",
+      "licenseStatus": "reference-only; proprietary screenshots and model images",
+      "lesson": "Official public documentation of mutual interest and right/left swiping.",
+      "sourceRef": "turn37view3",
+      "verifiedAt": "2026-10-16"
+    },
+    {
+      "title": "Tinder — Google Play Brasil",
+      "url": "https://play.google.com/store/apps/details?id=com.tinder&hl=pt_BR",
+      "type": "official-product-page",
+      "licenseStatus": "reference-only; proprietary screenshots and model images",
+      "lesson": "Official screenshot gallery, preferences, personality prompts and paid convenience features.",
+      "sourceRef": "turn41view0",
+      "verifiedAt": "2026-10-16"
+    },
+    {
+      "title": "Tinder — screenshot oficial Google Play 1",
+      "url": "https://play-lh.googleusercontent.com/jVyq6kloMcZAV46-mjS5D6jNqPCVF7NXtm7ksyAduWWP0gc3JkVwXaGijfw25uR6akieLzyC2HChPyjHRYAN=w526-h296",
+      "type": "official-screenshot-link",
+      "licenseStatus": "reference-only; not downloaded or embedded in product",
+      "sourceRef": "turn42view0",
+      "verifiedAt": "2026-10-16"
+    },
+    {
+      "title": "Tinder — screenshot oficial Google Play 2",
+      "url": "https://play-lh.googleusercontent.com/QpUYPIPDIyYYxvbqDCHit4ZGXuPg6RzwtyhVeUf4PiI-5HCgsaCxCbu6hQg83ohURldbXzEL6aU8kiOgoE_o0w=w526-h296",
+      "type": "official-screenshot-link",
+      "licenseStatus": "reference-only; not downloaded or embedded in product",
+      "sourceRef": "turn42view1",
+      "verifiedAt": "2026-10-16"
+    }
+  ],
+  "userImageEvidence": [
+    "upload/IMG_1490.jpeg",
+    "upload/IMG_1491.jpeg",
+    "upload/IMG_1492.jpeg",
+    "upload/IMG_1493.jpeg",
+    "upload/IMG_1494.jpeg"
+  ],
+  "notInspected": [
+    "Tinder private source code",
+    "Tinder internal ranking",
+    "Native APK or IPA"
+  ],
+  "nativeThresholds": "Own prototype hypotheses; never Tinder internals"
+}
