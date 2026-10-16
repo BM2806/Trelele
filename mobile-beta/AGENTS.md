@@ -114,3 +114,23 @@ O root autorizou atualizar os hashes de Device.tsx e PhoneFrame.tsx para este ch
 A marca passa a usar o artwork ORIGINAL de IMG_1497.jpeg, preservado em public/assets/brand/trelele-original.jpg. O símbolo e as letras não devem ser redesenhados. IMG_1496 é referência da abertura: fundo claro, logo central, ondas verdes e laranja, CTA Começar; frase exata: “O seu app de encontros literários.” O logo é enquadrado por CSS, mantendo pixels e proporções do arquivo fornecido. Verde vivo e laranja são acentos; verde escuro garante contraste nas superfícies com texto claro. Aplicar identidade em todas as telas sem reiniciar perfil, conversas ou regras de privacidade. Esta referência autoriza abertura clara e substitui a preferência anterior de abertura verde.
 
 Esta revisão não tem aprovação visual final: a ferramenta do navegador voltou a falhar por timeout de transporte de 300 segundos, inclusive com limite solicitado de 15 segundos. Compilação e integridade do runtime passaram. Não alegar screenshot novo, inspeção visual de todas as telas ou cadastro completo validado.
+
+## V10 — gesto e navegação solicitados após as novas referências
+
+Esta decisão explícita do usuário substitui a regra V8 de arrastar para navegar a mídia: no Descobrir, arrastar horizontalmente o cartão decide a pessoa. O cartão acompanha o dedo e só confirma a preferência depois de soltar e concluir a saída. Arrasto curto ou vertical, cancelamento e Escape não decidem. Botões e gesto compartilham uma única trava por pessoa. Curtida recíproca recentra o cartão para a celebração inline. Reduced motion elimina a transição.
+
+Os três livros e as três posições protegidas agora navegam por toque lateral, indicadores e botões anterior/próximo, sem outro gesto horizontal concorrente. Arrastar a partir de um controle não deve acioná-lo como toque ao soltar. Perfil completo não participa do gesto de decisão.
+
+Meu perfil possui acesso a Configurações. AccountFlow separa editar, pausar/retomar, informação e confirmação de apagar dados locais. Pausa persiste antes de alterar a interface. Exclusão só navega à abertura após os storages concluírem; erros continuam visíveis. O histórico de demonstração e os rascunhos são hidratados antes do autosave, com falha de leitura explícita e sem sobrescrever dados corrompidos silenciosamente.
+
+Concluir uma edição de perfil invalida os consentimentos da imagem na demonstração somente quando os IDs das fotos mudaram. O editor compara as imagens publicadas localmente com o estágio antes do commit e entrega photosChanged ao aplicativo; editar apenas texto mantém os aceites. Fotos de rascunho só substituem as publicadas localmente após commit do editor; nenhuma imagem original do proprietário deve entrar em perfis de demonstração ou no chat.
+
+## V10 — encontros literários como foco central (16/10/2026, 14:39)
+
+Decisão expressa do usuário: toda mudança deve priorizar conhecer pessoas pelos livros e pela conversa, não pela aparência. Gostos e perguntas do cadastro devem tratar de gêneros literários, rotina de leitura, programas envolvendo livros e indicações pessoais. Linguagem curta e natural, sem promessas de compatibilidade calculada. Perguntas literárias extras são opcionais, com Pular, e as respostas aparecem como assuntos no perfil. Nome, nascimento adulto, identificação e interesse continuam necessários ao contexto de encontros. Não importar hábitos, signos, aparência ou seis fotos públicas só porque aparecem no Tinder.
+
+A referência de fluxo é o conjunto de 31 prints fornecidos pelo usuário, inventariado em docs/V10-COBERTURA-FLUXOS.md. São evidência de composição e estados; não provam código, algoritmo, física de swipe nem destinos de todos os botões. Não colocar os prints privados no repositório público.
+
+Esta V10 altera o contrato anterior do gesto: arrastar horizontalmente decide CURTIR/PASSAR a pessoa; botões de decisão são equivalentes; toque lateral e controles explícitos mudam entre três livros e três posições protegidas. Cancelamento, scroll vertical, alvos interativos e reduced motion precisam preservar comportamento. O protótipo continua local e demonstrativo. Pausa, rascunhos, fotos privadas e exclusão têm escopo deste aparelho; não fingir conta remota.
+
+O commit público confirmado antes desta revisão foi 9ed8830 (marca nova). As anotações anteriores de QA descrevem checkpoints históricos, não prova de que a V10 está publicada ou visualmente aprovada.

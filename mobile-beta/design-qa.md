@@ -1,3 +1,21 @@
+# V10 — fluxo e encontros literários
+
+final result: blocked
+
+Implementação revisada por três agentes independentes: preflight visual, cobertura de fluxos e código/privacidade. Foram inspecionados 31 prints originais; observações e adaptações estão distinguidas nos documentos V10.
+
+Implementado: abertura da marca preservada; regras breves; 11 etapas com perguntas literárias opcionais; rascunho de metadados e fotos separado do perfil confirmado; swipe com movimento, cancelamento e decisão única; configurações, pausa/retomada e exclusão local; conversas e rascunhos persistidos com esquema validado. A troca de fotos invalida aceites; editar apenas texto não.
+
+Verificação: build, TypeScript e check:runtime (28 arquivos protegidos) passaram. 41 testes de perfil/transações/sessão/swipe, quatro testes de empacotamento e 24 testes de domínio/gesto passaram: 69 no total. IndexedDB foi exercitado com fake-indexeddb de desenvolvimento; isso não é prova de upload ou interação no Safari físico.
+
+QA visual e percurso completo no navegador continuam pendentes. O navegador cloud falhou por timeout de transporte. A suíte Playwright padrão não iniciou devido a uv_interface_addresses no servidor Vite; uma configuração temporária com host loopback avançou até o launcher e constatou que chromium_headless_shell não está instalado. Nenhuma dessas falhas foi tratada como teste aprovado. Configuração temporária removida; nenhum runtime alterado para contornar checks.
+
+Limitações materiais: conta real/autenticação, catálogo remoto de livros, usuários reais, localização, backup de fotos e pagamentos não foram implementados. Opiniões de demonstração e seleção visual atual de mídia não têm restauração prometida após reload. Nenhuma imagem privada foi copiada para o repositório público.
+
+A V10 não recebeu aprovação de inspeção visual, não tem screenshot de aceitação e não deve ser anunciada como versão publicada.
+
+---
+
 # Revisão da marca Trelelê — referência do usuário
 
 final result: blocked
