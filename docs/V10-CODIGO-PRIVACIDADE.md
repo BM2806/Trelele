@@ -38,7 +38,7 @@ As quatro suítes móveis somam **41/41**. Com domínio/classificador (24) e Wor
 | P2: cancelamento edita perfil confirmado | Edição e fotos de rascunho antes compartilhavam os dados confirmados | Metadata e fotos de rascunho separadas; cancelar descarta estágio e preserva confirmados |
 | P2: pausa não sobrevive a reload | Estado era somente React | Booleano persistido em chave local própria; UI anuncia o escopo neste aparelho |
 
-**P2 aberto na fonte congelada:** o handler de lostpointercapture ainda não ignora explicitamente um gesto bloqueado; um segundo arrasto ignorado durante saída pode cancelar o commit anterior. A correção foi proposta, mas não foi incorporada antes do congelamento confirmado nesta revisão. Não é o P1 de busy travado, que foi corrigido. Revisar esse comportamento quando o navegador estiver disponível, sem expandir esta rodada com novas mudanças. Não foi usado teste que apenas procura strings no JSX como prova de comportamento.
+**P2 corrigido na fonte final:** o handler de `lostpointercapture` agora exige `dragging && !blocked && !pending.current` antes de cancelar. A exceção limitada foi autorizada pelo root após o primeiro congelamento. Fonte conferida; efeito nos eventos de navegador ainda não executado. Não foi usado teste que apenas procura strings no JSX como prova de comportamento.
 
 ## Contrato de perfil local versus conta real
 
@@ -77,3 +77,14 @@ Antes de publicar, validar no navegador disponível: cadastro completo com fotos
 ### Fechamento do guard de captura
 
 Após o parecer acima, o root autorizou uma correção limitada no `SwipeDeck`: `lostpointercapture` só reinicia o gesto quando `dragging && !blocked && !pending.current`. Uma perda de captura implícita após soltar o dedo não deve interromper a confirmação já iniciada. O autor executou TypeScript e os sete testes puros de swipe após essa alteração. A correção de fonte foi conferida pelo root; a verificação de toque real continua pendente. Portanto, o P2 citado anteriormente está corrigido no código, sem alegação de reprodução em aparelho.
+
+
+### Infraestrutura de aceitação local — 16/10/2026
+
+Resultado: **blocked** para execução de UI. A única chamada autorizada a `npx playwright install chromium` terminou com exit 1: o CDN retornou arquivo de 0 MiB e erro de ZIP truncado (`End of central directory record signature not found`). As tentativas internas pertenciam à mesma chamada do instalador; não houve nova chamada, escalonamento ou download alternativo. A inspeção limitada de executáveis Chromium/Chrome/Firefox e do cache de binários Playwright não encontrou navegador instalado. Nenhum perfil ou sessão de usuário foi consultado.
+
+Foi criado `mobile-beta/tests/trelele-flow.spec.ts`, com oito testes de aceitação locais: cadastro de onze passos e persistência em 390×760 e 360×640, maioridade, três livros e três PNGs sintéticos em memória, ausência de fotos privadas no deck, cancelamento de edição preservando fotos confirmadas, pausa/reload, exclusão e erro de exclusão, intenção/cancelamento do swipe e regressão de gesto durante decisão pendente. Usam `setInputFiles` normal do Playwright; não usam imagens pessoais nem conta externa.
+
+A compilação TypeScript isolada do spec passou; `playwright test tests/trelele-flow.spec.ts --list` descobriu os oito testes. **Nenhum deles foi executado no navegador.** Os testes de runtime existentes também não foram executados nesta continuação. Não há novas capturas nem comprovação de fluidez, interação de toque, Safari ou teclado físico. O arquivo temporário usado somente para a checagem TypeScript foi removido; runtime, dependências e deploy não foram alterados nesta etapa.
+
+A aceitação local automatizada e a revisão visual final do Product Design são evidências separadas. A segunda continua exigindo inspeção do preview no cloud browser pelo responsável; os specs compilados não a substituem. O bloqueio de publicação por falta dessa verificação permanece.

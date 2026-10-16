@@ -134,3 +134,12 @@ A referência de fluxo é o conjunto de 31 prints fornecidos pelo usuário, inve
 Esta V10 altera o contrato anterior do gesto: arrastar horizontalmente decide CURTIR/PASSAR a pessoa; botões de decisão são equivalentes; toque lateral e controles explícitos mudam entre três livros e três posições protegidas. Cancelamento, scroll vertical, alvos interativos e reduced motion precisam preservar comportamento. O protótipo continua local e demonstrativo. Pausa, rascunhos, fotos privadas e exclusão têm escopo deste aparelho; não fingir conta remota.
 
 O commit público confirmado antes desta revisão foi 9ed8830 (marca nova). As anotações anteriores de QA descrevem checkpoints históricos, não prova de que a V10 está publicada ou visualmente aprovada.
+
+
+## Checkpoint de revisão real V10 — 16/10/2026
+
+A revisão em navegador voltou a funcionar parcialmente: abertura em 390×760 e 360×640, Descobrir com foto bloqueada em 360 e cadastro até a etapa 10/11 foram observados. O upload pelo seletor da automação travou o transporte por 291,8 segundos; isto não demonstra falha do app, mas impede certificar o cadastro completo e autorizar a publicação desta revisão. Os oito novos cenários Playwright foram compilados e descobertos, sem execução por ausência de Chromium local. Não confundir essas evidências com validação física de iOS/Android.
+
+Uma mancha clara no verde da onda foi observada na abertura. Após aprovação independente, a onda passa a ser um SVG nativo com fundo branco, curvas verdes #14A859 e laranja #FE8A38 e as mesmas dimensões CSS. A marca original continua inalterada. O novo símbolo de livro/coração foi preparado separadamente; o usuário pediu expressamente não o implementar.
+
+A base de autenticação em backend-auth é uma preparação separada, desativada por padrão. Não exibir botões Apple/Google/e-mail funcionais antes de configuração real, isolamento de dados por conta e teste de exclusão. O beta publicado permanece demonstrativo e local até que a integração esteja efetivamente validada.

@@ -75,3 +75,12 @@ AccountFlow separa settings, pausa, apagar e informações; copy delimita aparel
 ### Evidência de testes e limite de aceite
 
 Responsável relata 41 testes mobile, 4 worker, 24 de domínio e 28 de integridade runtime, além de build verde. Não repetidos por este crítico. Teste de runtime/headless teve erro ambiental `uv_interface_addresses` do Vite em diagnóstico; isso não é resultado aprovado nem prova de bug do app. Sem browser disponível, não certificar onboarding com upload/reload/revisão, gestos reais, teclado físico, rotação ou publicação. A ausência de P1 estático não autoriza afirmar release visualmente validada.
+
+
+## Registro de execução parcial — 16/10/2026
+
+Relato direto do crítico após retomar o navegador: abertura conferida em 390×760 e 360×640; espaço de foto bloqueada do Descobrir observado em 360. Cadastro percorrido por regras, nome, nascimento adulto editado nativamente, identidade, interesse, intenção, gêneros, rotina literária, Pular programa e seleção de três livros distintos. A interface chegou à etapa 10/11, de fotos. O preenchimento inicial remoto da data alterou apenas o DOM; edição nativa disparou o estado React e habilitou Continuar. Não foi classificado como defeito do aplicativo.
+
+O filechooser/setFiles travou o transporte por 291,8 segundos. Não houve confirmação de upload nem conclusão, edição, persistência, pausa ou exclusão pela interface nesta rodada. Testes automatizados de armazenamento são evidência separada. **Cadastro completo e release permanecem BLOCKED.** Não há P1 de upload demonstrado; há ausência de comprovação do caminho crítico.
+
+A mancha branca na onda foi observada no verde. O crítico aprovou substituir apenas esse asset por duas curvas SVG nativas com fills exatos #14A859/#FE8A38, fundo branco e dimensões CSS preservadas. Root aplicou welcome-wave-clean.svg e passou build/runtime28; o resultado SVG ainda não foi observado na interface. Marca original preservada. Este registro resume mensagens do crítico; não substitui inspeção final após a correção.

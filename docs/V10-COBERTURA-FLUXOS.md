@@ -119,3 +119,11 @@ Leitura direta de `AccountFlow.tsx`, `Onboarding.tsx`, `SwipeDeck.tsx`, `swipe-d
 Comando: `node --experimental-strip-types --test tests/profile-storage.test.mjs tests/profile-transactions.test.mjs tests/demo-session.test.mjs tests/swipe-deck-state.test.mjs`, dentro de `mobile-beta`, em Node 24.19.0. Resultado: **41/41 passaram** — perfil/arquivo 11, transações 12, sessão histórica 11, classificador/gate de swipe 7.
 
 As fixtures de fotos nesses testes são blobs sintéticos. Não houve upload de originais privados. Esses ensaios usam APIs puras e fake IndexedDB; não executam AccountFlow ou Onboarding em navegador, nem decodificação física de imagem, IME, Safari ou toque real. Nenhum arquivo de aplicativo foi modificado por esta auditoria.
+
+## Continuação do checkpoint — inspeção parcial e onda limpa
+
+O responsável informou que o navegador voltou a responder e a equipe inspecionou abertura em 390/360, galeria bloqueada em 360 e cadastro até a etapa 10. A tentativa de `filechooser.setFiles` terminou em timeout de transporte de aproximadamente 291,8 segundos antes da confirmação do upload. Portanto, **cadastro concluído, três uploads confirmados, persistência após reload, cancelamento/revisão final e exclusão integrada continuam sem comprovação de ponta a ponta**. Esta auditoria não executou esses gestos; atribui o relato ao responsável e ao crítico.
+
+A abertura passa a referenciar `welcome-wave-clean.svg`, vetor nativo com cores da marca, em vez do PNG com variações de transparência. O responsável relatou build e runtime (28 arquivos) aprovados após a troca. A revisão visual posterior deve ser registrada separadamente, sem inferir aprovação pela compilação.
+
+`tests/trelele-flow.spec.ts` contém oito cenários de aceitação compilados/listados, com PNGs sintéticos gerados em memória. Eles **não foram executados em navegador** nesta entrega. Não contar esses oito como testes E2E aprovados. O backend de autenticação é trabalho isolado e não faz parte deste checkpoint V10.
