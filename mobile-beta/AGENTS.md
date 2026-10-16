@@ -143,3 +143,16 @@ A revisão em navegador voltou a funcionar parcialmente: abertura em 390×760 e 
 Uma mancha clara no verde da onda foi observada na abertura. Após aprovação independente, a onda passa a ser um SVG nativo com fundo branco, curvas verdes #14A859 e laranja #FE8A38 e as mesmas dimensões CSS. A marca original continua inalterada. O novo símbolo de livro/coração foi preparado separadamente; o usuário pediu expressamente não o implementar.
 
 A base de autenticação em backend-auth é uma preparação separada, desativada por padrão. Não exibir botões Apple/Google/e-mail funcionais antes de configuração real, isolamento de dados por conta e teste de exclusão. O beta publicado permanece demonstrativo e local até que a integração esteja efetivamente validada.
+
+
+## V12 — correção de direção exigida pelo usuário (16/10/2026, 15:41)
+
+O usuário rejeitou a V10 publicada por manter o visual antigo. A partir desta revisão, os 31 prints do Tinder fornecidos são o modelo de composição, escala, hierarquia e navegação de TODAS as telas. Reproduzir a anatomia observada de forma próxima, adaptando marca, fontes DM/Fraunces, verde/laranja e conteúdo de encontros literários. Não oferecer três estilos novos nem manter o painel laranja antigo com outra pintura. Descobrir tem mídia dominante, nome/metadados e opinião sobrepostos à mídia, ações integradas ao cartão e navegação inferior compacta com cinco destinos (Descobrir, Explorar, Deu liga, Conversas, Perfil). Deu liga continua sobre o mesmo cartão; os livros substituem rostos públicos e as três fotos continuam protegidas.
+
+Abertura, entrada, cadastro completo, perfil, configurações, saída e exclusão devem ser visualizáveis em uma galeria de revisão `?review=1`. Ela usa os mesmos componentes com estado fictício em memória e nenhuma leitura ou escrita dos dados locais reais, fotos privadas, sessões ou rede de autenticação. Deve existir saída clara da galeria para o beta. Estados de e-mail/código são demonstrações identificadas; não fingir envio, login ou sessão. A entrada com Apple, Google e e-mail foi solicitada expressamente pelo usuário e é adaptação autorizada, mesmo que a referência específica mostre Apple/telefone. A configuração real desses provedores ainda está pendente.
+
+Esclarecimento do usuário às 15:48: preservar as fotografias de livros e capas existentes. O pedido é ampliar a mídia e reproduzir tamanho, estrutura e formato do aplicativo de referência; não substituir livros por retratos nem inventar outra direção de imagem. As fotos pessoais permanecem nas posições protegidas.
+
+### Estado confirmado antes do checkpoint V12
+
+A V10 foi publicada pelo usuário e conferida no Railway: commit 6e8ad2f70ab364ae9c474ad18043929ce5f632e0, deploy 604c8444-23fe-4310-a6cc-8c22adbadaa2. A V12 reconstrói a estrutura visual e disponibiliza 43 telas/estados de revisão; não confundir a quantidade do mapa com a quantidade de capturas individualmente inspecionadas. A revisão usa os mesmos componentes, com fixtures e ações em memória. As validações reais e os limites de cobertura são os registros atuais de design-qa.md e docs/V12-COMPORTAMENTO-PRIVACIDADE.md.

@@ -1,3 +1,25 @@
+# V12 — revisão parcial de comportamento e interface
+
+final result: passed
+
+**Escopo deste passed:** UI e comportamento dos percursos de prévia e do núcleo demonstrativo efetivamente executados. Não é aprovação de autenticação, cadastro normal com upload nem E2E completo.
+
+Cloud browser inspecionado em iframes de 390×844 e 360×640, somente `review=1`, sem acesso a fotos pessoais ou seletor de arquivos. Capturas reais: `/workspace/scratch/trelele-v12-discover-final.jpg`, `trelele-v12-liga.jpg`, `trelele-v12-intencao.jpg`, `trelele-v12-entry.jpg`, `trelele-v12-settings.jpg`, `trelele-v12-identity-chat.jpg`, `trelele-v12-private-preview-scroll.jpg` e `trelele-v12-final-step-recovered.jpg`. Os arquivos mostram pares das duas larguras. O crítico visual faz a comparação com as referências; este parecer não afirma aprovação de fidelidade.
+
+Confirmado: cartão de Ana e decisões cabem nas duas larguras; Bia apresentou overflow após troca real, corrigido e recapturado; curtida recíproca por botão gera Deu liga; opinião antes ilegível teve contraste corrigido e recapturado; cadastro de prévia percorreu etapas 1–11 com modal do nome, opções literárias, catálogo e fotos abstratas; intenção em 360 permite rolar e selecionar a última opção; Apple/e-mail mostram estados demonstrativos; pausa/retomada navegam em memória; exclusão tem introdução, confirmação e volta coerentes; conversa Lia em 360 envia texto local, abre perfil e volta preservando a conversa, depois atualiza a lista.
+
+Fonte revisada: guards de `reviewMode` impedem IO de perfil, sessão, pausa, fotos e rascunho; callbacks do showroom só navegam em memória. Não houve instrumentação de storage/rede no browser. Nenhum fluxo de autenticação real foi executado.
+
+**P1 fechado:** Bia em360 inicialmente deixava controles abaixo do viewport. Após fix app-owned, cartão mede535px, ações492..554 e nav574..633; `trelele-v12-bia-regression-final.jpg` exportado e verificado no host. Regressão Ana390/360 em `trelele-v12-ana-regression-final.jpg`, também verificado. Sem P1 aberto nos percursos inspecionados. **Pendentes:** demais estados do mapa, cancelamento/disputa de gestos, cadastro normal com upload, edição/cancelamento, persistência e exclusão completas, teclado e hardware.
+
+Após recuperação autorizada única, conclusão e cancelamento da prévia retornaram à entrada; cauda de settings rolada/capturada, coração preenchido conferido. Arrasto real20px manteve Ana;185pxdireita gerou liga após soltar;190pxesquerda passou Davi para Bia. Console warning/error filtrado ao preview retornou[]; logs semfiltro continham erros históricos da extensão, sem atribuição ao app. O mapa apresenta 43 destinos; não declarar 43 telas, nem os 31 prints, integralmente inspecionados por este QA.
+
+Uma chamada intermediária de navegador falhou rapidamente com `exec-server transport disconnected`; uma única observação posterior recuperou a ferramenta. Essa falha de transporte não é defeito demonstrado do app. Build/runtime28 e testes de contrato aprovados informados pelo root. Oito specs Playwright atualizados passaram compilação e descoberta, **sem execução** por ausência de Chromium. Detalhes e limites: `docs/V12-COMPORTAMENTO-PRIVACIDADE.md`.
+
+---
+
+As seções abaixo são registros históricos dos respectivos checkpoints.
+
 # V10 — fluxo e encontros literários
 
 final result: blocked
