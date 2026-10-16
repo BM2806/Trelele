@@ -1,3 +1,34 @@
+# Trelelê — aplicativo de encontros por livros
+
+## Versão em desenvolvimento: mobile-beta (V6)
+
+O código atual da nova interface está em [`mobile-beta/`](mobile-beta/). É um protótipo React com runtime de celular, teclado, telas e navegação interativos; não é um binário Android/iOS publicado nas lojas. Para executar: `cd mobile-beta`, `npm ci`, `npm run dev`. O build usa `npm run build`; verificação de runtime: `npm run check:runtime`; Worker: `npm run test:sites`.
+
+A direção atual substitui o catálogo e a interface branca rejeitados: fundo verde-mata, cartão imersivo, ondulado amarelo, serif expressiva e decisões integradas à pessoa. `docs/design-v6/target-deck.png` é estudo visual gerado; `comparacao-real-393.jpg` e `container-360.jpg` são capturas do protótipo realmente aberto no navegador. O ensaio de 360 × 740 usa um contêiner CSS de desenvolvimento dentro do runtime, não um preset de aparelho real. Os presets protegidos são iPhone e Pixel.
+
+O repositório privado https://github.com/BM2806/Trelele é o armazenamento escolhido pelo usuário. A publicação histórica do Sites e este checkout não têm sincronização automática. Não foi publicada uma nova versão neste refino.
+
+### O que funciona no protótipo V6
+
+Descobrir, Por perto ilustrativo, perfil e retorno, seleção de livro, curtidas recíprocas, celebração sobre o cartão, conversa local, rascunhos, edição da apresentação e opinião de livro, seleção no catálogo de demonstração, simulação de tempo/consentimentos, retirada de consentimento, alteração de imagem, bloqueio e fim de conexão. O gesto horizontal de decisão e a celebração foram acrescentados nesta revisão e têm evidência de verificação em `mobile-beta/design-qa.md` quando finalizada.
+
+### Limites atuais
+
+Pessoas e conversas são fictícias; estado reinicia ao recarregar. Catálogo externo Google Books/Apple Books, upload, conta, GPS, pagamento, moderação e mídia privada de servidor ainda não estão integrados. A imagem de exemplar é ilustração gerada para o protótipo, não fotografia de um usuário nem prova de uma edição física autêntica. Capas de catálogo conservam direitos autorais; fontes e ícones têm suas licenças nos ativos.
+
+As regras de domínio V6 são idênticas ao módulo testado com 17 testes. Build, 4 testes Worker e integridade de 28 arquivos do runtime passaram. A suíte DOM legada V5 tem cinco falhas conhecidas e não valida o React V6. Não há promessa de segurança de produção por testes de frontend.
+
+### Decisões e revisão
+
+- `docs/SUPERCRITICA-V6.md`: validação independente antes de gerar/implementar e revisão do resultado.
+- `docs/REFINO-ESTRUTURA.md` e `docs/REFINO-VISUAL.md`: pesquisa, fontes e proporções propostas.
+- `docs/QA-MOBILE-V6.md`: testes técnicos, limites e falhas históricas.
+- `docs/CONTEXTO-DO-PROJETO.md`: continuidade do projeto.
+
+## Histórico anterior (V1–V5)
+
+O conteúdo a seguir documenta o protótipo anterior. Não deve prevalecer sobre as decisões V6 acima.
+
 # Trelelê — protótipo de aplicativo para celular
 
 Nome escolhido para o protótipo; disponibilidade de marca ainda não validada. Encontros 18+ por afinidade literária; conversa antes do retrato, com consentimento bilateral. Este projeto contém uma demonstração estática da interface de aplicativo celular, regras de domínio testáveis, referências externas e documentação de arquitetura, segurança, produto e receita.

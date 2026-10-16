@@ -1,0 +1,174 @@
+{
+  "generated_photo": {
+    "file": "reading-ana.png",
+    "kind": "AI-generated fictional demonstration book still life, not a user photograph or proof of an authentic physical edition",
+    "tool": "built-in image_gen",
+    "referenceCover": "../../../../dist/assets/v5/cover-estrela.jpg"
+  },
+  "fonts": [
+    {
+      "family": "Fraunces",
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/fraunces/Fraunces%5BSOFT%2CWONK%2Copsz%2Cwght%5D.ttf",
+      "license": "OFL-1.1"
+    },
+    {
+      "family": "DM Sans",
+      "license": "OFL-1.1"
+    }
+  ],
+  "icons": {
+    "family": "Phosphor",
+    "source": "https://github.com/phosphor-icons/core",
+    "license": "MIT"
+  },
+  "bookCovers": {
+    "sourceManifest": "../../../../dist/assets/v5/asset-manifest.json",
+    "copyright": "All rights reserved; prototype catalog reference, no commercial license implied"
+  },
+  "files": [
+    {
+      "file": "reading-ana.png",
+      "sha256": "b4477bc682966773282847fef9124bfb3f408dbffacb2ed073e762ce7ffe6516"
+    },
+    {
+      "file": "books/cover-cegueira.jpg",
+      "sha256": "c9d8521b8b0e2dc1ea83fb2ac92b48f15092a15c60d154534b3c30c44bef461b"
+    },
+    {
+      "file": "books/cover-torto.jpg",
+      "sha256": "5245396f7d9f7aa87676e84b49fece38b1b8813010dcc9227012add3a29f655f"
+    },
+    {
+      "file": "books/cover-vegetariana.jpg",
+      "sha256": "d419b2a4a7e7c1ff3ba429c6635495b0f57b7cee78d74db3f2802c671354d27c"
+    },
+    {
+      "file": "books/cover-estrela.jpg",
+      "sha256": "2a725240264a21c8867fbaf711ad7e4639406e4a7ed89cd84aa26c016bb615f6"
+    },
+    {
+      "file": "books/cover-rio.jpg",
+      "sha256": "823e9676502214adaaf3e0e5e0476f8a6e897685d18bd8abf2c3397a32e93827"
+    },
+    {
+      "file": "books/cover-avesso.jpg",
+      "sha256": "883a32f58ff46ee8559f97e094b1087cf57e11239a14343618e76e6392529de8"
+    },
+    {
+      "file": "icons/map-pin.svg",
+      "sha256": "523f024fa467fc285d95c1db4ed6c32b640513c79780d14310bebf342b6f94fb"
+    },
+    {
+      "file": "icons/dots-three.svg",
+      "sha256": "ca4e748007101155641ec3041cd129bb03a8030d0eed16e313b9dd75e6beac77"
+    },
+    {
+      "file": "icons/bell.svg",
+      "sha256": "439b02c746ff59945b6175c6d327113ca3f7a729a43d5bcafb278a0f11ee34b5"
+    },
+    {
+      "file": "icons/chat-circle.svg",
+      "sha256": "09e36aa820a39bbc8cffe705ad84c836d1e5733f83dc1d2212a965fdacdf4a67"
+    },
+    {
+      "file": "icons/LICENSE.txt",
+      "sha256": "b5b1f1da112d18ea2147decfd48ddc1bf2b5aeb6c265381579340e95b15a2bb2"
+    },
+    {
+      "file": "icons/sliders-horizontal.svg",
+      "sha256": "1d937baa3bc51ec4052364edf30cf8991d550920534f5d413eb9f60535cc1916"
+    },
+    {
+      "file": "icons/bookmark-simple.svg",
+      "sha256": "493a836009ab98f8d4ca84f088cc03f2785cdee86daa1643e003865ff3168b41"
+    },
+    {
+      "file": "icons/house.svg",
+      "sha256": "180e9259e99e23da197b59b19394d006d6a5d33e384cc2b9c8381cb0214a5716"
+    },
+    {
+      "file": "icons/star.svg",
+      "sha256": "165cd96e51d60442fb9c7aa89592fa6ef28f22d18368c85771be302c2e977101"
+    },
+    {
+      "file": "icons/x.svg",
+      "sha256": "7397b15e1fa66eaf6ff9b59fe91d483cb5c3bcf75b2fe052097ab6f0593b513a"
+    },
+    {
+      "file": "icons/arrow-right.svg",
+      "sha256": "e45bc4a12592b8723110db42c6deffdf177e4fe7704cf50324963fa0a59b2d74"
+    },
+    {
+      "file": "icons/share-network.svg",
+      "sha256": "e6923db3591f797c89c36671aad3e20effd7b06e6eb400b2a7ffb6daaed0474a"
+    },
+    {
+      "file": "icons/caret-right.svg",
+      "sha256": "e6dec01e074807965b7f3146b976a9b5e82c31d9c2c88aeb52e77cc2ab16c1d7"
+    },
+    {
+      "file": "icons/user.svg",
+      "sha256": "787434f7fef95f20e137d309d3c6b8b471548c55c9dfc137ae10625d70959d11"
+    },
+    {
+      "file": "icons/arrow-left.svg",
+      "sha256": "3c2001cf957d182fc54927e4b286cc8cf66dd97830f441ca2650d42a63a9006a"
+    },
+    {
+      "file": "icons/paper-plane-tilt.svg",
+      "sha256": "0dbff2ada31c963dfd95bfe2ab2cb39a90fe7100eb7c1724577444a1d8a7c26d"
+    },
+    {
+      "file": "icons/lock-simple.svg",
+      "sha256": "b99d3713ac86cb610eb66974d69de2aa1223c4f6387fb1053e3d375e62f5dc1c"
+    },
+    {
+      "file": "icons/pencil-simple.svg",
+      "sha256": "999530da442f44d8cf0054364373d16150f3e082c2ac294a4988a9c3a4295c28"
+    },
+    {
+      "file": "icons/heart.svg",
+      "sha256": "312dee73d1d969631d5498012f619ccf4edbdf31e1be3e65af4f4f1b3ac1b2dd"
+    },
+    {
+      "file": "icons/arrow-up-right.svg",
+      "sha256": "44db5257b360ec04863eb6daaa41f220c8b714d23fb81403517d0a30acfda9f4"
+    },
+    {
+      "file": "icons/books.svg",
+      "sha256": "38560cd9dec996bc3f79c10675ced1d2b3bd2e5ef497f3966733e5d787af5e11"
+    },
+    {
+      "file": "icons/check.svg",
+      "sha256": "cbb89a8c42f283d4f846eb935e05d88c1be04462f16480e068c0f82b9ce40b12"
+    },
+    {
+      "file": "icons/book-open.svg",
+      "sha256": "b38cdb3a15dcf00cfa4811e318b021e25c6a87b47acbb11888e16d107a5642da"
+    },
+    {
+      "file": "icons/magnifying-glass.svg",
+      "sha256": "f9fa2561978a9a3291e8ae0ebfcb651104f5069fade8f84871627bca68889cde"
+    },
+    {
+      "file": "icons/plus.svg",
+      "sha256": "d688feb9dd2e41c1721d6906a05a2a42e18cd774762fe706d72b2bdfd91cddc4"
+    },
+    {
+      "file": "fonts/OFL-DMSans.txt",
+      "sha256": "9af36190332437f5ecd09974de43c1f7c77a310a996cdd8ceb25628b458840e1"
+    },
+    {
+      "file": "fonts/OFL-Fraunces.txt",
+      "sha256": "bdf4c22802eaf804f998195871c6b8938aac2ac14b2d78a8bd66a6f1eced833b"
+    },
+    {
+      "file": "fonts/Fraunces.ttf",
+      "sha256": "177ff6c0f14e5550a3c624247cd1189611d4eb65d000b14944c63d967958abbb"
+    },
+    {
+      "file": "fonts/DMSans.ttf",
+      "sha256": "8cd08d97e89c24d0aa92edd2f0f4c8ee6195eee9b7c9f154865a58b02f0c1c0d"
+    }
+  ]
+}

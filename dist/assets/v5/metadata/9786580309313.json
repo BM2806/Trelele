@@ -1,0 +1,52 @@
+{
+  "type": {
+    "key": "/type/edition"
+  },
+  "title": "Torto Arado",
+  "authors": [
+    {
+      "key": "/authors/OL2965820A"
+    }
+  ],
+  "source_records": [
+    "amazon:6580309318"
+  ],
+  "publishers": [
+    "Todavia"
+  ],
+  "physical_format": "paperback",
+  "notes": "Source title: Torto Arado (Em Portugues do Brasil)",
+  "full_title": "Torto Arado",
+  "covers": [
+    12369648
+  ],
+  "works": [
+    {
+      "key": "/works/OL24141556W"
+    }
+  ],
+  "key": "/books/OL35663926M",
+  "identifiers": {},
+  "isbn_10": [
+    "6580309318"
+  ],
+  "isbn_13": [
+    "9786580309313"
+  ],
+  "classifications": {},
+  "languages": [
+    {
+      "key": "/languages/por"
+    }
+  ],
+  "latest_revision": 3,
+  "revision": 3,
+  "created": {
+    "type": "/type/datetime",
+    "value": "2021-11-13T22:03:01.201267"
+  },
+  "last_modified": {
+    "type": "/type/datetime",
+    "value": "2021-12-25T19:10:35.138090"
+  }
+}

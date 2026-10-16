@@ -1,0 +1,55 @@
+{
+  "works": [
+    {
+      "key": "/works/OL1002120W"
+    }
+  ],
+  "publishers": [
+    "Rocco"
+  ],
+  "publish_date": "2020",
+  "key": "/books/OL62501777M",
+  "type": {
+    "key": "/type/edition"
+  },
+  "covers": [
+    15249744
+  ],
+  "isbn_13": [
+    "9786555320350"
+  ],
+  "isbn_10": [
+    "6555320354"
+  ],
+  "physical_dimensions": "21 x 14 x 2 centimeters",
+  "weight": "800 grams",
+  "title": "A Hora Da Estrela",
+  "subtitle": "Edição comemorativa",
+  "contributors": [
+    {
+      "role": "Epilogue",
+      "name": "Paulo Gurgel Valente"
+    }
+  ],
+  "languages": [
+    {
+      "key": "/languages/por"
+    }
+  ],
+  "description": {
+    "type": "/type/text",
+    "value": "Pouco antes de morrer, em 1977, Clarice Lispector decide se afastar da inflexão intimista que caracteriza sua escrita para desafiar a realidade. O resultado desse salto na extroversão é *A hora da estrela,* o livro mais surpreendente que escreveu. Se desde *Perto do coração selvagem,* seu romance de estreia, Clarice estava de corpo inteiro, todo o tempo, no centro de seus relatos, agora a cena é ocupada por personagens que em nada se parecem com ela.\r\nA nordestina Macabéa, a protagonista de *A hora da estrela,* é uma mulher miserável, que mal tem consciência de existir. Depois de perder seu único elo com o mundo, uma velha tia, ela viaja para o Rio, onde aluga um quarto, se emprega como datilógrafa e gasta suas horas ouvindo a Rádio Relógio. Apaixona-se, então, por Olímpico de Jesus, um metalúrgico nordestino, que logo a trai com uma colega de trabalho. Desesperada, Macabéa consulta uma cartomante, que lhe prevê um futuro luminoso, bem diferente do que a espera.\r\nClarice cria até um falso autor para seu livro, o narrador Rodrigo S.M., mas nem assim consegue se esconder. O desejo de desaparecimento, que a morte real logo depois consolidaria, se frustra.\r\nEntre a realidade e o delírio, buscando social enquanto sua alma a engolfava, Clarice escreveu um livro singular. *A hora da estrela* é um romance sobre o desamparo a que, apesar do consolo da linguagem, todos estamos entregues.\r\n― **JOSÉ CASTELLO** , *Jornalista, escritor e Mestre em Comunicação pela UFRJ*"
+  },
+  "physical_format": "Capa Comum",
+  "number_of_pages": 88,
+  "latest_revision": 4,
+  "revision": 4,
+  "created": {
+    "type": "/type/datetime",
+    "value": "2026-08-30T15:34:23.888520"
+  },
+  "last_modified": {
+    "type": "/type/datetime",
+    "value": "2026-09-02T15:25:45.006569"
+  }
+}

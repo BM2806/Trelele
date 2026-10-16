@@ -1,39 +1,63 @@
-// Executes the real application in an emulated DOM, without a browser, layout or network.
-import { readFile } from 'node:fs/promises';
+// Runs reviewed local distribution modules in an emulated DOM. No server/network/layout.
+import { readFile, realpath } from 'node:fs/promises';
+import { resolve, sep } from 'node:path';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+import { SourceTextModule } from 'node:vm';
 import { Window } from 'happy-dom';
-import * as domain from '../dist/domain.mjs';
-import * as interaction from '../dist/interaction.mjs';
-import * as copy from '../dist/copy.mjs';
 
-export async function bootUI() {
-  const window = new Window({ url: 'https://margem.test/', settings: {
+const root = fileURLToPath(new URL('../dist/', import.meta.url));
+export async function bootUI({ hash = '', beforeBoot } = {}) {
+  const window = new Window({ url: `https://margem.test/${hash}`, settings: {
     disableCSSFileLoading: true, disableJavaScriptFileLoading: true, disableIframePageLoading: true,
   } });
-  const html = await readFile(new URL('../dist/index.html', import.meta.url), 'utf8');
-  // Script loading is disabled by supplying the document without script tags.
+  const html = await readFile(resolve(root, 'index.html'), 'utf8');
   window.document.write(html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, ''));
-  window.structuredClone = structuredClone; // Native browser API absent in happy-dom.
-  window.__modules = { ...domain, ...interaction, ...copy, me: structuredClone(copy.me) };
-  window.fetch = async (url) => {
-    const relative = String(url).replace(/^\.\//, '');
-    if (!relative.startsWith('assets/') || relative.includes('..')) throw Error('Unexpected test request');
-    try {
-      const body = await readFile(new URL(`../dist/${relative}`, import.meta.url), 'utf8');
-      return { ok: true, json: async () => JSON.parse(body) };
-    } catch { return { ok: false }; }
+  window.structuredClone = structuredClone;
+  const modules = new Map();
+  async function localFile(url) {
+    if (url.protocol !== 'file:') throw Error(`Nonlocal module refused: ${url}`);
+    const file = await realpath(fileURLToPath(url));
+    if (!file.startsWith(root + sep) && !file.startsWith(root)) throw Error(`Outside distribution: ${file}`);
+    return file;
+  }
+  async function load(url) {
+    const file = await localFile(url);
+    if (modules.has(file)) return modules.get(file);
+    if (!file.endsWith('.mjs')) throw Error(`Unexpected executable type: ${file}`);
+    const module = new SourceTextModule(await readFile(file, 'utf8'), {
+      context: window, identifier: pathToFileURL(file).href,
+      initializeImportMeta: meta => { meta.url = pathToFileURL(file).href; },
+    });
+    modules.set(file, module);
+    await module.link((specifier, referencing) => {
+      if (!specifier.startsWith('./') && !specifier.startsWith('../')) throw Error(`Nonlocal import refused: ${specifier}`);
+      return load(new URL(specifier, referencing.identifier));
+    });
+    return module;
+  }
+  window.fetch = async input => {
+    const url = new URL(String(input), window.location.href);
+    if (url.origin !== window.location.origin || !url.pathname.startsWith('/assets/')) throw Error(`Unexpected request: ${url}`);
+    const file = await localFile(pathToFileURL(resolve(root, '.' + url.pathname)));
+    const body = await readFile(file, 'utf8');
+    return { ok: true, text: async () => body, json: async () => JSON.parse(body) };
   };
-  let source = await readFile(new URL('../dist/app.mjs', import.meta.url), 'utf8');
-  source = source.replace(/import\s*\{([^}]+)\}\s*from\s*['"][^'"]+['"];?/g,
-    (_, names) => `const {${names.replace(/\s+as\s+/g, ":")}} = window.__modules;`);
-  window.eval(source);
-  const query = (selector) => window.document.querySelector(selector);
+  const state = await load(pathToFileURL(resolve(root, 'ui/state.mjs')));
+  await state.evaluate();
+  if (beforeBoot) await beforeBoot(state.namespace);
+  const script = [...html.matchAll(/<script\b[^>]*type=["']module["'][^>]*src=["']([^"']+)["'][^>]*>/gi)][0]?.[1];
+  if (!script) throw Error('Missing module entry in actual index.html');
+  const entry = await load(new URL(script, pathToFileURL(resolve(root, 'index.html'))));
+  await entry.evaluate();
+  const query = selector => window.document.querySelector(selector);
+  const settle = () => new Promise(resolve => setTimeout(resolve, 25));
+  await settle();
   return {
-    window, document: window.document, query,
+    window, document: window.document, query, state: state.namespace, settle,
     click(selector) {
-      const element = query(selector);
+      const element = typeof selector === 'string' ? query(selector) : selector;
       if (!element) throw Error(`Missing control: ${selector}`);
-      element.click();
-      return element;
+      element.click(); return element;
     },
     submit(selector) {
       const form = query(selector);
@@ -46,7 +70,18 @@ export async function bootUI() {
         pointerType: 'touch', button: 0, clientX: 100, clientY: 100, ...properties,
       }));
     },
-    settle: () => new Promise(resolve => setTimeout(resolve, 360)),
+    async back() {
+      await new Promise((resolve, reject) => {
+        const timeout = setTimeout(() => reject(Error('Real history.back() did not emit popstate')), 500);
+        window.addEventListener('popstate', () => { clearTimeout(timeout); resolve(); }, { once: true });
+        window.history.back();
+      });
+      await settle();
+    },
+    async route(hash) {
+      window.location.hash = hash;
+      await settle();
+    },
     close: () => window.happyDOM.close(),
   };
 }

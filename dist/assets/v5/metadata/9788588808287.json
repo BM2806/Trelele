@@ -1,0 +1,48 @@
+{
+  "type": {
+    "key": "/type/edition"
+  },
+  "title": "A vegetariana",
+  "authors": [
+    {
+      "key": "/authors/OL2965820A"
+    }
+  ],
+  "source_records": [
+    "amazon:8588808285"
+  ],
+  "publishers": [
+    "Todavia"
+  ],
+  "isbn_10": [
+    "8588808285"
+  ],
+  "isbn_13": [
+    "9788588808287"
+  ],
+  "physical_format": "paperback",
+  "notes": {
+    "type": "/type/text",
+    "value": "Source title: A vegetariana (Em Portugues do Brasil)"
+  },
+  "full_title": "A vegetariana",
+  "covers": [
+    12370962
+  ],
+  "works": [
+    {
+      "key": "/works/OL26416193W"
+    }
+  ],
+  "key": "/books/OL35665357M",
+  "latest_revision": 1,
+  "revision": 1,
+  "created": {
+    "type": "/type/datetime",
+    "value": "2021-11-14T00:22:07.606681"
+  },
+  "last_modified": {
+    "type": "/type/datetime",
+    "value": "2021-11-14T00:22:07.606681"
+  }
+}

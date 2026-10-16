@@ -1,0 +1,219 @@
+{
+  "works": [
+    {
+      "key": "/works/OL27420W"
+    }
+  ],
+  "title": "Ensaio Sobre a Cegueira",
+  "publishers": [
+    "Companhia das Letras"
+  ],
+  "publish_date": "2013",
+  "key": "/books/OL51656284M",
+  "type": {
+    "key": "/type/edition"
+  },
+  "identifiers": {
+    "goodreads": [
+      "31562754"
+    ]
+  },
+  "classifications": {},
+  "table_of_contents": [
+    {
+      "level": 1,
+      "label": "",
+      "title": "Capítulo 1",
+      "pagenum": "",
+      "type": {
+        "key": "/type/toc_item"
+      }
+    },
+    {
+      "level": 1,
+      "label": "",
+      "title": "Capítulo 2",
+      "pagenum": "",
+      "type": {
+        "key": "/type/toc_item"
+      }
+    },
+    {
+      "level": 1,
+      "label": "",
+      "title": "Capítulo 3",
+      "pagenum": "",
+      "type": {
+        "key": "/type/toc_item"
+      }
+    },
+    {
+      "level": 1,
+      "label": "",
+      "title": "Capítulo 4",
+      "pagenum": "",
+      "type": {
+        "key": "/type/toc_item"
+      }
+    },
+    {
+      "level": 1,
+      "label": "",
+      "title": "Capítulo 5",
+      "pagenum": "",
+      "type": {
+        "key": "/type/toc_item"
+      }
+    },
+    {
+      "level": 1,
+      "label": "",
+      "title": "Capítulo 6",
+      "pagenum": "",
+      "type": {
+        "key": "/type/toc_item"
+      }
+    },
+    {
+      "level": 1,
+      "label": "",
+      "title": "Capítulo 7",
+      "pagenum": "",
+      "type": {
+        "key": "/type/toc_item"
+      }
+    },
+    {
+      "level": 1,
+      "label": "",
+      "title": "Capítulo 8",
+      "pagenum": "",
+      "type": {
+        "key": "/type/toc_item"
+      }
+    },
+    {
+      "level": 1,
+      "label": "",
+      "title": "Capítulo 9",
+      "pagenum": "",
+      "type": {
+        "key": "/type/toc_item"
+      }
+    },
+    {
+      "level": 1,
+      "label": "",
+      "title": "Capítulo 10",
+      "pagenum": "",
+      "type": {
+        "key": "/type/toc_item"
+      }
+    },
+    {
+      "level": 1,
+      "label": "",
+      "title": "Capítulo 11",
+      "pagenum": "",
+      "type": {
+        "key": "/type/toc_item"
+      }
+    },
+    {
+      "level": 1,
+      "label": "",
+      "title": "Capítulo 12",
+      "pagenum": "",
+      "type": {
+        "key": "/type/toc_item"
+      }
+    },
+    {
+      "level": 1,
+      "label": "",
+      "title": "Capítulo 13",
+      "pagenum": "",
+      "type": {
+        "key": "/type/toc_item"
+      }
+    },
+    {
+      "level": 1,
+      "label": "",
+      "title": "Capítulo 14",
+      "pagenum": "",
+      "type": {
+        "key": "/type/toc_item"
+      }
+    },
+    {
+      "level": 1,
+      "label": "",
+      "title": "Capítulo 15",
+      "pagenum": "",
+      "type": {
+        "key": "/type/toc_item"
+      }
+    },
+    {
+      "level": 1,
+      "label": "",
+      "title": "Capítulo 16",
+      "pagenum": "",
+      "type": {
+        "key": "/type/toc_item"
+      }
+    },
+    {
+      "level": 1,
+      "label": "",
+      "title": "Capítulo 17",
+      "pagenum": "",
+      "type": {
+        "key": "/type/toc_item"
+      }
+    }
+  ],
+  "publish_places": [
+    "São Paulo, Brazil"
+  ],
+  "copyright_date": "1995",
+  "languages": [
+    {
+      "key": "/languages/por"
+    }
+  ],
+  "first_sentence": "O disco amarelo iluminou-se.",
+  "covers": [
+    14618040,
+    14618039
+  ],
+  "isbn_10": [
+    "8543801214"
+  ],
+  "isbn_13": [
+    "9788543801216"
+  ],
+  "contributors": [
+    {
+      "role": "Cover Art",
+      "name": "Hélio de Almeida"
+    },
+    {
+      "role": "Cover Art",
+      "name": "Arthur Luiz Piza"
+    }
+  ],
+  "physical_format": "Ebook",
+  "number_of_pages": 312,
+  "latest_revision": 7,
+  "revision": 7,
+  "created": {
+    "type": "/type/datetime",
+    "value": "2024-04-24T01:26:16.449227"
+  },
+  "last_modified": {
+    "type": "/type/datetime",
+    "value": "2024-05-29T01:46:23.099767"
+  }
+}

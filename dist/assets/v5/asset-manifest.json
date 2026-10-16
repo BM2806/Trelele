@@ -1,0 +1,397 @@
+{
+  "created": "2026-10-16",
+  "purpose": "Trelelê V5 editorial mobile prototype",
+  "privacy": "Only public book ISBN/title and public font/icon file URLs used. No personal/profile data sent to services.",
+  "cover_api_guidelines": "https://openlibrary.org/dev/docs/api/covers",
+  "public_deployment_note": "Open Library recommends covers.openlibrary.org src URLs on public-facing pages, with courtesy link to catalogue. Local thumbnails are a development/offline prototype cache. API availability does not establish artwork commercial licensing.",
+  "rocco_note": "Rocco site states reproduction of its images without prior permission is prohibited. No Rocco image files were transferred; publisher page used only to verify edition metadata. Clarice catalogue thumbnail is from Open Library; it does not remove artwork copyright restrictions.",
+  "assets": [
+    {
+      "id": "estrela",
+      "path": "assets/v5/cover-estrela.jpg",
+      "type": "authentic_catalog_cover_thumbnail",
+      "title": "A hora da estrela",
+      "author": "Clarice Lispector",
+      "publisher": "Rocco",
+      "edition": "2020",
+      "isbn13": "9786555320350",
+      "source_url": "https://covers.openlibrary.org/b/isbn/9786555320350-M.jpg?default=false",
+      "catalog_url": "https://openlibrary.org/isbn/9786555320350",
+      "verification_url": "https://rocco.com.br/produto/a-hora-da-estrela-edicao-comemorativa/",
+      "dimensions": [
+        180,
+        268
+      ],
+      "sha256": "2a725240264a21c8867fbaf711ad7e4639406e4a7ed89cd84aa26c016bb615f6",
+      "copyright": "Cover artwork copyright its respective creators and Rocco; all rights reserved. Not public domain.",
+      "license": "No open commercial artwork license established. Small editorial catalogue prototype use only; not a license grant.",
+      "review": "Downloaded HTTP200 JPEG; opened and visually inspected title/author/artwork 2026-10-16.",
+      "display_rule": "Show complete cover using object-fit:contain. No crop, redraw, overprint or claimed ownership.",
+      "openlibrary_edition_id": "/books/OL62501777M",
+      "openlibrary_cover_ids": [
+        15249744
+      ],
+      "metadata_file": "assets/v5/metadata/9786555320350.json",
+      "metadata_sha256": "fe3bb4fea8911e348614b9025e3008bfdea8a95024720c8b743359b97b02aa0d"
+    },
+    {
+      "id": "avesso",
+      "path": "assets/v5/cover-avesso.jpg",
+      "type": "authentic_catalog_cover_thumbnail",
+      "title": "O avesso da pele",
+      "author": "Jeferson Tenório",
+      "publisher": "Companhia das Letras",
+      "edition": "2020",
+      "isbn13": "9788535933390",
+      "source_url": "https://covers.openlibrary.org/b/isbn/9788535933390-M.jpg?default=false",
+      "catalog_url": "https://openlibrary.org/isbn/9788535933390",
+      "verification_url": "https://openlibrary.org/books/OL38222370M/O_Avesso_da_Pele",
+      "dimensions": [
+        180,
+        269
+      ],
+      "sha256": "883a32f58ff46ee8559f97e094b1087cf57e11239a14343618e76e6392529de8",
+      "copyright": "Cover artwork copyright its respective creators and Companhia das Letras; all rights reserved. Not public domain.",
+      "license": "No open commercial artwork license established. Small editorial catalogue prototype use only; not a license grant.",
+      "review": "Downloaded HTTP200 JPEG; opened and visually inspected title/author/artwork 2026-10-16.",
+      "display_rule": "Show complete cover using object-fit:contain. No crop, redraw, overprint or claimed ownership.",
+      "openlibrary_edition_id": "/books/OL38222370M",
+      "openlibrary_cover_ids": [
+        12769862
+      ],
+      "metadata_file": "assets/v5/metadata/9788535933390.json",
+      "metadata_sha256": "7c134b775003db351e9196e070520d30f65dd7a6c01c787ccebec13b9f9d5590"
+    },
+    {
+      "id": "torto",
+      "path": "assets/v5/cover-torto.jpg",
+      "type": "authentic_catalog_cover_thumbnail",
+      "title": "Torto arado",
+      "author": "Itamar Vieira Junior",
+      "publisher": "Todavia",
+      "edition": "2019",
+      "isbn13": "9786580309313",
+      "source_url": "https://covers.openlibrary.org/b/isbn/9786580309313-M.jpg?default=false",
+      "catalog_url": "https://openlibrary.org/isbn/9786580309313",
+      "verification_url": "https://todavialivros.com.br/livros/torto-arado",
+      "dimensions": [
+        180,
+        273
+      ],
+      "sha256": "5245396f7d9f7aa87676e84b49fece38b1b8813010dcc9227012add3a29f655f",
+      "copyright": "Cover artwork copyright its respective creators and Todavia; all rights reserved. Not public domain.",
+      "license": "No open commercial artwork license established. Small editorial catalogue prototype use only; not a license grant.",
+      "review": "Downloaded HTTP200 JPEG; opened and visually inspected title/author/artwork 2026-10-16.",
+      "display_rule": "Show complete cover using object-fit:contain. No crop, redraw, overprint or claimed ownership.",
+      "openlibrary_edition_id": "/books/OL35663926M",
+      "openlibrary_cover_ids": [
+        12369648
+      ],
+      "metadata_file": "assets/v5/metadata/9786580309313.json",
+      "metadata_sha256": "8bb99bf3a821f13df14ce84084027bf44fd44d7f45903d3ff0a20f2774cec044"
+    },
+    {
+      "id": "rio",
+      "path": "assets/v5/cover-rio.jpg",
+      "type": "authentic_catalog_cover_thumbnail",
+      "title": "Tudo é rio",
+      "author": "Carla Madeira",
+      "publisher": "Record",
+      "edition": "2021",
+      "isbn13": "9786555871784",
+      "source_url": "https://covers.openlibrary.org/b/isbn/9786555871784-M.jpg?default=false",
+      "catalog_url": "https://openlibrary.org/isbn/9786555871784",
+      "verification_url": "https://www.record.com.br/products/tudo-e-rio/",
+      "dimensions": [
+        180,
+        267
+      ],
+      "sha256": "823e9676502214adaaf3e0e5e0476f8a6e897685d18bd8abf2c3397a32e93827",
+      "copyright": "Cover artwork copyright its respective creators and Record; all rights reserved. Not public domain.",
+      "license": "No open commercial artwork license established. Small editorial catalogue prototype use only; not a license grant.",
+      "review": "Downloaded HTTP200 JPEG; opened and visually inspected title/author/artwork 2026-10-16.",
+      "display_rule": "Show complete cover using object-fit:contain. No crop, redraw, overprint or claimed ownership.",
+      "openlibrary_edition_id": "/books/OL51726150M",
+      "openlibrary_cover_ids": [
+        14631316
+      ],
+      "metadata_file": "assets/v5/metadata/9786555871784.json",
+      "metadata_sha256": "da0f0063a05381f87637cbdb04f7245f5d2bff00c0cd51769ad970a111b3bde5"
+    },
+    {
+      "id": "vegetariana",
+      "path": "assets/v5/cover-vegetariana.jpg",
+      "type": "authentic_catalog_cover_thumbnail",
+      "title": "A vegetariana",
+      "author": "Han Kang",
+      "publisher": "Todavia",
+      "edition": "2018",
+      "isbn13": "9788588808287",
+      "source_url": "https://covers.openlibrary.org/b/isbn/9788588808287-M.jpg?default=false",
+      "catalog_url": "https://openlibrary.org/isbn/9788588808287",
+      "verification_url": "https://han-kang.net/The-Vegetarian-Brazilian",
+      "dimensions": [
+        180,
+        273
+      ],
+      "sha256": "d419b2a4a7e7c1ff3ba429c6635495b0f57b7cee78d74db3f2802c671354d27c",
+      "copyright": "Cover artwork copyright its respective creators and Todavia; all rights reserved. Not public domain.",
+      "license": "No open commercial artwork license established. Small editorial catalogue prototype use only; not a license grant.",
+      "review": "Downloaded HTTP200 JPEG; opened and visually inspected title/author/artwork 2026-10-16.",
+      "display_rule": "Show complete cover using object-fit:contain. No crop, redraw, overprint or claimed ownership.",
+      "openlibrary_edition_id": "/books/OL35665357M",
+      "openlibrary_cover_ids": [
+        12370962
+      ],
+      "metadata_file": "assets/v5/metadata/9788588808287.json",
+      "metadata_sha256": "753f8c2b782a31291c97248f6bd18396becc5ebebb44a3d00a22ff1604f5ef9f"
+    },
+    {
+      "id": "cegueira",
+      "path": "assets/v5/cover-cegueira.jpg",
+      "type": "authentic_catalog_cover_thumbnail",
+      "title": "Ensaio sobre a cegueira",
+      "author": "José Saramago",
+      "publisher": "Companhia das Letras",
+      "edition": "2013 (ebook edition)",
+      "isbn13": "9788543801216",
+      "source_url": "https://covers.openlibrary.org/b/isbn/9788543801216-M.jpg?default=false",
+      "catalog_url": "https://openlibrary.org/isbn/9788543801216",
+      "verification_url": "https://openlibrary.org/books/OL51656284M/Ensaio_Sobre_a_Cegueira",
+      "dimensions": [
+        180,
+        270
+      ],
+      "sha256": "c9d8521b8b0e2dc1ea83fb2ac92b48f15092a15c60d154534b3c30c44bef461b",
+      "copyright": "Cover artwork copyright its respective creators and Companhia das Letras; all rights reserved. Not public domain.",
+      "license": "No open commercial artwork license established. Small editorial catalogue prototype use only; not a license grant.",
+      "review": "Downloaded HTTP200 JPEG; opened and visually inspected title/author/artwork 2026-10-16.",
+      "display_rule": "Show complete cover using object-fit:contain. No crop, redraw, overprint or claimed ownership.",
+      "openlibrary_edition_id": "/books/OL51656284M",
+      "openlibrary_cover_ids": [
+        14618040,
+        14618039
+      ],
+      "metadata_file": "assets/v5/metadata/9788543801216.json",
+      "metadata_sha256": "a5be0ae87c8b044e833b14d8dd808bf8c9869c58f95113983f9cc2f1522de021"
+    },
+    {
+      "path": "assets/v5/BricolageGrotesque.ttf",
+      "type": "variable_font",
+      "family": "Bricolage Grotesque",
+      "license": "SIL Open Font License 1.1",
+      "license_file": "assets/v5/OFL-BricolageGrotesque.txt",
+      "source_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/bricolagegrotesque/BricolageGrotesque%5Bopsz,wdth,wght%5D.ttf",
+      "sha256": "413e7357809ddd12fd80a96a8a396de0e401638d4acd3cb3e37532f0472ac682",
+      "review": "Validated fontTools TTFont; variable axes present."
+    },
+    {
+      "path": "assets/v5/DMSans.ttf",
+      "type": "variable_font",
+      "family": "DM Sans",
+      "license": "SIL Open Font License 1.1",
+      "license_file": "assets/v5/OFL-DMSans.txt",
+      "source_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/dmsans/DMSans%5Bopsz,wght%5D.ttf",
+      "sha256": "8cd08d97e89c24d0aa92edd2f0f4c8ee6195eee9b7c9f154865a58b02f0c1c0d",
+      "review": "Validated fontTools TTFont; variable axes present."
+    },
+    {
+      "path": "assets/v5/icons/dots-three.svg",
+      "type": "icon",
+      "family": "Phosphor Icons / regular",
+      "license": "MIT",
+      "license_file": "assets/v5/LICENSE-Phosphor.txt",
+      "source_url": "https://raw.githubusercontent.com/phosphor-icons/core/main/assets/regular/dots-three.svg",
+      "sha256": "ca4e748007101155641ec3041cd129bb03a8030d0eed16e313b9dd75e6beac77"
+    },
+    {
+      "path": "assets/v5/icons/bell.svg",
+      "type": "icon",
+      "family": "Phosphor Icons / regular",
+      "license": "MIT",
+      "license_file": "assets/v5/LICENSE-Phosphor.txt",
+      "source_url": "https://raw.githubusercontent.com/phosphor-icons/core/main/assets/regular/bell.svg",
+      "sha256": "439b02c746ff59945b6175c6d327113ca3f7a729a43d5bcafb278a0f11ee34b5"
+    },
+    {
+      "path": "assets/v5/icons/chat-circle.svg",
+      "type": "icon",
+      "family": "Phosphor Icons / regular",
+      "license": "MIT",
+      "license_file": "assets/v5/LICENSE-Phosphor.txt",
+      "source_url": "https://raw.githubusercontent.com/phosphor-icons/core/main/assets/regular/chat-circle.svg",
+      "sha256": "09e36aa820a39bbc8cffe705ad84c836d1e5733f83dc1d2212a965fdacdf4a67"
+    },
+    {
+      "path": "assets/v5/icons/sliders-horizontal.svg",
+      "type": "icon",
+      "family": "Phosphor Icons / regular",
+      "license": "MIT",
+      "license_file": "assets/v5/LICENSE-Phosphor.txt",
+      "source_url": "https://raw.githubusercontent.com/phosphor-icons/core/main/assets/regular/sliders-horizontal.svg",
+      "sha256": "1d937baa3bc51ec4052364edf30cf8991d550920534f5d413eb9f60535cc1916"
+    },
+    {
+      "path": "assets/v5/icons/bookmark-simple.svg",
+      "type": "icon",
+      "family": "Phosphor Icons / regular",
+      "license": "MIT",
+      "license_file": "assets/v5/LICENSE-Phosphor.txt",
+      "source_url": "https://raw.githubusercontent.com/phosphor-icons/core/main/assets/regular/bookmark-simple.svg",
+      "sha256": "493a836009ab98f8d4ca84f088cc03f2785cdee86daa1643e003865ff3168b41"
+    },
+    {
+      "path": "assets/v5/icons/house.svg",
+      "type": "icon",
+      "family": "Phosphor Icons / regular",
+      "license": "MIT",
+      "license_file": "assets/v5/LICENSE-Phosphor.txt",
+      "source_url": "https://raw.githubusercontent.com/phosphor-icons/core/main/assets/regular/house.svg",
+      "sha256": "180e9259e99e23da197b59b19394d006d6a5d33e384cc2b9c8381cb0214a5716"
+    },
+    {
+      "path": "assets/v5/icons/star.svg",
+      "type": "icon",
+      "family": "Phosphor Icons / regular",
+      "license": "MIT",
+      "license_file": "assets/v5/LICENSE-Phosphor.txt",
+      "source_url": "https://raw.githubusercontent.com/phosphor-icons/core/main/assets/regular/star.svg",
+      "sha256": "165cd96e51d60442fb9c7aa89592fa6ef28f22d18368c85771be302c2e977101"
+    },
+    {
+      "path": "assets/v5/icons/x.svg",
+      "type": "icon",
+      "family": "Phosphor Icons / regular",
+      "license": "MIT",
+      "license_file": "assets/v5/LICENSE-Phosphor.txt",
+      "source_url": "https://raw.githubusercontent.com/phosphor-icons/core/main/assets/regular/x.svg",
+      "sha256": "7397b15e1fa66eaf6ff9b59fe91d483cb5c3bcf75b2fe052097ab6f0593b513a"
+    },
+    {
+      "path": "assets/v5/icons/arrow-right.svg",
+      "type": "icon",
+      "family": "Phosphor Icons / regular",
+      "license": "MIT",
+      "license_file": "assets/v5/LICENSE-Phosphor.txt",
+      "source_url": "https://raw.githubusercontent.com/phosphor-icons/core/main/assets/regular/arrow-right.svg",
+      "sha256": "e45bc4a12592b8723110db42c6deffdf177e4fe7704cf50324963fa0a59b2d74"
+    },
+    {
+      "path": "assets/v5/icons/share-network.svg",
+      "type": "icon",
+      "family": "Phosphor Icons / regular",
+      "license": "MIT",
+      "license_file": "assets/v5/LICENSE-Phosphor.txt",
+      "source_url": "https://raw.githubusercontent.com/phosphor-icons/core/main/assets/regular/share-network.svg",
+      "sha256": "e6923db3591f797c89c36671aad3e20effd7b06e6eb400b2a7ffb6daaed0474a"
+    },
+    {
+      "path": "assets/v5/icons/caret-right.svg",
+      "type": "icon",
+      "family": "Phosphor Icons / regular",
+      "license": "MIT",
+      "license_file": "assets/v5/LICENSE-Phosphor.txt",
+      "source_url": "https://raw.githubusercontent.com/phosphor-icons/core/main/assets/regular/caret-right.svg",
+      "sha256": "e6dec01e074807965b7f3146b976a9b5e82c31d9c2c88aeb52e77cc2ab16c1d7"
+    },
+    {
+      "path": "assets/v5/icons/user.svg",
+      "type": "icon",
+      "family": "Phosphor Icons / regular",
+      "license": "MIT",
+      "license_file": "assets/v5/LICENSE-Phosphor.txt",
+      "source_url": "https://raw.githubusercontent.com/phosphor-icons/core/main/assets/regular/user.svg",
+      "sha256": "787434f7fef95f20e137d309d3c6b8b471548c55c9dfc137ae10625d70959d11"
+    },
+    {
+      "path": "assets/v5/icons/arrow-left.svg",
+      "type": "icon",
+      "family": "Phosphor Icons / regular",
+      "license": "MIT",
+      "license_file": "assets/v5/LICENSE-Phosphor.txt",
+      "source_url": "https://raw.githubusercontent.com/phosphor-icons/core/main/assets/regular/arrow-left.svg",
+      "sha256": "3c2001cf957d182fc54927e4b286cc8cf66dd97830f441ca2650d42a63a9006a"
+    },
+    {
+      "path": "assets/v5/icons/pencil-simple.svg",
+      "type": "icon",
+      "family": "Phosphor Icons / regular",
+      "license": "MIT",
+      "license_file": "assets/v5/LICENSE-Phosphor.txt",
+      "source_url": "https://raw.githubusercontent.com/phosphor-icons/core/main/assets/regular/pencil-simple.svg",
+      "sha256": "999530da442f44d8cf0054364373d16150f3e082c2ac294a4988a9c3a4295c28"
+    },
+    {
+      "path": "assets/v5/icons/heart.svg",
+      "type": "icon",
+      "family": "Phosphor Icons / regular",
+      "license": "MIT",
+      "license_file": "assets/v5/LICENSE-Phosphor.txt",
+      "source_url": "https://raw.githubusercontent.com/phosphor-icons/core/main/assets/regular/heart.svg",
+      "sha256": "312dee73d1d969631d5498012f619ccf4edbdf31e1be3e65af4f4f1b3ac1b2dd"
+    },
+    {
+      "path": "assets/v5/icons/arrow-up-right.svg",
+      "type": "icon",
+      "family": "Phosphor Icons / regular",
+      "license": "MIT",
+      "license_file": "assets/v5/LICENSE-Phosphor.txt",
+      "source_url": "https://raw.githubusercontent.com/phosphor-icons/core/main/assets/regular/arrow-up-right.svg",
+      "sha256": "44db5257b360ec04863eb6daaa41f220c8b714d23fb81403517d0a30acfda9f4"
+    },
+    {
+      "path": "assets/v5/icons/books.svg",
+      "type": "icon",
+      "family": "Phosphor Icons / regular",
+      "license": "MIT",
+      "license_file": "assets/v5/LICENSE-Phosphor.txt",
+      "source_url": "https://raw.githubusercontent.com/phosphor-icons/core/main/assets/regular/books.svg",
+      "sha256": "38560cd9dec996bc3f79c10675ced1d2b3bd2e5ef497f3966733e5d787af5e11"
+    },
+    {
+      "path": "assets/v5/icons/check.svg",
+      "type": "icon",
+      "family": "Phosphor Icons / regular",
+      "license": "MIT",
+      "license_file": "assets/v5/LICENSE-Phosphor.txt",
+      "source_url": "https://raw.githubusercontent.com/phosphor-icons/core/main/assets/regular/check.svg",
+      "sha256": "cbb89a8c42f283d4f846eb935e05d88c1be04462f16480e068c0f82b9ce40b12"
+    },
+    {
+      "path": "assets/v5/icons/magnifying-glass.svg",
+      "type": "icon",
+      "family": "Phosphor Icons / regular",
+      "license": "MIT",
+      "license_file": "assets/v5/LICENSE-Phosphor.txt",
+      "source_url": "https://raw.githubusercontent.com/phosphor-icons/core/main/assets/regular/magnifying-glass.svg",
+      "sha256": "f9fa2561978a9a3291e8ae0ebfcb651104f5069fade8f84871627bca68889cde"
+    },
+    {
+      "path": "assets/v5/icons/plus.svg",
+      "type": "icon",
+      "family": "Phosphor Icons / regular",
+      "license": "MIT",
+      "license_file": "assets/v5/LICENSE-Phosphor.txt",
+      "source_url": "https://raw.githubusercontent.com/phosphor-icons/core/main/assets/regular/plus.svg",
+      "sha256": "d688feb9dd2e41c1721d6906a05a2a42e18cd774762fe706d72b2bdfd91cddc4"
+    },
+    {
+      "path": "assets/v5/OFL-BricolageGrotesque.txt",
+      "type": "license_notice",
+      "source_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/bricolagegrotesque/OFL.txt",
+      "sha256": "4b5a7d8f37f5602621c8a8d7358a6a2e71317e6c231c661e15aef0275d3e07ba"
+    },
+    {
+      "path": "assets/v5/OFL-DMSans.txt",
+      "type": "license_notice",
+      "source_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/dmsans/OFL.txt",
+      "sha256": "9af36190332437f5ecd09974de43c1f7c77a310a996cdd8ceb25628b458840e1"
+    },
+    {
+      "path": "assets/v5/LICENSE-Phosphor.txt",
+      "type": "license_notice",
+      "source_url": "https://raw.githubusercontent.com/phosphor-icons/core/main/LICENSE",
+      "sha256": "b5b1f1da112d18ea2147decfd48ddc1bf2b5aeb6c265381579340e95b15a2bb2"
+    }
+  ]
+}

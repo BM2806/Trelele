@@ -1,0 +1,563 @@
+{
+  "date": "2026-10-16",
+  "purpose": "V5 evidence and proposed layout constraints; no claim of internal Tinder source or authenticated runtime",
+  "screenshots": [
+    {
+      "file": "docs/research/tinder/swipe-deck-home.png",
+      "size_px": [
+        1290,
+        2796
+      ],
+      "metadata_method": "PIL.Image.open().size",
+      "coordinate_method": "manual_visual_estimate",
+      "uncertainty": "approximately ±0.005 normalized for clean edges; title ink is not font size",
+      "sha256": "3101736980dde5d2db7096f5cc4a1f09a0e1c55cc175334fb322389058700969",
+      "elements": {
+        "card": {
+          "bbox_px": [
+            0,
+            0,
+            1290,
+            2523
+          ],
+          "bbox_normalized": [
+            0.0,
+            0.0,
+            1.0,
+            0.9024
+          ],
+          "width_fraction": 1.0,
+          "height_fraction": 0.9024,
+          "center_normalized": [
+            0.5,
+            0.4512
+          ]
+        },
+        "bottom_nav": {
+          "bbox_px": [
+            64,
+            2548,
+            1228,
+            2734
+          ],
+          "bbox_normalized": [
+            0.0496,
+            0.9113,
+            0.9519,
+            0.9778
+          ],
+          "width_fraction": 0.9023,
+          "height_fraction": 0.0665,
+          "center_normalized": [
+            0.5008,
+            0.9446
+          ]
+        },
+        "pass_button": {
+          "bbox_px": [
+            304,
+            2281,
+            502,
+            2480
+          ],
+          "bbox_normalized": [
+            0.2357,
+            0.8158,
+            0.3891,
+            0.887
+          ],
+          "width_fraction": 0.1535,
+          "height_fraction": 0.0712,
+          "center_normalized": [
+            0.3124,
+            0.8514
+          ]
+        },
+        "like_button": {
+          "bbox_px": [
+            788,
+            2281,
+            986,
+            2480
+          ],
+          "bbox_normalized": [
+            0.6109,
+            0.8158,
+            0.7643,
+            0.887
+          ],
+          "width_fraction": 0.1535,
+          "height_fraction": 0.0712,
+          "center_normalized": [
+            0.6876,
+            0.8514
+          ]
+        }
+      }
+    },
+    {
+      "file": "docs/research/tinder/explore-tab.png",
+      "size_px": [
+        1290,
+        2796
+      ],
+      "metadata_method": "PIL.Image.open().size",
+      "coordinate_method": "manual_visual_estimate",
+      "uncertainty": "approximately ±0.005 normalized for clean edges; title ink is not font size",
+      "sha256": "ea1f54ce1bd7eedad478b2a084e902aeb7a6cafaffe44b51f5f85b3d691e884f",
+      "elements": {
+        "hero": {
+          "bbox_px": [
+            25,
+            351,
+            1265,
+            1178
+          ],
+          "bbox_normalized": [
+            0.0194,
+            0.1255,
+            0.9806,
+            0.4213
+          ],
+          "width_fraction": 0.9612,
+          "height_fraction": 0.2958,
+          "center_normalized": [
+            0.5,
+            0.2734
+          ]
+        },
+        "grid_left": {
+          "bbox_px": [
+            25,
+            1370,
+            632,
+            2282
+          ],
+          "bbox_normalized": [
+            0.0194,
+            0.49,
+            0.4899,
+            0.8162
+          ],
+          "width_fraction": 0.4705,
+          "height_fraction": 0.3262,
+          "center_normalized": [
+            0.2547,
+            0.6531
+          ]
+        },
+        "grid_right": {
+          "bbox_px": [
+            657,
+            1370,
+            1265,
+            2282
+          ],
+          "bbox_normalized": [
+            0.5093,
+            0.49,
+            0.9806,
+            0.8162
+          ],
+          "width_fraction": 0.4713,
+          "height_fraction": 0.3262,
+          "center_normalized": [
+            0.745,
+            0.6531
+          ]
+        },
+        "bottom_nav": {
+          "bbox_px": [
+            64,
+            2548,
+            1228,
+            2734
+          ],
+          "bbox_normalized": [
+            0.0496,
+            0.9113,
+            0.9519,
+            0.9778
+          ],
+          "width_fraction": 0.9023,
+          "height_fraction": 0.0665,
+          "center_normalized": [
+            0.5008,
+            0.9446
+          ]
+        },
+        "title_ink": {
+          "bbox_px": [
+            61,
+            211,
+            338,
+            269
+          ],
+          "bbox_normalized": [
+            0.0473,
+            0.0755,
+            0.262,
+            0.0962
+          ],
+          "width_fraction": 0.2147,
+          "height_fraction": 0.0207,
+          "center_normalized": [
+            0.1547,
+            0.0858
+          ]
+        }
+      }
+    },
+    {
+      "file": "docs/research/happn/help-supercrush.png",
+      "size_px": [
+        1125,
+        2436
+      ],
+      "metadata_method": "PIL.Image.open().size",
+      "coordinate_method": "manual_visual_estimate",
+      "uncertainty": "approximately ±0.005 normalized for clean edges; title ink is not font size",
+      "sha256": "e74a392522559be202cb375a6f9fbb574719256b9a455b88c1c853dc4c95ee41",
+      "elements": {
+        "photo": {
+          "bbox_px": [
+            72,
+            507,
+            1054,
+            1733
+          ],
+          "bbox_normalized": [
+            0.064,
+            0.2081,
+            0.9369,
+            0.7114
+          ],
+          "width_fraction": 0.8729,
+          "height_fraction": 0.5033,
+          "center_normalized": [
+            0.5004,
+            0.4598
+          ]
+        },
+        "bottom_nav": {
+          "bbox_px": [
+            0,
+            2185,
+            1125,
+            2436
+          ],
+          "bbox_normalized": [
+            0.0,
+            0.897,
+            1.0,
+            1.0
+          ],
+          "width_fraction": 1.0,
+          "height_fraction": 0.103,
+          "center_normalized": [
+            0.5,
+            0.9485
+          ]
+        },
+        "pass_button": {
+          "bbox_px": [
+            341,
+            1920,
+            533,
+            2113
+          ],
+          "bbox_normalized": [
+            0.3031,
+            0.7882,
+            0.4738,
+            0.8674
+          ],
+          "width_fraction": 0.1707,
+          "height_fraction": 0.0792,
+          "center_normalized": [
+            0.3884,
+            0.8278
+          ]
+        },
+        "like_button": {
+          "bbox_px": [
+            593,
+            1920,
+            785,
+            2113
+          ],
+          "bbox_normalized": [
+            0.5271,
+            0.7882,
+            0.6978,
+            0.8674
+          ],
+          "width_fraction": 0.1707,
+          "height_fraction": 0.0792,
+          "center_normalized": [
+            0.6124,
+            0.8278
+          ]
+        },
+        "name_ink": {
+          "bbox_px": [
+            72,
+            339,
+            565,
+            408
+          ],
+          "bbox_normalized": [
+            0.064,
+            0.1392,
+            0.5022,
+            0.1675
+          ],
+          "width_fraction": 0.4382,
+          "height_fraction": 0.0283,
+          "center_normalized": [
+            0.2831,
+            0.1533
+          ]
+        }
+      }
+    },
+    {
+      "file": "docs/research/happn/help-map-overview.png",
+      "size_px": [
+        786,
+        1704
+      ],
+      "metadata_method": "PIL.Image.open().size",
+      "coordinate_method": "manual_visual_estimate",
+      "uncertainty": "approximately ±0.005 normalized for clean edges; title ink is not font size",
+      "sha256": "5401f4c44693b1b2f7147586ea9a89131d51a89b14ee5ed239756ad0fec79978",
+      "elements": {
+        "bottom_nav": {
+          "bbox_px": [
+            0,
+            1537,
+            786,
+            1704
+          ],
+          "bbox_normalized": [
+            0.0,
+            0.902,
+            1.0,
+            1.0
+          ],
+          "width_fraction": 1.0,
+          "height_fraction": 0.098,
+          "center_normalized": [
+            0.5,
+            0.951
+          ]
+        },
+        "map_canvas": {
+          "bbox_px": [
+            0,
+            0,
+            786,
+            1537
+          ],
+          "bbox_normalized": [
+            0.0,
+            0.0,
+            1.0,
+            0.902
+          ],
+          "width_fraction": 1.0,
+          "height_fraction": 0.902,
+          "center_normalized": [
+            0.5,
+            0.451
+          ]
+        },
+        "title_ink": {
+          "bbox_px": [
+            93,
+            171,
+            693,
+            216
+          ],
+          "bbox_normalized": [
+            0.1183,
+            0.1004,
+            0.8817,
+            0.1268
+          ],
+          "width_fraction": 0.7634,
+          "height_fraction": 0.0264,
+          "center_normalized": [
+            0.5,
+            0.1136
+          ]
+        }
+      }
+    }
+  ],
+  "proposed_layouts": [
+    {
+      "viewport_css_px": [
+        390,
+        844
+      ],
+      "status": "proposed; not runtime measured",
+      "safe_area_assumption": "CSS visual viewport with zero inset; subtract actual safe areas before solving stage height",
+      "appbar": [
+        0,
+        0,
+        390,
+        56
+      ],
+      "segments": [
+        12,
+        56,
+        366,
+        44
+      ],
+      "card_xywh": [
+        12,
+        110,
+        366,
+        568
+      ],
+      "actions_xywh": [
+        12,
+        678,
+        366,
+        72
+      ],
+      "nav_xywh": [
+        0,
+        760,
+        390,
+        84
+      ],
+      "grid": {
+        "columns": 2,
+        "margin": 16,
+        "gap": 12,
+        "tile_width": 173.0,
+        "tile_media_height": 230.7
+      },
+      "type_px": {
+        "identity": 28,
+        "body": 16,
+        "metadata": 13,
+        "nav_label": 12
+      },
+      "action_button_px": 60
+    },
+    {
+      "viewport_css_px": [
+        360,
+        740
+      ],
+      "status": "proposed; not runtime measured",
+      "safe_area_assumption": "CSS visual viewport with zero inset; subtract actual safe areas before solving stage height",
+      "appbar": [
+        0,
+        0,
+        360,
+        56
+      ],
+      "segments": [
+        12,
+        56,
+        336,
+        44
+      ],
+      "card_xywh": [
+        12,
+        110,
+        336,
+        464
+      ],
+      "actions_xywh": [
+        12,
+        574,
+        336,
+        72
+      ],
+      "nav_xywh": [
+        0,
+        656,
+        360,
+        84
+      ],
+      "grid": {
+        "columns": 2,
+        "margin": 16,
+        "gap": 12,
+        "tile_width": 158.0,
+        "tile_media_height": 210.7
+      },
+      "type_px": {
+        "identity": 28,
+        "body": 16,
+        "metadata": 13,
+        "nav_label": 12
+      },
+      "action_button_px": 60
+    }
+  ],
+  "source_code": [
+    {
+      "repository": "https://github.com/stevenpersia/tinder-expo",
+      "commit": "c777c0900ff8e3ff39ca1c0ff37f62daa6250e59",
+      "license": "MIT Copyright 2021 Steven Persia",
+      "inspected_files": [
+        "App.tsx",
+        "assets/styles/index.ts",
+        "components/CardItem.tsx",
+        "screens/Home.tsx",
+        "screens/Matches.tsx",
+        "screens/Messages.tsx"
+      ],
+      "measured_from_code": {
+        "main_image_width": "windowWidth−80",
+        "main_image_height": 350,
+        "grid_image_width": "windowWidth/2−30",
+        "grid_image_height": 170,
+        "decision_buttons": [
+          60,
+          40
+        ],
+        "title_font": 22,
+        "identity_font": 30,
+        "avatar": 60
+      },
+      "limitations": "Demo inspired by Dribbble. Touchable action icons lack onPress. Not Tinder product source."
+    },
+    {
+      "repository": "https://github.com/Joehoel/rn-tinder-card",
+      "commit": "5a26191931210b47bc88db213efd28291a73d261",
+      "license": "MIT Copyright 2023 Skipperlla",
+      "inspected_files": [
+        "src/CardItem.tsx",
+        "src/utils/index.ts",
+        "example/src/App.tsx"
+      ],
+      "measured_from_code": {
+        "example_card": [
+          380,
+          730
+        ],
+        "example_radius": 48,
+        "default_rotation_degrees": [
+          -10,
+          0,
+          10
+        ],
+        "snap_projection": "value + 0.2*velocity",
+        "snap_points": "−W/2,0,+W/2; midpoint at W/4 for zero velocity",
+        "spring": {
+          "damping": 15,
+          "stiffness": 120,
+          "mass": 0.5
+        }
+      },
+      "limitations": "Gesture component and sample, not complete dating app. Vertical swipe defaults enabled; fixed380 width overflows360."
+    }
+  ]
+}

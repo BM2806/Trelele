@@ -1,257 +1,157 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { readFile, stat } from 'node:fs/promises';
+import { resolve } from 'node:path';
 import { bootUI } from './ui-harness.mjs';
-import { seedChat } from '../dist/copy.mjs';
 
-const withUI = fn => async t => { const ui = await bootUI();t.after(()=>ui.close());await fn(ui); };
-const cardID = ui => ui.query('.swipe-card')?.dataset.person;
-function editProfile(ui) {
-  ui.click('[data-view="profile"]');
-  if(ui.query('[data-action="edit-mode"]'))ui.click('[data-action="edit-mode"]');
+const withUI = (fn, options) => async t => {
+  const ui = await bootUI(options); t.after(() => ui.close()); await fn(ui);
+};
+const action = (name, id) => `[data-action="${name}"]${id ? `[data-id="${id}"]` : ''}`;
+const tap = async (ui, selector) => { ui.click(selector); await ui.settle(); };
+const card = ui => ui.query('.opinion-card')?.dataset.person;
+const portraits = ui => ui.document.querySelectorAll('.portrait[role="img"]').length;
+const screen = ui => ui.query('#main').dataset.screen;
+const openLia = async ui => { await tap(ui, '[data-view="chat"]'); await tap(ui, action('open-chat','lia')); assert.equal(ui.window.location.hash,'#chat/lia'); };
+const demo = async (ui,kind) => { await tap(ui,action('project')); await tap(ui,action(`simulate-${kind}`)); await tap(ui,'#dialog [data-action="close"]'); };
+function stage(ui) {
+  const node=ui.query('.book-stage');
+  assert.ok(node,'Discovery must offer the book interaction surface');
+  node.getBoundingClientRect=ui.query('.opinion-card').getBoundingClientRect=()=>({left:0,top:0,width:390,height:550,right:390,bottom:550});
+  return node;
 }
-function demo(ui,action) {
-  ui.click('[data-action="project"]');
-  ui.click(`[data-action="${action}"]`);
-}
-const portraits = ui => ui.document.querySelectorAll('svg[aria-label="Retrato ilustrativo de personagem fictício"]').length;
-function mediaGeometry(ui) {
-  const media=ui.query('.card-media'), card=ui.query('.swipe-card');
-  const rect=()=>({left:0,top:0,width:390,height:550,right:390,bottom:550});
-  media.getBoundingClientRect=card.getBoundingClientRect=rect;
-  Object.defineProperty(media,'clientWidth',{value:390});
-  return {media,card};
-}
-function gesture(ui,{dx=140,dy=0,cancel=false}={}) {
-  const {media,card}=mediaGeometry(ui);
-  ui.pointer(media,'pointerdown');
-  ui.pointer(media,'pointermove',{clientX:100+dx,clientY:100+dy});
-  ui.pointer(media,cancel?'pointercancel':'pointerup',{clientX:100+dx,clientY:100+dy});
-  return {media,card};
+function gesture(ui,{dx=145,dy=0,cancel=false,secondary=false}={}) {
+  const node=stage(ui);ui.pointer(node,'pointerdown');
+  if(secondary)ui.pointer(node,'pointerdown',{pointerId:2,isPrimary:false,clientX:300});
+  ui.pointer(node,'pointermove',{clientX:100+dx,clientY:100+dy});
+  ui.pointer(node,cancel?'pointercancel':'pointerup',{clientX:100+dx,clientY:100+dy});
+  return node;
 }
 
-test('DOM: pass advances to exactly the next person and undo restores that person',withUI(ui=>{
-  assert.equal(cardID(ui),'ana');ui.click('[data-action="pass"]');assert.equal(cardID(ui),'davi');
-  ui.click('[data-action="rewind"]');assert.equal(cardID(ui),'ana');
-}));
-test('DOM: mutual like opens match overlay and undo cannot silently remove generated match',withUI(ui=>{
-  ui.click('[data-action="like"]');assert.equal(ui.query('#dialog-title').textContent,'Deu match!');
-  ui.click('[data-action="close"]');ui.click('[data-action="rewind"]');assert.equal(cardID(ui),'davi');
-  ui.click('[data-view="chat"]');assert.match(ui.query('.new-matches').textContent,/Ana/);
-  assert.equal(ui.document.querySelectorAll('.new-matches button[data-id="ana"]').length,1);
-  assert.equal(ui.query('.chat-row[data-id="ana"]'),null);
-}));
-test('DOM: inbox has new matches and list; opening row selects the intended conversation',withUI(ui=>{
-  ui.click('[data-view="chat"]');assert.doesNotMatch(ui.query('.new-matches').textContent,/Lia/);
-  assert.ok(ui.query('.chat-list').textContent.includes(seedChat.at(-1).text));
-  ui.click('.chat-row[data-id="lia"]');assert.match(ui.query('.thread-person').textContent,/Lia/);
-  ui.click('[data-action="inbox"]');assert.ok(ui.query('.new-matches'));
-}));
-test('DOM: message HTML remains text and never creates attacker markup',withUI(ui=>{
-  ui.click('[data-view="chat"]');ui.click('.chat-row[data-id="lia"]');
-  const payload='<img src=x onerror="window.pwned=1"> & “Oi”';ui.query('#message').value=payload;ui.submit('[data-form="chat"]');
-  assert.equal(ui.document.querySelector('.message.own:last-of-type p')?.textContent??ui.document.querySelectorAll('.message.own p').item(1)?.textContent,payload);
-  assert.equal(ui.query('.messages img[onerror]'),null);assert.equal(ui.window.pwned,undefined);
-}));
-test('DOM: disclosure requires eligibility and both consents, then revocation hides portraits',withUI(ui=>{
-  ui.click('[data-view="chat"]');ui.click('.chat-row[data-id="lia"]');assert.equal(portraits(ui),0);
-  demo(ui,'simulate-consent');assert.equal(portraits(ui),0);
-  demo(ui,'simulate-conversation');ui.click('[data-action="consent"]');assert.equal(portraits(ui),0);
-  demo(ui,'simulate-consent');assert.equal(portraits(ui),2);
-  ui.click('[data-action="revoke"]');assert.equal(portraits(ui),0);
-}));
-test('DOM: photo version change withdraws both consents',withUI(ui=>{
-  ui.click('[data-view="chat"]');ui.click('.chat-row[data-id="lia"]');demo(ui,'simulate-conversation');
-  ui.click('[data-action="consent"]');demo(ui,'simulate-consent');assert.equal(portraits(ui),2);
-  demo(ui,'change-photo');assert.equal(portraits(ui),0);assert.equal(ui.query('[data-action="consent"]').disabled,false);
-}));
-test('DOM: ended connection can still be reported without reopening its conversation',withUI(ui=>{
-  ui.click('[data-view="chat"]');ui.click('.chat-row[data-id="lia"]');ui.click('[data-action="safety"]');
-  ui.click('[data-action="confirm-unmatch"]');ui.click('[data-action="unmatch"]');assert.equal(ui.query('.chat-row[data-id="lia"]'),null);
-  editProfile(ui);ui.click('[data-action="reports"]');ui.click('[data-action="report"][data-id="lia"]');
-  ui.submit('[data-form="report"]');assert.equal(ui.query('.chat-row[data-id="lia"]'),null);
-  editProfile(ui);ui.click('[data-action="reports"]');assert.match(ui.query('#dialog-content').textContent,/Lia.*Pressão para revelar/);
-}));
-test('DOM: edit sheet saves to preview and cancel leaves saved data intact',withUI(ui=>{
-  editProfile(ui);ui.click('[data-action="edit-bio"]');ui.query('#name').value='Nome de teste';ui.query('#bio').value='<b>Uma leitura</b>';ui.submit('[data-form="profile"]');
-  ui.click('[data-action="preview-mode"]');assert.match(ui.query('.preview-card').textContent,/Nome de teste/);assert.match(ui.query('.preview-card').textContent,/<b>Uma leitura<\/b>/);assert.equal(ui.query('.preview-card b'),null);
-  ui.click('[data-action="edit-mode"]');ui.click('[data-action="edit-bio"]');ui.query('#name').value='Não salvar';ui.click('[data-action="close"]');ui.click('[data-action="preview-mode"]');assert.match(ui.query('.preview-card').textContent,/Nome de teste/);
-}));
-test('DOM: changing books recomputes shared-book count in discovery',withUI(ui=>{
-  assert.match(ui.query('.affinity-chip').textContent,/2 livros/);editProfile(ui);
-  ui.click('[data-action="toggle-book"][data-id="estrela"]');ui.click('[data-action="toggle-book"][data-id="torto"]');
-  ui.click('[data-view="discover"]');assert.match(ui.query('.affinity-chip').textContent,/0 livros/);
-}));
-test('DOM: tap changes book, never person; native click following tap is suppressed',withUI(ui=>{
-  const {media}=mediaGeometry(ui);ui.pointer(media,'pointerdown',{clientX:300});ui.pointer(media,'pointerup',{clientX:300});
-  assert.equal(cardID(ui),'ana');assert.equal(ui.query('.book-counter').textContent,'2 de 3');
-  ui.query('[data-action="like"]').dispatchEvent(new ui.window.MouseEvent('click',{bubbles:true,cancelable:true,detail:1}));assert.equal(cardID(ui),'ana');
-}));
-test('DOM: horizontal swipe commits once even if pointerup and click are repeated',withUI(ui=>{
-  const {media}=gesture(ui);assert.equal(cardID(ui),'davi');assert.equal(ui.query('#dialog-title').textContent,'Deu match!');
-  ui.pointer(media,'pointerup',{clientX:240});
-  ui.query('#dialog').dispatchEvent(new ui.window.MouseEvent('click',{bubbles:true,cancelable:true,detail:1}));
-  assert.equal(cardID(ui),'davi');ui.click('[data-action="close"]');ui.click('[data-view="chat"]');assert.equal(ui.document.querySelectorAll('.new-matches button[data-id="ana"]').length,1);
-  assert.equal(ui.query('.chat-row[data-id="ana"]'),null);
-}));
-test('DOM: vertical scroll, short drag and pointer cancellation do not decide a profile',withUI(ui=>{
-  gesture(ui,{dx:20,dy:150});assert.equal(cardID(ui),'ana');
-  gesture(ui,{dx:30,dy:0});assert.equal(cardID(ui),'ana');
-  gesture(ui,{dx:160,dy:0,cancel:true});assert.equal(cardID(ui),'ana');assert.equal(ui.query('#dialog').open,false);
-}));
-test('DOM: pointer sequence on a card control does not become a swipe',withUI(ui=>{
-  const target=ui.query('[data-action="book-index"]');ui.pointer(target,'pointerdown');ui.pointer(target,'pointermove',{clientX:300});ui.pointer(target,'pointerup',{clientX:300});
-  assert.equal(cardID(ui),'ana');assert.equal(ui.query('#dialog').open,false);
-}));
-test('DOM: loss of pointer capture cancels the pending swipe',withUI(ui=>{
-  const {media}=mediaGeometry(ui);ui.pointer(media,'pointerdown');ui.pointer(media,'pointermove',{clientX:260});
-  ui.pointer(media,'lostpointercapture',{clientX:260});ui.pointer(media,'pointerup',{clientX:260});
-  assert.equal(cardID(ui),'ana');assert.equal(ui.query('#dialog').open,false);
-}));
-test('DOM: setting sheet stages selection, cancel discards and Concluir applies to preview',withUI(ui=>{
-  editProfile(ui);ui.click('[data-action="select-setting"][data-key="relationship"]');
-  ui.click('[data-action="set-setting"][data-value="Não monogamia ética"]');
-  assert.equal(ui.query('[data-action="set-setting"][data-value="Não monogamia ética"]').getAttribute('aria-pressed'),'true');
-  ui.click('[data-action="close"]');assert.match(ui.query('[data-action="select-setting"][data-key="relationship"]').textContent,/Monogamia/);
-  ui.click('[data-action="select-setting"][data-key="relationship"]');ui.click('[data-action="set-setting"][data-value="Não monogamia ética"]');ui.click('[data-action="apply-setting"]');
-  ui.click('[data-action="preview-mode"]');assert.match(ui.query('.preview-card').textContent,/Não monogamia ética/);
-}));
-test('DOM: message draft survives inbox navigation and clears only after successful send',withUI(ui=>{
-  ui.click('[data-view="chat"]');ui.click('.chat-row[data-id="lia"]');ui.query('#message').value='Rascunho com acentuação';
-  ui.query('#message').dispatchEvent(new ui.window.Event('input',{bubbles:true}));ui.click('[data-action="inbox"]');ui.click('.chat-row[data-id="lia"]');
-  assert.equal(ui.query('#message').value,'Rascunho com acentuação');ui.submit('[data-form="chat"]');assert.equal(ui.query('#message').value,'');
-  assert.match(ui.query('.messages').textContent,/Rascunho com acentuação/);
-}));
-test('DOM: left swipe passes once, secondary pointer cannot replace active gesture',withUI(ui=>{
-  const {media}=mediaGeometry(ui);ui.pointer(media,'pointerdown');ui.pointer(media,'pointerdown',{pointerId:2,isPrimary:false,clientX:200});
-  ui.pointer(media,'pointermove',{clientX:-50});ui.pointer(media,'pointerup',{clientX:-50});assert.equal(cardID(ui),'davi');
-  ui.click('[data-action="rewind"]');assert.equal(cardID(ui),'ana');
-}));
-test('DOM: invalid filter range shows an error and keeps the dialog open',withUI(ui=>{
-  ui.click('[data-action="filters"]');ui.query('#min-age').value='50';ui.query('#max-age').value='20';ui.submit('[data-form="filters"]');
-  assert.equal(ui.query('#dialog').open,true);assert.match(ui.query('#filter-error').textContent,/mínima/);
-  ui.query('#min-age').value='18';ui.query('#max-age').value='65';ui.submit('[data-form="filters"]');assert.equal(ui.query('#dialog').open,false);assert.equal(cardID(ui),'ana');
-}));
-test('DOM: blocking after reveal removes thread and later report is still available',withUI(ui=>{
-  ui.click('[data-view="chat"]');ui.click('.chat-row[data-id="lia"]');demo(ui,'simulate-conversation');ui.click('[data-action="consent"]');demo(ui,'simulate-consent');assert.equal(portraits(ui),2);
-  ui.click('[data-action="safety"]');ui.click('[data-action="confirm-block"]');ui.click('[data-action="block"]');assert.equal(portraits(ui),0);assert.equal(ui.query('.chat-row[data-id="lia"]'),null);
-  editProfile(ui);ui.click('[data-action="reports"]');assert.ok(ui.query('[data-action="report"][data-id="lia"]'));
-}));
-test('DOM: V3 opens a focused app and hides global navigation inside a thread',withUI(ui=>{
-  assert.ok(ui.query('.swipe-card'));
-  assert.equal(ui.query('.hero,.plans-layout,.studio-intro'),null);
-  assert.equal(ui.query('.demo-controls'),null);
-  ui.click('[data-view="chat"]');ui.click('.chat-row[data-id="lia"]');
-  assert.equal(ui.window.location.hash,'#chat/lia');
-  assert.equal(ui.query('#nav').hidden,true);assert.equal(ui.query('.topbar').hidden,true);
-  assert.equal(ui.query('.demo-controls'),null);
-  assert.equal(ui.query('.messages').textContent.includes('${'),false);
-  ui.click('[data-action="inbox"]');assert.equal(ui.window.location.hash,'#chat');assert.ok(ui.query('.chat-list'));
-  assert.equal(ui.query('#nav').hidden,false);assert.equal(ui.query('.topbar').hidden,false);
-}));
-test('DOM: V3 contextual simulated replies are varied and do not fill the chat with controls',withUI(ui=>{
-  ui.click('[data-view="chat"]');ui.click('.chat-row[data-id="lia"]');
-  demo(ui,'simulate-reply');const first=[...ui.document.querySelectorAll('.message:not(.own) p')].at(-1).textContent;
-  demo(ui,'simulate-reply');const second=[...ui.document.querySelectorAll('.message:not(.own) p')].at(-1).textContent;
-  assert.notEqual(first,second);assert.equal(ui.query('.messages .demo-controls'),null);
-  demo(ui,'simulate-conversation');assert.equal(ui.query('.messages').textContent.includes('${'),false);
-}));
-test('DOM: direct hash to an ended conversation falls back to inbox without resurrecting it',withUI(ui=>{
-  ui.click('[data-view="chat"]');ui.click('.chat-row[data-id="lia"]');ui.click('[data-action="safety"]');
-  ui.click('[data-action="confirm-unmatch"]');ui.click('[data-action="unmatch"]');
-  ui.window.history.replaceState(null,'','#chat/lia');ui.window.dispatchEvent(new ui.window.PopStateEvent('popstate'));
-  assert.equal(ui.query('.thread'),null);assert.ok(ui.query('.chat-list'));assert.equal(ui.query('.chat-row[data-id="lia"]'),null);
-}));
-test('DOM: unilateral consent can be withdrawn before the other participant accepts',withUI(ui=>{
-  ui.click('[data-view="chat"]');ui.click('.chat-row[data-id="lia"]');demo(ui,'simulate-conversation');
-  ui.click('[data-action="consent"]');assert.equal(portraits(ui),0);
-  ui.click('[data-action="revoke"]');demo(ui,'simulate-consent');assert.equal(portraits(ui),0);
-  assert.equal(ui.query('[data-action="consent"]').disabled,false);
-}));
-test('DOM: book opinion expands and collapses inline without leaving the person',withUI(ui=>{
-  ui.click('[data-action="person"][data-id="ana"]');assert.ok(ui.query('.person-page'));
-  const length=ui.window.history.length;ui.click('.person-books [data-action="book"]');assert.ok(ui.query('.book-opinion'));
-  assert.equal(ui.query('#dialog').open,false);assert.equal(ui.window.history.length,length);
-  ui.click('.book-opinion [data-action="book"]');assert.equal(ui.query('.book-opinion'),null);assert.equal(ui.window.location.hash,'#people/ana');
-}));
-test('DOM: leaving and reopening a conversation preserves its reading position',withUI(ui=>{
-  ui.click('[data-view="chat"]');ui.click('.chat-row[data-id="lia"]');
-  ui.query('.messages').scrollTop=80;ui.query('.messages').dispatchEvent(new ui.window.Event('scroll'));ui.click('[data-action="inbox"]');ui.click('.chat-row[data-id="lia"]');
-  assert.equal(ui.query('.messages').scrollTop,80);
-}));
-test('DOM: liking from a full person route returns to the origin after closing the match',withUI(async ui=>{
-  ui.click('[data-action="person"][data-id="ana"]');ui.click('.person-books [data-action="book"]');
-  ui.click('#screen-actions [data-action="like"][data-id="ana"]');assert.equal(ui.query('#dialog-title').textContent,'Deu match!');
-  await waitHistoryClose(ui,()=>ui.click('[data-action="close"]'));assert.equal(ui.query('#dialog').open,false);
-  assert.equal(ui.query('.person-page'),null);assert.equal(cardID(ui),'davi');
+test('V5 journey: board → same person → inline opinion → same board, match → intended chat',withUI(async ui=>{
+  await tap(ui,'[data-action="discovery-mode"][data-mode="nearby"]');
+  ui.query('#main').scrollTop=125;
+  assert.equal(portraits(ui),0); await tap(ui,action('person','ana'));
+  assert.equal(ui.window.location.hash,'#people/ana');assert.equal(ui.query('#main').dataset.person,'ana');
+  const depth=ui.window.history.length;
+  await tap(ui,'.profile-shelf [data-action="book"]');
+  assert.ok(ui.query('.inline-opinion:not([hidden])'));assert.equal(ui.window.history.length,depth);
+  await tap(ui,'.profile-shelf [data-action="book"]');assert.equal(ui.query('.inline-opinion:not([hidden])'),null);
+  await tap(ui,action('back'));assert.equal(ui.window.location.hash,'#discover/nearby');assert.equal(ui.query('#main').scrollTop,125);
+  await tap(ui,action('person','ana'));await tap(ui,'.profile-actions [data-action="like"]');
+  assert.match(ui.query('#dialog').textContent,/match/i);assert.equal(portraits(ui),0);
+  await tap(ui,'#dialog [data-action="match-chat"]');assert.equal(ui.window.location.hash,'#chat/ana');assert.equal(portraits(ui),0);
+  ui.query('#message').value='Oi, Ana!';ui.submit('[data-form="chat"]');await ui.settle();
+  assert.match(ui.query('.messages').textContent,/Oi, Ana!/);
+  await tap(ui,action('back'));assert.ok(ui.query('.conversation-list [data-id="ana"]'));assert.equal(ui.query('.new-connections [data-id="ana"]'),null);
 }));
 
-async function realHistoryBack(ui) {
-  await new Promise((resolve,reject)=>{
-    const timeout=setTimeout(()=>reject(Error('history.back() did not emit popstate')),250);
-    ui.window.addEventListener('popstate',()=>{clearTimeout(timeout);resolve();},{once:true});
-    ui.window.history.back();
-  });
-  // Let app handlers triggered by the actual traversal finish before asserting.
-  await new Promise(resolve=>setTimeout(resolve,0));
-}
-async function waitHistoryClose(ui,action) {
-  const traversal=new Promise((resolve,reject)=>{
-    const timeout=setTimeout(()=>reject(Error('Closing a history-backed layer did not traverse back')),250);
-    ui.window.addEventListener('popstate',()=>{clearTimeout(timeout);resolve();},{once:true});
-  });
-  action();await traversal;await new Promise(resolve=>setTimeout(resolve,0));
-}
-test('DOM history: a person is a route and real Back returns to the same discovery card',withUI(async ui=>{
-  const length=ui.window.history.length,hash=ui.window.location.hash;
-  ui.click('[data-action="person"][data-id="ana"]');assert.equal(ui.window.history.length,length+1);
-  assert.equal(ui.window.location.hash,'#people/ana');assert.equal(ui.query('#dialog').open,false);
-  await realHistoryBack(ui);assert.equal(ui.query('.person-page'),null);assert.equal(cardID(ui),'ana');assert.equal(ui.window.location.hash,hash);
-}));
-test('DOM history: inline book adds no navigation layer and real Back returns to discovery',withUI(async ui=>{
-  const base=ui.window.history.length,hash=ui.window.location.hash;
-  ui.click('[data-action="person"][data-id="ana"]');ui.click('.person-books [data-action="book"]');
-  assert.equal(ui.window.history.length,base+1);assert.ok(ui.query('.book-opinion'));
-  await realHistoryBack(ui);assert.equal(ui.window.history.length,base+1);assert.equal(ui.query('.person-page'),null);assert.equal(ui.window.location.hash,hash);
-}));
-test('DOM history: a short sheet still has one real Back entry without phantom cycles',withUI(async ui=>{
-  const base=ui.window.history.length,hash=ui.window.location.hash;
-  for(let i=0;i<3;i++){
-    ui.click('[data-action="project"]');assert.equal(ui.window.history.length,base+1);
-    await waitHistoryClose(ui,()=>ui.click('[data-action="close"]'));
-    assert.equal(ui.query('#dialog').open,false);assert.equal(ui.window.location.hash,hash);
-  }
-  ui.click('[data-view="profile"]');assert.equal(ui.window.history.length,base+1);
-  await realHistoryBack(ui);assert.equal(cardID(ui),'ana');assert.equal(ui.query('#dialog').open,false);
+test('V5 journey: card book survives profile and Back; Passar commits one decision and cannot revive via Back',withUI(async ui=>{
+  await tap(ui,'[data-action="discovery-mode"][data-mode="for-you"]');
+  await tap(ui,'[data-action="book-index"][data-index="2"]');assert.equal(card(ui),'ana');assert.equal(ui.state.session.books.ana,2);
+  await tap(ui,'.opinion-card [data-action="person"]');await ui.back();
+  assert.equal(card(ui),'ana');assert.equal(ui.state.session.books.ana,2);
+  await tap(ui,'.opinion-card [data-action="person"]');await tap(ui,'.profile-actions [data-action="pass"]');
+  assert.equal(card(ui),'davi');assert.equal(ui.state.session.decisions.length,1);
+  await ui.back();assert.notEqual(ui.query('#main').dataset.person,'ana');assert.equal(ui.state.session.decisions.length,1);
 }));
 
-test('journey: Por perto to person, inline opinion, same board, reciprocal match and correct chat',withUI(async ui=>{
-  ui.click('[data-action="discovery-mode"][data-mode="nearby"]');assert.equal(ui.window.location.hash,'#discover/nearby');
-  ui.query('#main').scrollTop=125;assert.ok(ui.query('.nearby-person[data-id="ana"]'));assert.equal(portraits(ui),0);
-  ui.click('.nearby-person[data-id="ana"]');assert.equal(ui.window.location.hash,'#people/ana');assert.equal(ui.query('#nav').hidden,true);
-  const depth=ui.window.history.length;ui.click('.person-books [data-action="book"]');assert.ok(ui.query('.book-opinion'));assert.equal(ui.window.history.length,depth);
-  ui.click('.book-opinion [data-action="book"]');await waitHistoryClose(ui,()=>ui.click('[data-action="back-origin"]'));
-  assert.equal(ui.window.location.hash,'#discover/nearby');assert.equal(ui.query('#main').scrollTop,125);assert.ok(ui.query('.nearby-person[data-id="ana"]'));
-  ui.click('.nearby-person[data-id="ana"]');ui.click('#screen-actions [data-action="like"]');assert.equal(ui.query('#dialog-title').textContent,'Deu match!');
-  ui.click('#dialog [data-action="open-chat"]');assert.match(ui.query('.thread-person').textContent,/Ana/);assert.equal(portraits(ui),0);
-  ui.query('#message').value='Oi, Ana!';ui.submit('[data-form="chat"]');assert.match(ui.query('.messages').textContent,/Oi, Ana!/);
-  ui.click('[data-action="inbox"]');assert.ok(ui.query('.chat-row[data-id="ana"]'));assert.equal(ui.query('.new-matches [data-id="ana"]'),null);
-}));
-test('journey: card detail preserves the selected book, then Passar advances exactly once',withUI(async ui=>{
-  ui.click('[data-action="book-index"][data-index="2"]');assert.equal(ui.query('.book-counter').textContent,'3 de 3');
-  ui.click('.info-open[data-id="ana"]');assert.equal(ui.window.location.hash,'#people/ana');
-  await waitHistoryClose(ui,()=>ui.click('[data-action="back-origin"]'));
-  assert.equal(cardID(ui),'ana');assert.equal(ui.query('.book-counter').textContent,'3 de 3');
-  ui.click('.info-open[data-id="ana"]');ui.click('#screen-actions [data-action="pass"]');
-  assert.equal(cardID(ui),'davi');assert.equal(ui.query('.book-counter').textContent,'1 de 3');assert.equal(ui.query('.person-page'),null);
-  await realHistoryBack(ui);assert.notEqual(ui.query('.person-page')?.dataset.personId,'ana');assert.equal(cardID(ui),'davi');
-}));
-test('journey: inbox to thread, draft and reading position survive person and inline-book detour',withUI(async ui=>{
-  ui.click('[data-view="chat"]');ui.click('.chat-row[data-id="lia"]');
-  ui.query('.messages').scrollTop=90;ui.query('.messages').dispatchEvent(new ui.window.Event('scroll'));
+test('V5 journey: inbox → Lia → draft and reading position survive profile/opinion and inbox detours',withUI(async ui=>{
+  await openLia(ui);const log=ui.query('.messages');log.scrollTop=90;
   ui.query('#message').value='Rascunho para Lia';ui.query('#message').dispatchEvent(new ui.window.Event('input',{bubbles:true}));
-  ui.click('.thread-person');assert.equal(ui.window.location.hash,'#people/lia');assert.equal(portraits(ui),0);
-  ui.click('.person-books [data-action="book"]');ui.click('.book-opinion [data-action="book"]');
-  await waitHistoryClose(ui,()=>ui.click('[data-action="back-origin"]'));
+  await tap(ui,'.thread-person');assert.equal(ui.window.location.hash,'#people/lia');assert.equal(portraits(ui),0);
+  await tap(ui,'.profile-shelf [data-action="book"]');await tap(ui,action('back'));
   assert.equal(ui.window.location.hash,'#chat/lia');assert.equal(ui.query('#message').value,'Rascunho para Lia');assert.equal(ui.query('.messages').scrollTop,90);
-  ui.click('[data-action="inbox"]');ui.click('.chat-row[data-id="lia"]');assert.equal(ui.query('#message').value,'Rascunho para Lia');assert.equal(ui.query('.messages').scrollTop,90);
+  await tap(ui,action('back'));await tap(ui,action('open-chat','lia'));
+  assert.equal(ui.query('#message').value,'Rascunho para Lia');assert.equal(ui.query('.messages').scrollTop,90);
+  ui.submit('[data-form="chat"]');await ui.settle();assert.equal(ui.query('#message').value,'');
+}));
+
+test('V5 gestures: tap changes book only; swipe and repeated pointerup/click commit once',withUI(async ui=>{
+  await tap(ui,'[data-action="discovery-mode"][data-mode="for-you"]');
+  let node=stage(ui);ui.pointer(node,'pointerdown',{clientX:300});ui.pointer(node,'pointerup',{clientX:300});node.dispatchEvent(new ui.window.MouseEvent('click',{bubbles:true,cancelable:true,detail:1}));await ui.settle();
+  assert.equal(card(ui),'ana');assert.equal(ui.state.session.books.ana,1);assert.equal(ui.state.session.decisions.length,0);
+  node=gesture(ui,{secondary:true});await ui.settle();ui.pointer(node,'pointerup',{clientX:245});
+  node.dispatchEvent(new ui.window.MouseEvent('click',{bubbles:true,cancelable:true,detail:1}));await ui.settle();
+  assert.equal(ui.state.session.decisions.length,1);assert.equal(ui.state.match('ana').status,'ACTIVE');
+  assert.equal(ui.state.session.domain.matches.filter(m=>m.users.includes('ana')).length,1);
+}));
+
+test('V5 gestures: scroll, small drag, cancellation and loss of capture cannot decide',withUI(async ui=>{
+  await tap(ui,'[data-action="discovery-mode"][data-mode="for-you"]');
+  for(const options of [{dx:20,dy:150},{dx:30},{cancel:true}]){gesture(ui,options);await ui.settle();assert.equal(card(ui),'ana');}
+  const node=stage(ui);ui.pointer(node,'pointerdown');ui.pointer(node,'pointermove',{clientX:260});ui.pointer(node,'lostpointercapture');ui.pointer(node,'pointerup',{clientX:260});
+  await ui.settle();assert.equal(ui.state.session.decisions.length,0);assert.equal(card(ui),'ana');
+}));
+
+test('V5 disclosure: eligibility plus both consents, revoke unilateral, version invalidation',withUI(async ui=>{
+  await openLia(ui);assert.equal(portraits(ui),0);assert.equal(ui.query(action('consent')),null);
+  await demo(ui,'consent');assert.equal(portraits(ui),0);assert.equal(ui.state.reveal('lia').status,'LOCKED');
+  await demo(ui,'time');await tap(ui,action('consent'));assert.equal(portraits(ui),0);
+  await tap(ui,action('revoke'));await demo(ui,'consent');assert.equal(portraits(ui),0);assert.equal(ui.state.reveal('lia').ownConsent,false);
+  await tap(ui,action('consent'));assert.equal(portraits(ui),2);
+  await demo(ui,'photo');assert.equal(portraits(ui),0);assert.equal(ui.state.match('lia').consents.length,0);
+  await tap(ui,action('consent'));await demo(ui,'consent');assert.equal(portraits(ui),2);
+  await tap(ui,action('revoke'));assert.equal(portraits(ui),0);
+}));
+
+for(const kind of ['block','unmatch'])test(`V5 safety: ${kind} invalidates old chat/person history and direct links`,withUI(async ui=>{
+  await openLia(ui);await demo(ui,'time');await tap(ui,action('consent'));await demo(ui,'consent');assert.equal(portraits(ui),2);
+  await tap(ui,'.thread-person');await tap(ui,action('safety','lia'));await tap(ui,action(kind));await tap(ui,`[data-action="confirm"][data-kind="${kind}"]`);
+  assert.equal(ui.state.available('lia'),false);assert.equal(portraits(ui),0);
+  await ui.route('#chat/lia');assert.equal(ui.query('.thread'),null);assert.equal(portraits(ui),0);
+  await ui.route('#people/lia');assert.notEqual(screen(ui),'people');assert.equal(portraits(ui),0);
+  await ui.back();assert.equal(ui.query('.thread'),null);assert.equal(portraits(ui),0);
+}));
+
+test('V5 XSS: message payload stays literal across thread and inbox',withUI(async ui=>{
+  await openLia(ui);const payload='<img src=x onerror="window.pwned=1"> & “Oi”';
+  ui.query('#message').value=payload;ui.submit('[data-form="chat"]');await ui.settle();
+  assert.equal([...ui.document.querySelectorAll('.message.own p')].at(-1).textContent,payload);
+  assert.equal(ui.query('img[onerror]'),null);await tap(ui,action('back'));assert.ok(ui.query('.conversation-list').textContent.includes(payload));assert.equal(ui.query('img[onerror]'),null);assert.equal(ui.window.pwned,undefined);
+}));
+
+test('V5 routes: unknown and encoded injection identifiers fail closed',withUI(async ui=>{
+  for(const route of ['#chat/ana','#chat/%3Cimg%20src=x%20onerror=alert(1)%3E','#people/__proto__','#people/%22%3E%3Cimg%20onerror=x%3E']){
+    await ui.route(route);assert.equal(ui.query('.thread'),null);assert.notEqual(screen(ui),'people');assert.equal(ui.query('img[onerror]'),null);assert.equal(portraits(ui),0);
+  }
+}));
+
+test('V5 runtime assets: all rendered local covers resolve to nonempty image files',withUI(async ui=>{
+  const urls=new Set([...ui.document.querySelectorAll('img')].map(img=>img.getAttribute('src')));
+  await tap(ui,'[data-view="profile"]');await tap(ui,action('edit-mode'));
+  for(const img of ui.document.querySelectorAll('img'))urls.add(img.getAttribute('src'));
+  assert.ok(urls.size>=5);
+  for(const source of urls){assert.ok(source.startsWith('./assets/'));const path=resolve('dist',source);assert.ok((await stat(path)).size>100);const data=await readFile(path);assert.ok(data[0]===0xff || data.subarray(0,8).toString('hex')==='89504e470d0a1a0a','Cover must be an image, not a successful HTML fallback');}
+}));
+
+test('V5 gestures: left swipe advances once and explicit undo restores only the passed person',withUI(async ui=>{
+  await tap(ui,'[data-action="discovery-mode"][data-mode="for-you"]');
+  const node=gesture(ui,{dx:-145});await ui.settle();
+  ui.pointer(node,'pointerup',{clientX:-45});await ui.settle();
+  assert.equal(card(ui),'davi');assert.equal(ui.state.session.decisions.length,1);assert.equal(ui.state.match('ana'),null);
+  // The app deliberately suppresses the native click emitted after a swipe.
+  await new Promise(resolve=>setTimeout(resolve,360));await tap(ui,action('rewind'));
+  assert.equal(card(ui),'ana');assert.equal(ui.state.session.decisions.length,0);
+}));
+
+test('V5 XSS: editable own profile name and bio stay text, including modal re-open',withUI(async ui=>{
+  await tap(ui,'[data-view="profile"]');await tap(ui,action('edit-mode'));await tap(ui,action('edit-bio'));
+  const name='<img src=x onerror="pwned=1">',bio='</textarea><svg onload="pwned=2">texto & aspas';
+  ui.query('[name="name"]').value=name;ui.query('[name="bio"]').value=bio;
+  ui.submit('[data-form="bio"]');await ui.settle();await tap(ui,action('back'));
+  assert.ok(ui.query('#main').textContent.includes(name));assert.ok(ui.query('#main').textContent.includes(bio));assert.equal(ui.query('[onload],[onerror]'),null);
+  await tap(ui,action('edit-mode'));await tap(ui,action('edit-bio'));
+  assert.equal(ui.query('[name="name"]').value,name);assert.equal(ui.query('[name="bio"]').value,bio);assert.equal(ui.query('[onload],[onerror]'),null);
+}));
+
+test('V5 router: closing a sheet and immediately selecting a root cannot be overwritten by late Back',withUI(async ui=>{
+  ui.click(action('filters'));ui.click('#dialog [data-action="close"]');ui.click('[data-view="profile"]');await ui.settle();
+  assert.equal(ui.window.location.hash,'#profile');assert.equal(screen(ui),'profile');assert.equal(ui.query('#dialog').open,false);
+}));
+
+test('V5 router: revocation remains effective after a real history detour',withUI(async ui=>{
+  await openLia(ui);await demo(ui,'time');await tap(ui,action('consent'));await demo(ui,'consent');assert.equal(portraits(ui),2);
+  await tap(ui,action('revoke'));await tap(ui,'.thread-person');await ui.back();
+  assert.equal(ui.window.location.hash,'#chat/lia');assert.equal(portraits(ui),0);assert.equal(ui.state.reveal('lia').ownConsent,false);
 }));

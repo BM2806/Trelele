@@ -1,3 +1,23 @@
+# Atualização V6 — 16/10/2026
+
+Fonte canônica da nova UI: `mobile-beta/`. Leia seu `AGENTS.md` antes de editar. Regras de execução/teclado/PhoneFrame e arquivos protegidos devem ser preservadas.
+
+Usuário escolheu proposta 3 (serif, ondulado e paleta brasileira), pediu mistura funcional da 1, rejeitou duas revisões claras por serem cruas, pouco jovens e genéricas. Nova direção alvo: `docs/design-v6/target-deck.png`; fundo verde, mídia imersiva, uma superfície amarela ondulada para identidade/opinião/decisão. Nada de grandes X/corações soltos, catálogo de miniaturas, campos cinza ou página branca.
+
+Usuário exige crítico independente ANTES de cada nova geração/alteração visual; após executar, o resultado deve voltar à crítica. Agente atual supercritico_v6 registra contratos e aceites em `docs/SUPERCRITICA-V6.md`. Aprovação de imagem não é validação de runtime.
+
+Última exigência: reciprocidade se chama **Deu liga!**, animação curta sobre o MESMO cartão congelado. Não abrir tela ou sheet; Puxar assunto abre conversa e Continuar olhando/Escape avança uma única vez. Foto continua protegida por prazo, conversa e consentimento dos dois; a animação não a revela.
+
+Livros: usuário quer busca pelo título como no Livrada, preenchendo obra/edição/autor/capa via catálogos. Google Books tem API de volumes; Apple Search API oferece ebooks com condições de uso próprias. Nenhum conector ao vivo foi concluído nesta UI V6: o campo atual filtra catálogo local e isso deve permanecer explícito. Não alegar integração externa já feita.
+
+Validação: runtime protegido28, build e Worker4 passaram; domínio17 idêntico. Root percorreu no cloud browser perfil/voltar/curtida/conversa/envio, arrasto curto/vertical sem decisão e direita com reciprocidade. O modo dev ?qa=360 mede contêiner360×740, não device. Capturas corretas e resultados finais em `mobile-beta/design-qa.md`. A suíte antiga V5 tem5falhas; não alegar npmtestglobalverde.
+
+Storage: BM2806/Trelele privado main anteriorf81acf60c013ab47dd32deb540f4530d3111eb59; agente de armazenamento preparando snapshot semdeploy. Sites histórico permanece inalterado até publicação explicitamente solicitada. Credenciais/.env/.openai/node_modules/builds e arquivos temporários de QA não vão ao GitHub.
+
+---
+
+## Histórico V4 anterior
+
 # Trelelê — contexto para retomar o trabalho
 
 Atualizado em 16/10/2026. Repositório indicado pelo usuário: **BM2806/Trelele**, privado, branch principal `main`. É o lugar para manter código, testes, decisões e pesquisa deste projeto. Não incluir credenciais, dependências instaladas, metadados privados de publicação ou dados de pessoas reais.

@@ -1,0 +1,51 @@
+{
+  "works": [
+    {
+      "key": "/works/OL27963555W"
+    }
+  ],
+  "title": "O Avesso da Pele",
+  "publishers": [
+    "Companhia das Letras"
+  ],
+  "publish_date": "2020",
+  "key": "/books/OL38222370M",
+  "type": {
+    "key": "/type/edition"
+  },
+  "identifiers": {
+    "goodreads": [
+      "54278521"
+    ],
+    "amazon": [
+      "8535933395"
+    ]
+  },
+  "covers": [
+    12769862
+  ],
+  "isbn_13": [
+    "9788535933390"
+  ],
+  "isbn_10": [
+    "8535933395"
+  ],
+  "publish_places": [
+    "Brazil"
+  ],
+  "languages": [
+    {
+      "key": "/languages/por"
+    }
+  ],
+  "latest_revision": 4,
+  "revision": 4,
+  "created": {
+    "type": "/type/datetime",
+    "value": "2022-06-01T21:59:44.339123"
+  },
+  "last_modified": {
+    "type": "/type/datetime",
+    "value": "2025-03-19T17:17:19.029899"
+  }
+}
