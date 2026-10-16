@@ -1,3 +1,4 @@
+import { isSimulator } from './mode';
 import {
   useCallback,
   useEffect,
@@ -433,11 +434,11 @@ export function MobileScroll({ className, children }: MobileScrollProps) {
         data-testid="mobile-scroll"
         data-dragging={isDragging ? "true" : "false"}
         data-overscroll={overscrollY.toFixed(2)}
-        onPointerDown={handlePointerDown}
-        onPointerMove={handlePointerMove}
-        onPointerUp={endDrag}
-        onPointerCancel={endDrag}
-        onClickCapture={suppressClickAfterDrag}
+        onPointerDown={isSimulator?handlePointerDown:undefined}
+        onPointerMove={isSimulator?handlePointerMove:undefined}
+        onPointerUp={isSimulator?endDrag:undefined}
+        onPointerCancel={isSimulator?endDrag:undefined}
+        onClickCapture={isSimulator?suppressClickAfterDrag:undefined}
       >
         <div
           className="mobile-scroll-content"

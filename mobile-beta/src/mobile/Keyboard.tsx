@@ -1,3 +1,4 @@
+import { isSimulator } from './mode';
 import {
   createContext,
   type InputHTMLAttributes,
@@ -88,6 +89,7 @@ export function useKeyboard() {
 export function useKeyboardInsets() {
   const keyboard = useKeyboard();
   const { device } = useMobileDevice();
+  if(!isSimulator)return {keyboardHeight:0,keyboardFullHeight:0,keyboardDragging:false,bottomInset:keyboard.visible?0:device.geometry.safeArea.bottom,availableHeight:device.geometry.screen.height,isKeyboardVisible:keyboard.visible};
   const reservesAndroidNavigation = device.platform === "android" && !keyboard.visible;
 
   return {
@@ -186,6 +188,7 @@ export function KeyboardInput(props: KeyboardInputProps) {
     <input
       {...inputProps}
       ref={ref}
+      onBlur={(event)=>{if(!isSimulator)keyboard.hide();inputProps.onBlur?.(event);}}
       onFocus={(event) => {
         keyboard.show(event.currentTarget);
         inputProps.onFocus?.(event);
@@ -200,6 +203,7 @@ export function KeyboardTextarea(props: TextareaHTMLAttributes<HTMLTextAreaEleme
   return (
     <textarea
       {...props}
+      onBlur={(event)=>{if(!isSimulator)keyboard.hide();props.onBlur?.(event);}}
       onFocus={(event) => {
         keyboard.show(event.currentTarget);
         props.onFocus?.(event);

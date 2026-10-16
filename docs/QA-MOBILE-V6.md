@@ -1,3 +1,16 @@
+# Atualização: runtime standalone verificado na fonte
+
+Produção padrão agora usa viewport real sem moldura ou seletor; desenvolvimento e `?preview=1` preservam o simulador. A alteração de runtime foi autorizada pelo usuário, após problema real de uso da versão publicada, e aprovada pelo crítico.
+
+O responsável verificou em navegador/iframes de viewport efetivo **390 × 760 e 360 × 640**: curtir, celebração “Deu liga!”, abertura e envio no chat, voltar do perfil, continuar uma vez e sheet da foto bloqueada. O crítico aprovou a captura `trelele-standalone-390-360.jpg`. Não se trata de hardware físico ou Safari/IME real.
+
+Após validação e autorização do lock, a auditoria repetiu com sucesso build TypeScript/Vite/Worker, integridade dos 28 arquivos protegidos, quatro testes Worker e 24 testes de domínio/classificador. Os módulos compartilhados continuam byte a byte iguais aos testados na raiz. Não há mudança nas regras de consentimento.
+
+A guarda de integridade não foi contornada: inicialmente identificou as sete alterações autorizadas; o lock foi atualizado pelo autor somente após verificação do responsável. `AGENTS.md` registra a exceção explícita para produção standalone. Publicação e verificação da URL final ficam com o responsável. Detalhes e limites em `mobile-beta/design-qa.md`.
+
+---
+
+
 # Trelelê móvel V6 — verificação independente
 
 Verificação em 16/10/2026. Escopo: `mobile-beta`, revisão estática, compilação, integridade do runtime e domínio compartilhado. Esta revisão não executou navegador e não substitui a aprovação visual das capturas do aplicativo.

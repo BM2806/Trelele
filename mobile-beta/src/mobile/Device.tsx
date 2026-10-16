@@ -1,4 +1,5 @@
-import { createContext, type PropsWithChildren, useContext, useMemo, useState } from "react";
+import { isSimulator } from './mode';
+import { createContext, type PropsWithChildren, useContext, useEffect, useMemo, useState } from "react";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { CheckIcon, ChevronDownIcon } from "@radix-ui/react-icons";
 import { mobileAssets } from "./assets";
@@ -52,10 +53,9 @@ const MobileDeviceContext = createContext<MobileDeviceContextValue | null>(null)
 
 export function MobileDeviceProvider({ children }: PropsWithChildren) {
   const [deviceId, setDeviceId] = useState<MobileDeviceId>("iphone");
-  const value = useMemo(
-    () => ({ device: mobileDevices[deviceId], deviceId, setDeviceId }),
-    [deviceId],
-  );
+  const [viewport,setViewport]=useState(()=>({width:window.innerWidth,height:window.visualViewport?.height??window.innerHeight,top:0,bottom:0}));
+  useEffect(()=>{if(isSimulator)return;const measure=document.createElement('div');measure.style.cssText='position:fixed;visibility:hidden;pointer-events:none;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)';document.body.appendChild(measure);const update=()=>{const computed=getComputedStyle(measure);setViewport({width:window.innerWidth,height:window.visualViewport?.height??window.innerHeight,top:parseFloat(computed.paddingTop)||0,bottom:parseFloat(computed.paddingBottom)||0});};update();window.addEventListener('resize',update);window.visualViewport?.addEventListener('resize',update);window.visualViewport?.addEventListener('scroll',update);return()=>{measure.remove();window.removeEventListener('resize',update);window.visualViewport?.removeEventListener('resize',update);window.visualViewport?.removeEventListener('scroll',update);};},[]);
+  const value = useMemo(()=>{const preset=mobileDevices[deviceId];const device=isSimulator?preset:{...preset,geometry:{...preset.geometry,device:{width:viewport.width,height:viewport.height},screen:{x:0,y:0,width:viewport.width,height:viewport.height,radius:0},safeArea:{top:viewport.top,bottom:viewport.bottom},keyboard:{height:0}}};return {device,deviceId,setDeviceId};},[deviceId,viewport]);
 
   return <MobileDeviceContext.Provider value={value}>{children}</MobileDeviceContext.Provider>;
 }

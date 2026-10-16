@@ -1,3 +1,31 @@
+# Produção standalone — validação da fonte
+
+O usuário relatou que moldura e seletor de aparelhos impediam o uso no próprio telefone. A adaptação de runtime foi explicitamente autorizada pelo usuário e aprovada pelo crítico. Produção sem query usa o viewport real; simulador permanece em desenvolvimento ou `?preview=1`.
+
+## Resultado após a correção
+
+O responsável principal verificou a aplicação no navegador, em **iframes com viewport efetivo de 390 × 760 e 360 × 640**, sem escala artificial. Testou curtir, “Deu liga!”, abertura de conversa, envio de mensagem, retorno de perfil, “Continuar olhando” avançando uma vez e sheet da foto bloqueada. O supercrítico aprovou visualmente a captura `trelele-standalone-390-360.jpg`.
+
+Após essa verificação, o responsável autorizou a atualização do lock de runtime. A auditoria independente executou novamente:
+
+| Verificação | Resultado |
+| --- | --- |
+| `npm run build` | Passou: TypeScript, Vite e Worker |
+| `npm run check:runtime` | Passou: 28 arquivos protegidos |
+| `npm run test:sites` | 4/4 passaram |
+| Domínio e classificador compartilhados | 24/24 passaram; hashes idênticos à raiz |
+
+A revisão de código confirmou: produção não monta moldura, seletor, status bar, indicador, teclado fictício ou cursor; viewport e safe areas derivam do navegador; MobileScroll e Carousel deixam captura/gestos customizados restritos ao simulador; o índice inclui `viewport-fit=cover`. A decisão durável está em `AGENTS.md`.
+
+## Alcance e pendências
+
+Essa validação usa navegador e iframes, **não hardware físico nem Safari/iOS real**. IME/teclado nativo, barras dinâmicas de Safari, rotação física e safe areas de aparelho com recorte ainda exigem teste no telefone. A auditoria independente não operou o navegador; registrou a evidência fornecida pelo responsável e pelo crítico. O responsável ainda fará deploy e verificação da URL publicada sem query. O caminho `?preview=1` foi preservado por código e não deve ser apresentado como reteste físico.
+
+O check inicialmente acusou sete mudanças no runtime. Os hashes só foram atualizados após validação e autorização; nenhum check foi removido ou ignorado.
+
+---
+
+
 # Trelelê — QA de design V6
 
 ## Estado da validação

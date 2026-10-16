@@ -190,3 +190,23 @@ Inspecionada `trelele-v6-liga-final.jpg`. **OVERLAY 393 APROVADO VISUALMENTE.** 
 Correção do diagnóstico anterior: segundo inspeção técnica do responsável, `locator.click`/`scrollIntoView` da automação rolou `.device-screen` até 288 e prejudicou a captura. Recarregar e acionar por toque nativo produziu scrollTop 0; keyboard.visible foi falso e não havia inputs montados. Portanto, a primeira imagem comprovava um estado visual inválido, mas não comprovava um bug real do teclado do runtime. Registrar como interferência da automação na evidência, não como bug funcional confirmado. Os ajustes aprovados de foco, contraste, inert e trap já foram aplicados.
 
 A imagem estática não certifica animação, CTAs, Escape ou reduced motion. Gate final ainda requer overlay no container 360 e resultados desses comportamentos.
+
+## Preflight — produção standalone em aparelho real
+
+**PLANO APROVADO.** Usuário explicitou que o seletor iPhone/Pixel e a moldura prejudicam uso real no telefone publicado. A produção deve abrir standalone responsiva, sem moldura, seletor, status bar fictícia, teclado fictício ou cursor simulado. Preservar simulador apenas em desenvolvimento ou `?preview=1`. É correção funcional de runtime; design, cores e componentes do app não mudam. A exigência explícita autoriza as adaptações necessárias de runtime, antes fora do escopo.
+
+Condições: não abrir Fullscreen API automaticamente. Usar viewport real, viewport-fit=cover e safe areas env; eliminar dimensões fixas/transform do simulador no modo padrão. Manter DeviceProvider e ScreenPortal ajustados aos limites reais; BottomSheet ocupa o viewport real, não coordenadas de aparelho fictício. Evitar que uma preferência de preview force simulador na URL publicada sem query.
+
+Teclado é o nativo do navegador: não somar teclado simulado à redução do visualViewport nem descontar safe area duas vezes. Um único mecanismo define altura útil. Inputs e composer devem permanecer acessíveis com teclado aberto, permitir scroll nativo e recuperar layout ao fechar. Touch e scroll reais no standalone; comportamento de mouse/simulação isolado no preview. Resize/orientação não podem apagar conversa ou reiniciar deck.
+
+Gate: URL Railway sem query em larguras móveis 390/360 e desktop, foco/envio no chat, abertura/fechamento de teclado, rotação, sheet, swipe, celebração e navegação. Verificar `?preview=1` separadamente. Captura em moldura não comprova esta correção. Aprovação do plano não equivale a teste em aparelho físico, que deve ser declarado com precisão.
+
+## Standalone implementado — gate visual final
+
+Inspecionada `trelele-standalone-390-360.jpg`: chat em viewport 390 × 760 e celebração em 360 × 640, sem moldura.
+
+**STANDALONE APROVADO NO GATE VISUAL.** Chat legível, mensagem enviada visível e composer inteiro. Celebração preserva capas, título, subtítulo e os dois CTAs no viewport curto; navegação inteira. Não aparecem seletor de aparelho, status bar ou teclado fictícios. Não é necessário outro ajuste composicional antes de publicar esta mesma fonte verificada.
+
+Responsável relata testes reais de clique no navegador: curtir → Deu liga; Puxar assunto → chat da Ana; preencher/enviar → bolha visível; perfil/voltar preserva Ana; Continuar avança uma única vez para Davi; sheet de foto abre e revelação permanece desabilitada. São evidências relatadas de execução, não repetidas por este crítico. Gate visual não certifica animação por imagem estática.
+
+Limitações: não foi testado Safari físico/IME; esta captura não comprova rotação, reduced motion nem cancelamento de ponteiro em integração. Não afirmar testes que não ocorreram. O responsável pode atualizar o lock da fonte verificada e publicar; após deploy, confirmar a URL sem query para evitar servir versão antiga ou simulador por engano.

@@ -78,3 +78,15 @@ When any text-entry control loses focus, dismiss the simulated keyboard. If the 
 - Qualquer nova direção ou alteração visual deve passar por crítica independente ANTES de gerar/implementar, e por inspeção do resultado.
 - Target revisado: generated_images/exec-684aaeda-d6b2-4631-9a15-e88feeb45967.png, fora desta pasta; a imagem é estudo, não screenshot.
 - Foto da pessoa só após conversa e consentimento dos dois. Foto de exemplar sem pessoa e capa de catálogo têm tratamento distinto. Perfis e exemplar deste beta são fictícios/ilustrativos.
+
+## Publicação como app responsivo — decisão explícita do usuário
+
+O usuário solicitou retirar a moldura iPhone/Pixel e o seletor da versão publicada para usar o app diretamente no celular. Esta instrução específica autoriza a alteração do runtime para dois modos:
+
+- Produção sem query: app responsivo ocupando o viewport real, com teclado e rolagem nativos e safe areas do navegador. Não renderizar moldura, seletor, câmera, status, cursor, home indicator ou teclado artificiais.
+- `?preview=1`: manter o simulador calibrado com iPhone e Pixel. DEV também mantém o simulador por padrão; `?app=1` ou `?standalone=1` permite verificar o app responsivo em DEV.
+- DeviceProvider mede o viewport visual real e as safe areas. A altura visual já considera o teclado nativo: não subtrair sua altura novamente. Redimensionamento não deve reinicializar perfil, conversa, livros ou rascunhos.
+- PhoneFrame mantém o provider do portal nos dois modos; no app publicado, sua superfície acompanha o viewport real. Sheets permanecem dentro desta superfície.
+- MobileScroll e Carousel usam scroll e toque nativos no app publicado. O gesto de decisão continua app-owned, horizontal intencional; o simulador mantém sua física original.
+
+Validação desta alteração: inspeção real pelo root em iframe de 390 × 760 e 360 × 640, sem escala artificial, confirmou interface sem moldura, navegação, gesto/botões, Deu liga, abertura de conversa, envio de mensagem, retorno de perfil e sheet de foto bloqueada. Isso não equivale a teste em hardware físico Safari/iOS ou Android. A atualização dos hashes do runtime foi autorizada após esta verificação.

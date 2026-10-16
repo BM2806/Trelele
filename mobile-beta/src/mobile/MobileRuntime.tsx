@@ -1,3 +1,4 @@
+import { isSimulator } from './mode';
 import { useEffect, type PropsWithChildren } from "react";
 import { MobileDeviceProvider, useMobileDevice } from "./Device";
 import { KeyboardDock, KeyboardProvider, useKeyboard } from "./Keyboard";
@@ -9,11 +10,11 @@ export function MobileRuntime({ children }: PropsWithChildren) {
     <MobileDeviceProvider>
       <PhoneFrame>
         <KeyboardProvider>
-          <KeyboardPreview />
-          <StatusBar />
+          {isSimulator&&<KeyboardPreview />}
+          {isSimulator&&<StatusBar />}
           <MobileAppViewport>{children}</MobileAppViewport>
-          <HomeIndicator />
-          <KeyboardDock />
+          {isSimulator&&<HomeIndicator />}
+          {isSimulator&&<KeyboardDock />}
         </KeyboardProvider>
       </PhoneFrame>
     </MobileDeviceProvider>

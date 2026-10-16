@@ -1,3 +1,4 @@
+import { isSimulator } from './mode';
 import {
   useCallback,
   useEffect,
@@ -240,11 +241,11 @@ export function Carousel({
       aria-label={ariaLabel}
       role={ariaLabel ? "region" : undefined}
       style={style}
-      onPointerDown={onPointerDown}
-      onPointerMove={onPointerMove}
-      onPointerUp={finish}
-      onPointerCancel={finish}
-      onClickCapture={onClickCapture}
+      onPointerDown={isSimulator?onPointerDown:undefined}
+      onPointerMove={isSimulator?onPointerMove:undefined}
+      onPointerUp={isSimulator?finish:undefined}
+      onPointerCancel={isSimulator?finish:undefined}
+      onClickCapture={isSimulator?onClickCapture:undefined}
     >
       <div className={`mobile-carousel-content ${contentClassName ?? ""}`}>{children}</div>
       {showScrollbar ? (
