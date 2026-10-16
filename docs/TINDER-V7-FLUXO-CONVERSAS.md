@@ -22,7 +22,7 @@ A busca dirigida não encontrou um novo asset oficial da **caixa com faixa de no
 
 1. **Descobrir → curtir:** registra uma intenção unilateral. Sem caixa nova, conversa ou celebração de match se a outra pessoa não curtiu.
 2. **Reciprocidade → evento de match:** duas escolhas imediatas, “Conversar” e “Continuar”. Representações por livro/inicial protegida, jamais retrato revelado.
-3. **Conversas, destino raiz:** título da caixa; faixa “Novos matches” apenas com matches sem mensagens; abaixo, lista “Mensagens” apenas com conversas iniciadas. Cada linha mostra nome, trecho, horário e indicador real de não lido. Sem fingir presença online.
+3. **Conversas, destino raiz:** título da caixa; faixa “Novos matches” apenas com matches sem mensagens; abaixo, lista “Mensagens” apenas com conversas iniciadas. Cada linha mostra nome, trecho e horário derivados dos registros locais. Indicador de não lido não está implementado nesta V7; só deverá aparecer quando existir estado correspondente, sem contagem artificial. Sem fingir presença online.
 4. **Toque num novo match ou linha → conversa individual:** ocupa a tela de conteúdo; voltar à esquerda, identidade tocável no centro, menu à direita. As abas globais desaparecem. Conteúdo e compositor se ajustam ao teclado. A identidade abre perfil e volta ao mesmo chat.
 5. **Enviar primeira mensagem:** o match sai da faixa de novos e entra na lista, sem duplicação. Reabrir a tela não cria mensagens novas nem reenfileira notificações.
 6. **Menu → segurança / encerrar:** ações reais e distintas; cancelar preserva o chat. Desfazer match ou bloquear impede reabrir o conteúdo pela rota antiga. Um protótipo local não deve dizer que uma denúncia foi enviada a moderadores.

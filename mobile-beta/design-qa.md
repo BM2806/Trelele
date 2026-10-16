@@ -1,3 +1,43 @@
+# Trelelê V7 — fonte e revisão visual concluídas
+
+## Resultado atual
+
+V7 modifica Deu liga, Conversas, conversa individual e apresentação do perfil. Descobrir conserva a direção aprovada: verde-mata, mídia de livro/exemplar, onda amarela e decisão integrada. Nenhuma alteração de runtime protegido foi necessária nesta rodada.
+
+O responsável principal executou os fluxos no navegador em viewports efetivos de 390 e 360 px. O crítico independente aprovou visualmente inbox e conversa. Referências atuais do aplicativo executado: `../docs/design-v7/inbox.jpg` e `../docs/design-v7/conversa.jpg`. São capturas de execução; os targets gerados de etapas anteriores não substituem essas evidências.
+
+| Verificação | Resultado atual |
+| --- | --- |
+| Build TypeScript/Vite/Worker | Passou |
+| Integridade do runtime | Passou: 28 arquivos |
+| Testes Worker | 4/4 passaram |
+| Domínio e classificador compartilhados | 24/24 passaram; hashes iguais à raiz |
+| Revisão estática independente | Nenhum P1 conhecido aberto |
+| Revisão visual do crítico | Aprovada: inbox e conversa em 390/360 |
+
+## Fluxos efetivamente verificados pelo responsável
+
+- Curtida recíproca de Ana → continuar → rail com uma conexão nova; lista com Lia.
+- Primeiro envio para Ana → voltar à inbox → rail vazio e exatamente uma linha de Ana, junto de Lia; sem duplicação.
+- Envio a Lia atualiza a última mensagem. Abrir perfil e voltar preserva a conversa.
+- Conversa aberta em Deu liga retorna a Deu liga.
+- Não há histórico de curtidas enviadas na UI.
+- Chip de foto de Ana em 360 px abre as regras, mantém o aceite desabilitado enquanto bloqueado e não carrega rosto.
+
+A revisão encontrou e o autor corrigiu um P2: desfazer conexão no perfil aberto pelo chat deixava o perfil residual. Agora limpa perfil, conversa e sheet e retorna à origem. O coração da aba Deu liga foi mantido como ícone de conexão, ajuste de plano aceito pelo responsável.
+
+## Alcance e limites
+
+Esta auditoria executou testes de código, mas não operou o navegador: os resultados renderizados acima foram fornecidos pelo responsável e aprovados pelo crítico. Viewports de navegador não equivalem a hardware físico, Safari/iOS real ou IME nativo. Bloqueio e desfazer conexão foram revisados no código e no domínio; não foram registrados como execução de navegador nesta V7. O runtime standalone segue a base anterior: produção sem query, simulador por `?preview=1` ou desenvolvimento.
+
+O protótipo não possui backend, conta, GPS, upload, catálogo ao vivo, cobrança ou mensagens reais. Estado e relógio são locais e reiniciam ao recarregar. As cinco falhas conhecidas da suíte histórica V5 não foram mascaradas e não exercitam esta interface React. Detalhes: `../docs/QA-V7.md`. Publicação e verificação da URL final são responsabilidade do agente principal.
+
+---
+
+# Histórico de QA — etapas V6 e correção standalone
+
+O conteúdo abaixo é histórico. Seus itens pendentes e aprovações descrevem apenas as versões e configurações citadas; não substituem o resultado V7 acima.
+
 # Produção standalone — validação da fonte
 
 O usuário relatou que moldura e seletor de aparelhos impediam o uso no próprio telefone. A adaptação de runtime foi explicitamente autorizada pelo usuário e aprovada pelo crítico. Produção sem query usa o viewport real; simulador permanece em desenvolvimento ou `?preview=1`.
