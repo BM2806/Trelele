@@ -1,3 +1,30 @@
+# Trelelê V8 — BLOQUEADO PARA PUBLICAÇÃO
+
+V8 segue somente como checkpoint na branch `v8-cadastro-em-revisao`. **Main e versão pública permanecem inalterados.** O crítico aprovou a fonte parcial para armazenamento e os hashes de runtime, não o lançamento do cadastro.
+
+## Evidências atuais
+
+- Responsável verificou galeria de seis posições, cadeados e navegação em viewport efetivo 390; foco de chat em 360 foi verificado parcialmente. Captura: `trelele-v8-galeria-chat.jpg`.
+- Abertura inicial teve contraste ruim. CSS foi corrigido, sem captura posterior de confirmação.
+- Etapa 1 do cadastro foi observada pela árvore de acessibilidade. Não houve percurso completo do cadastro, upload real de três imagens, retomada e exclusão.
+- Três timeouts de 300 segundos da ferramenta de navegador, inclusive após reset, impediram continuar. Nenhuma aprovação é inferida dessa indisponibilidade.
+
+## Verificação de código
+
+A auditoria executou 33 testes de domínio/gestos/cadastro, todos passaram, e confirmou audit completo com zero vulnerabilidades após atualização compatível de transitivos. O autor informou build final, integridade dos 28 arquivos protegidos e quatro testes Worker aprovados após autorização dos dois hashes de viewport. Fotos originais permanecem no IndexedDB do dono; a galeria pública usa placeholders abstratos e não carrega originais atrás de blur.
+
+## Pendências obrigatórias
+
+Revalidar abertura corrigida e cadastro completo; testar seleção de três livros e três fotos, erros, recarga/retomada, edição e exclusão; conferir fotos do dono versus perfis fictícios, teclado, rolagem e retorno em 390/360. Viewports de navegador não são hardware físico nem prova de IME/Safari real. O beta não possui autenticação ou backend de compartilhamento e não anuncia criptografia ou verificação de identidade.
+
+Detalhes: `../docs/ECC-V8-REVISAO.md`. **Não publicar V8 enquanto esse gate permanecer aberto.**
+
+---
+
+# Histórico — V7 e anteriores
+
+As aprovações abaixo pertencem às versões anteriores. Não aprovam o cadastro nem as alterações V8.
+
 # Trelelê V7 — fonte e revisão visual concluídas
 
 ## Resultado atual

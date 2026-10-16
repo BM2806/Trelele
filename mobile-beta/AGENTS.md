@@ -96,3 +96,15 @@ Validação desta alteração: inspeção real pelo root em iframe de 390 × 760
 A antiga aba Curtidas passa a ser Deu liga e mostra somente conexões recíprocas ativas. Não exibir listas de curtidas enviadas ou recebidas sem reciprocidade. Conversas separa novas conexões sem mensagem, em uma faixa horizontal, do histórico com mensagens, em linhas com nome, capa, última mensagem e horário real do estado. Sem contagens de não lidas inventadas.
 
 O chat usa cabeçalho compacto verde, acesso ao perfil por capa/nome, menu de segurança, chip discreto para foto, fundo verde imersivo, balões creme/amarelo e compositor integrado. Não mostrar navegação raiz dentro da conversa. Voltar deve restaurar a aba de origem; perfil aberto pelo cabeçalho retorna à conversa. Preservar rascunhos e regras de privacidade. Descobrir e a celebração inline permanecem visualmente iguais nesta revisão.
+
+## V8 — galeria, navegação e perfil local
+
+Por solicitação explícita do usuário, a galeria de cada pessoa possui seis posições: três livros públicos e três posições de fotos protegidas. Toque lateral e gesto horizontal navegam pela galeria; curtir e passar acontecem somente nos botões. A opinião mantém o último livro selecionado ao abrir uma posição de foto. Os espaços protegidos do beta são fundos abstratos; não carregar arquivos privados de usuários reais nesses espaços, perfis fictícios, conexões ou chat.
+
+O perfil local exige três livros distintos e três fotos distintas. Metadados ficam no navegador; originais das fotos ficam somente no IndexedDB do proprietário. Prévias de arquivos originais devem existir apenas no editor e em Meu perfil visível, com URLs temporárias revogadas no cleanup. A entrada em perfil concluído e a saída do editor revalidam metadados, catálogo e presença das três fotos. Esta etapa não cria autenticação, conta online nem transmissão entre pessoas.
+
+A navegação inferior e o compositor usam verde translúcido, blur de 16px e borda fina, mantendo espaço reservado e safe areas. No modo nativo, o viewport visual é o único proprietário da altura e do deslocamento superior; o inset inferior da superfície de rolagem é zero enquanto o teclado está focado. O fundo do documento acompanha o verde somente no modo nativo. Esta correção precisa de validação em aparelhos Safari/iOS e Android; inspeção em navegador e iframe não equivale a teste físico de teclado.
+
+### Estado de validação do checkpoint V8
+
+O root autorizou atualizar os hashes de Device.tsx e PhoneFrame.tsx para este checkpoint após inspeção parcial real da galeria e do foco de campo em viewport de 360px. A fonte destes dois arquivos permaneceu igual após essa inspeção. O fluxo completo do cadastro com fotos ainda não foi validado no navegador: a ferramenta de navegador ficou indisponível, inclusive após reinicialização. Este checkpoint é rascunho e não constitui aprovação para substituir a versão pública V7. Não declarar teclado Safari/IME físico verificado. Antes de publicar V8, concluir cadastro, edição, remoção de dados e privacidade das três fotos no navegador e confirmar os estados de erro.

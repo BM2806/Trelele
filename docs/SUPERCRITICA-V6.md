@@ -244,3 +244,29 @@ P2 não bloqueante: o ícone de Deu liga na navegação ainda é coração; o pl
 Responsável relata execução no browser: Ana sem mensagens aparece uma vez no rail; abrir/enviar/voltar remove do rail e produz exatamente uma linha de histórico; mensagem de Lia atualiza resumo; acesso ao perfil retorna ao thread; entrada por Deu liga retorna à origem correta. Este crítico não repetiu esses passos. A captura anterior da lista não comprova sozinha o chrome final de Deu liga, mas sua composição de tile é compatível com o contrato.
 
 Após deploy, conferir URL sem query e preservação de Descobrir. Não converter os testes de navegador em alegação de Safari físico/IME. Esta aprovação não implica qualquer procedência privada de referências ou dados.
+
+## V8 preflight — teclado, navegação, galeria e perfil
+
+**PLANO APROVADO ANTES DAS EDIÇÕES.** Card de Descobrir preservado, com exceção explícita do novo progresso de seis posições: três livros públicos e três fotos privadas bloqueadas. Últimas posições usam cadeados e placeholders abstratos; nunca renderizar arquivo de rosto atrás de blur CSS antes da elegibilidade e consentimento dos dois.
+
+Fotos do proprietário: selecionar exatamente três, com editar/remover e validação, persistidas localmente em IndexedDB para este navegador. Isso é demonstração local, não autenticação, segurança de conta, sincronização ou backend de compartilhamento. Preview só no contexto do dono; sem transferir arquivo original para perfil alheio. Não incluir dados/fotos em logs ou URLs. Explicar o escopo local na edição sem poluir o deck.
+
+Onboarding funcional pode usar verde, onda amarela e creme já aprovados. A abertura final aguarda a referência prometida pelo usuário; não inventar nova direção ou hero enquanto falta essa evidência. Base provisória pode oferecer entrar na demonstração ou montar perfil, sem prometer conta/login real. Fluxo inclui nome, idade/DOB 18+, cidade, interesses, gênero opcional e preferências claras, gêneros literários, exatamente três livros e três fotos do proprietário, bio e revisão. Permitir corrigir dados antes de finalizar.
+
+Navegação flutuante glass verde-mata, blur ~16, borda creme fina, raio ~24 e inset ~8: **APROVADA**. Reservar área real de conteúdo e safe area, garantir toque mínimo 48 e contraste sobre creme e mídia; fallback verde opaco quando backdrop-filter não funcionar. Sem glow. Composer pode receber a mesma superfície, sem mudar as bolhas aprovadas.
+
+Teclado: autorizada correção medida da geometria viewport/visualViewport, não um ajuste cego de offset. Um único cálculo define área útil; não aplicar offsetTop já compensado pelo container, nem descontar teclado/safe area duas vezes. Testar foco, blur, envio, fechar teclado e rotação; browser desktop não substitui IME físico.
+
+Gate posterior: capturas 390/360 de nav e chat focado, seis slots/locks, onboarding/revisão/validações/retomada, dono versus outro perfil sem vazamento de originais. Aprovação conceitual não valida a execução nem a abertura final ainda sem referência.
+
+## V8 — inspeção parcial e bloqueio de verificação
+
+Inspecionada `trelele-v8-galeria-chat.jpg`. **APROVADO SOMENTE COMO CHECKPOINT PARCIAL; V8 INTEGRAL NÃO APROVADA PARA RELEASE.**
+
+Evidência visual aprovada: em 390, seis posições com três cadeados, placeholder abstrato de foto bloqueada, ações do cartão inteiras e navegação glass legível sem ocluir conteúdo; em 360, thread e composer inteiros, sem lacuna branca na captura. A imagem estática não prova que o teclado físico foi aberto, nem que os placeholders não carregam originais; essas propriedades exigem verificação funcional/de fonte.
+
+Pode-se registrar hash do runtime efetivamente observado como checkpoint parcial, com esse escopo explícito, preservando a baseline V7 aprovada. Isso registra integridade/proveniência da fonte; não transforma a versão em release validada e não autoriza deploy pelo gate V8.
+
+Pendente: onboarding após correção de contraste sem captura nova; seleção de três fotos, persistência, reload, revisão e retorno não executados de ponta a ponta. Apenas a primeira etapa teve evidência de interface acessível antes da interrupção. Não alegar onboarding concluído ou aprovado.
+
+Responsável relata indisponibilidade do browser CUA: três timeouts de 300 s, inclusive após reset. É bloqueio técnico de verificação, não falta de autorização do usuário. Sem fallback de UI permitido, interromper tentativas longas, preservar trabalho e comunicar estado parcial. Nenhuma nova permissão do usuário é necessária para salvar o checkpoint. Não publicar como V8 aprovada enquanto esses gates faltarem. Safari físico/IME continuam fora da evidência.
