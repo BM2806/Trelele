@@ -1,3 +1,17 @@
+# V13 — marca e catálogo público
+
+final result: passed
+
+**Escopo aprovado por QA de comportamento:** abertura/provedores e busca/seleção de livros em prévia nos viewports390×844 e360×640. Capturas em `docs/design-v13/providers-final.jpg`, `welcome-final.jpg`, `livros-selecionados.jpg` e `livros-retorno.jpg`, exportadas e verificadas no host. Parecer visual independente sobre a aplicação da referência é separado.
+
+Busca REAL de Memórias Póstumas de Brás Cubas e1984 retornou Open Library, com aviso honesto de Google Books indisponível. Selecionar exibiu três capas/títulos, incluindo o externo; naturalWidth>0 confirmou carregamento das capas HTTPS. Avançar9→10 e voltar9 preservou seleção e metadata em memória nas duas larguras. Resultados sem capa e loading acessíveis observados. Os três provedores e o CTA cabem em360.
+
+Fonte revisada sem bloqueador concreto: query pública isolada, credentials omitidos, no-referrer, hosts de capas permitidos, IDs/metadados validados, obra/ISBN duplicados bloqueados, guards de storage/fotos reais em review preservados. Root informou build/runtime28 e62 testes aprovados.
+
+**Fora da aprovação:** Google Books respondendo com sucesso (foi observado fallback), Apple Books, autenticação real, upload normal/persistência/exclusão completas por UI, todos os43 estados, Safari/IME/hardware. Nenhuma fotografia pessoal ou seletor de arquivo nesta rodada. Detalhes: `docs/V13-CATALOGO-PRIVACIDADE.md`.
+
+---
+
 # V12 — revisão parcial de comportamento e interface
 
 final result: passed

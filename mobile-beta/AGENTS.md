@@ -156,3 +156,10 @@ Esclarecimento do usuário às 15:48: preservar as fotografias de livros e capas
 ### Estado confirmado antes do checkpoint V12
 
 A V10 foi publicada pelo usuário e conferida no Railway: commit 6e8ad2f70ab364ae9c474ad18043929ce5f632e0, deploy 604c8444-23fe-4310-a6cc-8c22adbadaa2. A V12 reconstrói a estrutura visual e disponibiliza 43 telas/estados de revisão; não confundir a quantidade do mapa com a quantidade de capturas individualmente inspecionadas. A revisão usa os mesmos componentes, com fixtures e ações em memória. As validações reais e os limites de cobertura são os registros atuais de design-qa.md e docs/V12-COMPORTAMENTO-PRIVACIDADE.md.
+
+
+## V13 — última marca e busca real de livros (16/10/2026)
+
+O usuário aprovou o restante da V12 e pediu somente corrigir a marca/abertura pela última referência IMG_1523 e conectar a busca de livros com capas. Esta autorização substitui a decisão anterior de não implementar o símbolo de livro/coração. Usar artwork aprovado em trelele-book-heart-v13.png com enquadramento proporcional por CSS; abertura com cantos orgânicos verdes e laranja, centro branco, frase “O seu app de encontros literários.” e três acessos Apple, Google e e-mail. Não redesenhar a navegação aprovada.
+
+A seleção dos três livros permite consulta pública explícita por título/autor, inclusive na galeria de revisão. Essa é a única exceção de rede nova no modo de revisão: sem autenticação, perfil real, fotos, IndexedDB ou armazenamento local. Catálogo Google Books tenta dados públicos e pode falhar por chave/cota; OpenLibrary é fallback explícito, sem fingir resultados. Persistir somente três metadados normalizados e capas HTTPS de hosts autorizados junto aos IDs, mantendo perfis antigos. Obras duplicadas, inclusive edições distintas de mesmo título/autor, não contam duas vezes. Foto privada nunca vira capa.

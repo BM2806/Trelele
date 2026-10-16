@@ -1,3 +1,4 @@
+import BrandLogo from './BrandLogo';
 import {useRef,useState} from 'react';
 import {MobileScroll,useKeyboard,useMobileDevice,useKeyboardInsets} from './mobile';
 import type {ReaderProfile} from './profile-storage';
@@ -80,7 +81,7 @@ export default function AccountFlow(props:Props){
      </div></div>
      <p className="account-disclosure">Este é um teste local, ainda sem atendimento online.</p>
     </>:screen==='about'?<>
-     <div className="account-brand-crop"><img src="/assets/brand/trelele-original.jpg" alt="Trelelê" draggable={false}/></div><h2>O seu app de encontros literários.</h2><p>Primeiro os livros, depois o papo. A foto só entra na conversa com tempo e aceite dos dois.</p>
+     <BrandLogo className="account-brand-mark"/><h2>O seu app de encontros literários.</h2><p>Primeiro os livros, depois o papo. A foto só entra na conversa com tempo e aceite dos dois.</p>
      <div className="account-card account-copy-card"><h3>Uma versão para experimentar</h3><p>Este beta tem perfis e conversas fictícios. Seus dados ficam neste aparelho, sem criar uma conta online.</p></div>
      <div className="account-group"><h2>Créditos</h2><div className="account-card"><a className="account-row" href="/assets/icons/LICENSE.txt" target="_blank" rel="noopener noreferrer"><span className="account-row-label">Ícones Phosphor</span><small>Licença MIT</small><span className="account-chevron"><Icon name="arrow-up-right"/></span></a></div></div>
     </>:screen==='pause'?<>

@@ -1,7 +1,9 @@
+// @ts-ignore Explicit source extension is required by Node type-stripping tests; Vite resolves this file.
+import {validateBookSelection,type BookRecord} from './book-catalog.ts';
 export type ReaderProfile = {
  name:string; birthDate:string; city:string; identity:string; interestedIn:string[];
  intention:string; genres:string[]; books:string[]; bio:string; completed:boolean;
- readingHabits:string[]; literaryDates:string[]; bookRecommendation:string;
+ readingHabits:string[]; literaryDates:string[]; bookRecommendation:string; bookDetails?:BookRecord[];
 };
 export type OwnerPhoto={id:string; blob:Blob; name:string; createdAt:number};
 const KEY='trelele.owner-profile.v1';
@@ -15,17 +17,26 @@ export function ageFromBirthDate(value:string,today=new Date()):number|null{
  return today.getFullYear()-year-(today.getMonth()+1<month||(today.getMonth()+1===month&&today.getDate()<day)?1:0);
 }
 function readProfile(key:string):ReaderProfile|null{
- const raw=localStorage.getItem(key);if(!raw)return null;const p=JSON.parse(raw);
+ const raw=localStorage.getItem(key);if(!raw)return null;if(new TextEncoder().encode(raw).byteLength>65536)throw new Error('O perfil salvo é grande demais para este teste.');const p=JSON.parse(raw);
  if(!p||typeof p!=='object')throw new Error('O perfil salvo não pôde ser lido. Você pode recomeçar.');
  const value=emptyProfile();
  for(const k of ['name','birthDate','city','identity','intention','bio','bookRecommendation'] as const)if(typeof p[k]==='string')value[k]=p[k].slice(0,k==='bookRecommendation'?200:1000);
  for(const k of ['interestedIn','genres','books','readingHabits','literaryDates'] as const)if(Array.isArray(p[k]))value[k]=[...new Set<string>(p[k].filter((x:unknown)=>typeof x==='string'))].slice(0,20);
+ // Preserve the old curated-only read sanitizer; external IDs/metadata use the strict format.
+ const strictBooks=p.bookDetails!==undefined||value.books.some(id=>id.startsWith('google:')||id.startsWith('openlibrary:'));
+ if(p.books!==undefined&&(!Array.isArray(p.books)||(strictBooks&&(p.books.length>3||new Set(p.books).size!==p.books.length||p.books.some((id:unknown)=>typeof id!=='string'||id.length>150)))))throw new Error('Os livros salvos não puderam ser lidos. Revise sua seleção.');
+ const selected=validateBookSelection(value.books,p.bookDetails);if(!selected)throw new Error('Os livros salvos não puderam ser lidos. Revise sua seleção.');
+ if(p.bookDetails!==undefined)value.bookDetails=selected.filter(book=>(p.bookDetails as unknown[]).some((raw:unknown)=>!!raw&&typeof raw==='object'&&(raw as {id?:unknown}).id===book.id));
  value.completed=p.completed===true;return value;
 }
 function writeProfile(key:string,profile:ReaderProfile){
  // Whitelist metadata: original photos, blob URLs and database handles never enter localStorage.
- const {name,birthDate,city,identity,interestedIn,intention,genres,books,bio,completed,readingHabits=[],literaryDates=[],bookRecommendation=''}=profile;
- localStorage.setItem(key,JSON.stringify({name,birthDate,city,identity,interestedIn,intention,genres,books,bio,completed,readingHabits,literaryDates,bookRecommendation:bookRecommendation.slice(0,200)}));
+ const {name,birthDate,city,identity,interestedIn,intention,genres,books,bio,completed,readingHabits=[],literaryDates=[],bookRecommendation='',bookDetails}=profile;
+ const selected=validateBookSelection(books,bookDetails);if(!selected)throw new Error('Escolha até três livros diferentes com informações válidas.');
+ const details=bookDetails===undefined?{}:{bookDetails:selected.filter(book=>bookDetails.some(detail=>detail.id===book.id))};
+ const raw=JSON.stringify({name,birthDate,city,identity,interestedIn,intention,genres,books,bio,completed,readingHabits,literaryDates,bookRecommendation:bookRecommendation.slice(0,200),...details});
+ if(new TextEncoder().encode(raw).byteLength>65536)throw new Error('Seu perfil tem informações demais para este teste.');
+ localStorage.setItem(key,raw);
 }
 export function loadProfile(){return readProfile(KEY);}
 export function saveProfile(profile:ReaderProfile){writeProfile(KEY,profile);}
@@ -112,7 +123,7 @@ export function profileProblem(p:ReaderProfile,photoCount:number):string{
  if(age<18)return 'O Trelelê é para pessoas com 18 anos ou mais.';
  if(!p.identity||!p.interestedIn.length||!p.intention)return 'Escolha sua identificação, quem quer conhecer e sua intenção.';
  if(!p.genres.length)return 'Escolha pelo menos um gênero literário.';
- if(p.books.length!==3||new Set(p.books).size!==3)return 'Escolha três livros diferentes.';
+ if(p.books.length!==3||new Set(p.books).size!==3||!validateBookSelection(p.books,p.bookDetails))return 'Escolha três livros diferentes, com título e autor válidos.';
  if(photoCount!==3)return 'Adicione três fotos diferentes, que ficarão só neste aparelho.';
  if(!p.bio.trim())return 'Escreva um pouco sobre você.';
  return '';

@@ -306,3 +306,6 @@ html.trelele-native,html.trelele-native body,html.trelele-native #root{backgroun
 .review-toolbar button,.review-toolbar a{font:inherit;color:inherit;border:0;background:none;text-decoration:none;min-height:32px;padding:0;display:flex;align-items:center}
 .review-toolbar strong{font-size:10px;letter-spacing:.4px;text-transform:uppercase}
 .review-screen{position:relative;min-height:0;flex:1;overflow:hidden}
+
+/* A catalog record without a cover keeps the existing book slot accessible. */
+.trelele-app img[data-book-cover][src="/assets/icons/book-open.svg"],.trelele-sheet img[data-book-cover][src="/assets/icons/book-open.svg"]{background:#FFF8ED;object-fit:contain;padding:14px;border:1px solid #07553724}

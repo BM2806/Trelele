@@ -88,14 +88,19 @@
 .owner-confirmation button{margin-top:10px;min-height:52px}
 .owner-confirm-edit{display:block;width:100%;border:0;border-radius:28px;background:#e4e6dd;color:#303640;font-weight:750}
 .owner-review-badge{display:flex;align-items:center;justify-content:center;min-height:24px;font-size:10px;letter-spacing:.2px;background:#075b3d;color:#fffdf8;flex-shrink:0}
-.owner-opening{background:#fff}
+.owner-opening{background:#fff url('/assets/brand/trelele-opening-background-v13.png') center/cover no-repeat}
 .owner-welcome{display:flex;min-height:300px;height:100%;flex-direction:column;align-items:center;justify-content:center;padding:28px 24px 66px;text-align:center}
 .owner-brand-crop{position:relative;width:290px;max-width:100%;aspect-ratio:920/940;overflow:hidden;flex-shrink:0}
 .owner-brand-crop .owner-brand-logo{position:absolute;width:173.913%;height:auto;max-width:none;left:-36.9565%;top:-35.1064%;object-fit:contain}
 .owner-opening .owner-welcome>.owner-tagline{color:#303640;opacity:1;font-size:16px;line-height:1.45;margin:22px 0 0;max-width:280px}
-.owner-welcome-footer{position:relative;background:#14a859;border:0;padding:12px 24px 16px;gap:8px;isolation:isolate}
+.owner-welcome-footer{position:relative;background:transparent;border:0;padding:12px 24px 16px;gap:8px;isolation:isolate}
 .owner-welcome-wave{position:absolute;left:0;right:0;bottom:100%;width:100%;height:82px;object-fit:fill;pointer-events:none}
 .owner-welcome-footer .owner-primary{min-height:54px!important;border-radius:28px}
 .owner-welcome-footer .owner-secondary{color:#062f23;border:0;border-radius:0;background:none;font-size:14px;text-decoration:underline;text-underline-offset:3px;min-height:48px}
 .owner-onboarding .owner-welcome-footer>small{color:#062f23;font-size:12px}
 @media(max-height:700px){.owner-content{padding-top:22px}.owner-content h1{font-size:30px}.owner-content .owner-name-field,.owner-content .owner-birthday-field{margin-top:32px}.owner-header{min-height:56px}.owner-welcome{padding-top:8px;padding-bottom:50px;min-height:250px}.owner-brand-crop{width:270px}.owner-opening .owner-welcome>.owner-tagline{font-size:15px;margin-top:16px}.owner-welcome-wave{height:62px}}
+
+.owner-welcome-brand{--brand-logo-width:240px;max-width:100%;margin-inline:auto}
+
+.owner-opening .owner-welcome-footer>small{background:#ffffffde;border-radius:10px;padding:3px 6px;align-self:center}
+@media(max-height:700px){.owner-welcome-brand{--brand-logo-width:220px}}
